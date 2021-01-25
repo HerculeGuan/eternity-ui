@@ -1,4 +1,4 @@
-@keyframes circle-data-v-3c6fe6 {
+@keyframes circle-data-v-b9bbc9 {
 0% {
     transform: rotate(0deg);
 }
@@ -6,7 +6,7 @@
     transform: rotate(360deg);
 }
 }
-.g-button[data-v-3c6fe6] {
+.g-button[data-v-b9bbc9] {
   font-size: var(--font-size);
   height: var(--button-height);
   padding: 0 1em;
@@ -19,30 +19,34 @@
   vertical-align: middle;
   cursor: pointer;
 }
-.g-button[data-v-3c6fe6]:hover {
+.g-button[data-v-b9bbc9]:hover {
   border-color: var(--border-color-hover);
 }
-.g-button[data-v-3c6fe6]:active {
+.g-button[data-v-b9bbc9]:active {
   background: var(--button-active-bg);
 }
-.g-button[data-v-3c6fe6]:focus {
+.g-button[data-v-b9bbc9]:focus {
   outline: none;
 }
-.g-button > .content[data-v-3c6fe6] {
+.g-button > .content[data-v-b9bbc9] {
   order: 2;
 }
-.g-button > .icon[data-v-3c6fe6] {
+.g-button > .g-icon[data-v-b9bbc9] {
   order: 1;
   margin-right: 0.3em;
 }
-.g-button.icon-right > .icon[data-v-3c6fe6] {
+.g-button.icon-right > .g-icon[data-v-b9bbc9] {
   order: 2;
   margin-right: 0;
   margin-left: 0.3em;
 }
-.g-button.icon-right > .content[data-v-3c6fe6] {
+.g-button.icon-right > .content[data-v-b9bbc9] {
   order: 1;
 }
-.g-button .loading[data-v-3c6fe6] {
-  animation: circle-data-v-3c6fe6 1s infinite linear;
+.g-button .loading[data-v-b9bbc9] {
+  animation: circle-data-v-b9bbc9 1s infinite linear;
+}
+.g-icon[data-v-259d1d] {
+  width: 1em;
+  height: 1em;
 }
