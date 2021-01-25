@@ -1,0 +1,23 @@
+{
+  "name": "vue-wheel",
+  "version": "0.0.1",
+  "description": "一个用Vue写的UI框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SherLtiangang/vue-wheel.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "sherlockguan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SherLtiangang/vue-wheel/issues"
+  },
+  "homepage": "https://github.com/SherLtiangang/vue-wheel#readme"
+}
