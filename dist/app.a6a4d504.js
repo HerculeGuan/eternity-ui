@@ -12445,7 +12445,17 @@ exports.default = void 0;
 //
 var _default = {
   name: "",
-  props: ["icon", "iconPosition"]
+  //   props: ["icon", "iconPosition"],
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: "left",
+      validator: function validator(value) {
+        return value === "left" || value === "right";
+      }
+    }
+  }
 };
 exports.default = _default;
         var $3c6fe6 = exports.default || module.exports;
