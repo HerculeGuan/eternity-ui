@@ -31,11 +31,11 @@
 .g-button > .content[data-v-b9bbc9] {
   order: 2;
 }
-.g-button > .g-icon[data-v-b9bbc9] {
+.g-button > .icon[data-v-b9bbc9] {
   order: 1;
   margin-right: 0.3em;
 }
-.g-button.icon-right > .g-icon[data-v-b9bbc9] {
+.g-button.icon-right > .icon[data-v-b9bbc9] {
   order: 2;
   margin-right: 0;
   margin-left: 0.3em;
