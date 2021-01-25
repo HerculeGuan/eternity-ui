@@ -33,12 +33,12 @@
 }
 .g-button > .icon[data-v-3c6fe6] {
   order: 1;
-  margin-right: 0.1em;
+  margin-right: 0.3em;
 }
 .g-button.icon-right > .icon[data-v-3c6fe6] {
   order: 2;
   margin-right: 0;
-  margin-left: 0.1em;
+  margin-left: 0.3em;
 }
 .g-button.icon-right > .content[data-v-3c6fe6] {
   order: 1;
