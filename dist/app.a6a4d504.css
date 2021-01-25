@@ -45,6 +45,7 @@
 }
 .g-button .loading[data-v-b9bbc9] {
   animation: circle-data-v-b9bbc9 1s infinite linear;
+  margin-right: 0.3em;
 }
 .g-icon[data-v-259d1d] {
   width: 1em;

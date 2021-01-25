@@ -12443,6 +12443,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: "",
   props: {
@@ -12453,6 +12454,10 @@ var _default = {
       validator: function validator(value) {
         return value === "left" || value === "right";
       }
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -12477,6 +12482,10 @@ exports.default = _default;
       class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj)
     },
     [
+      _vm.loading
+        ? _c("g-icon", { staticClass: "loading", attrs: { name: "loading" } })
+        : _vm._e(),
+      _vm._v(" "),
       _vm.icon
         ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
         : _vm._e(),
