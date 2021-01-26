@@ -18,6 +18,8 @@ new Vue({
 
 // 单元测试
 import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 const expect = chai.expect
 {
     const Constructor = Vue.extend(Button)
@@ -89,11 +91,11 @@ const expect = chai.expect
         }
     })
     vm.$mount()
-    vm.$on('click',()=>{
-        console.log('2')
-    })
+    let spy = chai.spy(()=>{})
+    vm.$on('click',spy)
     let button = vm.$el
     button.click()
+    expect(spy).to.have.been.called();
     vm.$el.remove();
     vm.$destroy();
 }
