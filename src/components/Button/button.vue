@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import Icon from "../Icon/icon";
 export default {
   name: "",
   props: {
@@ -28,6 +29,9 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  components: {
+    "g-icon": Icon,
   },
 };
 </script>

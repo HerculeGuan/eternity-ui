@@ -23800,117 +23800,126 @@ new _vue.default({
 _chai.default.use(_chaiSpies.default);
 
 var expect = _chai.default.expect;
-{
-  var Constructor = _vue.default.extend(_button.default);
 
-  var vm = new Constructor({
-    propsData: {
-      icon: 'setting'
-    }
+try {
+  {
+    var Constructor = _vue.default.extend(_button.default);
+
+    var vm = new Constructor({
+      propsData: {
+        icon: 'setting'
+      }
+    });
+    vm.$mount();
+    var useElement = vm.$el.querySelector('use');
+    var href = useElement.getAttribute('xlink:href');
+    expect(href).to.eq('#i-setting');
+    vm.$el.remove();
+    vm.$destroy();
+  }
+  {
+    var _Constructor = _vue.default.extend(_button.default);
+
+    var _vm = new _Constructor({
+      propsData: {
+        icon: 'setting',
+        loading: true
+      }
+    });
+
+    _vm.$mount();
+
+    var _useElement = _vm.$el.querySelector('use');
+
+    var _href = _useElement.getAttribute('xlink:href');
+
+    expect(_href).to.eq('#i-loading');
+
+    _vm.$el.remove();
+
+    _vm.$destroy();
+  }
+  {
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+
+    var _Constructor2 = _vue.default.extend(_button.default);
+
+    var _vm2 = new _Constructor2({
+      propsData: {
+        icon: 'setting'
+      }
+    });
+
+    _vm2.$mount(div);
+
+    var svg = _vm2.$el.querySelector('svg');
+
+    var _window$getComputedSt = window.getComputedStyle(svg),
+        order = _window$getComputedSt.order;
+
+    expect(order).to.eq('1');
+
+    _vm2.$el.remove();
+
+    _vm2.$destroy();
+  }
+  {
+    var _div = document.createElement('div');
+
+    document.body.appendChild(_div);
+
+    var _Constructor3 = _vue.default.extend(_button.default);
+
+    var _vm3 = new _Constructor3({
+      propsData: {
+        icon: 'setting',
+        iconPosition: 'right'
+      }
+    });
+
+    _vm3.$mount(_div);
+
+    var _svg = _vm3.$el.querySelector('svg');
+
+    var _window$getComputedSt2 = window.getComputedStyle(_svg),
+        _order = _window$getComputedSt2.order;
+
+    expect(_order).to.eq('2');
+
+    _vm3.$el.remove();
+
+    _vm3.$destroy();
+  }
+  {
+    var _Constructor4 = _vue.default.extend(_button.default);
+
+    var _vm4 = new _Constructor4({
+      propsData: {
+        icon: 'setting'
+      }
+    });
+
+    _vm4.$mount();
+
+    var spy = _chai.default.spy(function () {});
+
+    _vm4.$on('click', spy);
+
+    var button = _vm4.$el;
+    button.click();
+    expect(spy).to.have.been.called();
+
+    _vm4.$el.remove();
+
+    _vm4.$destroy();
+  }
+} catch (error) {
+  window.errors = [error];
+} finally {
+  window.errors && window.errors.forEach(function (error) {
+    console.error(error.message);
   });
-  vm.$mount();
-  var useElement = vm.$el.querySelector('use');
-  var href = useElement.getAttribute('xlink:href');
-  expect(href).to.eq('#i-setting');
-  vm.$el.remove();
-  vm.$destroy();
-}
-{
-  var _Constructor = _vue.default.extend(_button.default);
-
-  var _vm = new _Constructor({
-    propsData: {
-      icon: 'setting',
-      loading: true
-    }
-  });
-
-  _vm.$mount();
-
-  var _useElement = _vm.$el.querySelector('use');
-
-  var _href = _useElement.getAttribute('xlink:href');
-
-  expect(_href).to.eq('#i-loading');
-
-  _vm.$el.remove();
-
-  _vm.$destroy();
-}
-{
-  var div = document.createElement('div');
-  document.body.appendChild(div);
-
-  var _Constructor2 = _vue.default.extend(_button.default);
-
-  var _vm2 = new _Constructor2({
-    propsData: {
-      icon: 'setting'
-    }
-  });
-
-  _vm2.$mount(div);
-
-  var svg = _vm2.$el.querySelector('svg');
-
-  var _window$getComputedSt = window.getComputedStyle(svg),
-      order = _window$getComputedSt.order;
-
-  expect(order).to.eq('1');
-
-  _vm2.$el.remove();
-
-  _vm2.$destroy();
-}
-{
-  var _div = document.createElement('div');
-
-  document.body.appendChild(_div);
-
-  var _Constructor3 = _vue.default.extend(_button.default);
-
-  var _vm3 = new _Constructor3({
-    propsData: {
-      icon: 'setting',
-      iconPosition: 'right'
-    }
-  });
-
-  _vm3.$mount(_div);
-
-  var _svg = _vm3.$el.querySelector('svg');
-
-  var _window$getComputedSt2 = window.getComputedStyle(_svg),
-      _order = _window$getComputedSt2.order;
-
-  expect(_order).to.eq('2');
-
-  _vm3.$el.remove();
-
-  _vm3.$destroy();
-}
-{
-  var _Constructor4 = _vue.default.extend(_button.default);
-
-  var _vm4 = new _Constructor4({
-    propsData: {
-      icon: 'setting'
-    }
-  });
-
-  _vm4.$mount();
-
-  var spy = _chai.default.spy(function () {});
-
-  _vm4.$on('click', spy);
-
-  var button = _vm4.$el;
-  button.click();
-  expect(spy).to.have.been.called();
-
-  _vm4.$el.remove();
-
-  _vm4.$destroy();
 }
 },{"vue":"node_modules/vue/dist/vue.common.js","./components/Button/button.vue":"src/components/Button/button.vue","./components/Icon/icon.vue":"src/components/Icon/icon.vue","./components/Button/button-group.vue":"src/components/Button/button-group.vue","chai":"node_modules/chai/index.js","chai-spies":"node_modules/chai-spies/chai-spies.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -23940,7 +23949,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53188" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57062" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
