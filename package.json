@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/SherLtiangang/vue-wheel#readme",
   "dependencies": {
+    "chia": "0.0.1",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
   },
