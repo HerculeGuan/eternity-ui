@@ -23077,7 +23077,7 @@ module.exports = require('./lib/chai');
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _button5 = _interopRequireDefault(require("./components/Button/button.vue"));
+var _button = _interopRequireDefault(require("./components/Button/button.vue"));
 
 var _icon = _interopRequireDefault(require("./components/Icon/icon.vue"));
 
@@ -23087,7 +23087,7 @@ var _chai = _interopRequireDefault(require("chai"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue.default.component('g-button', _button5.default);
+_vue.default.component('g-button', _button.default);
 
 _vue.default.component('g-icon', _icon.default);
 
@@ -23104,112 +23104,115 @@ new _vue.default({
 
 var expect = _chai.default.expect;
 {
-  var Constructor = _vue.default.extend(_button5.default);
+  var Constructor = _vue.default.extend(_button.default);
 
-  var button = new Constructor({
+  var vm = new Constructor({
     propsData: {
       icon: 'setting'
     }
   });
-  button.$mount();
-  var useElement = button.$el.querySelector('use');
+  vm.$mount();
+  var useElement = vm.$el.querySelector('use');
   var href = useElement.getAttribute('xlink:href');
   expect(href).to.eq('#i-setting');
-  button.$el.remove();
-  button.$destroy();
+  vm.$el.remove();
+  vm.$destroy();
 }
 {
-  var _Constructor = _vue.default.extend(_button5.default);
+  var _Constructor = _vue.default.extend(_button.default);
 
-  var _button = new _Constructor({
+  var _vm = new _Constructor({
     propsData: {
       icon: 'setting',
       loading: true
     }
   });
 
-  _button.$mount();
+  _vm.$mount();
 
-  var _useElement = _button.$el.querySelector('use');
+  var _useElement = _vm.$el.querySelector('use');
 
   var _href = _useElement.getAttribute('xlink:href');
 
   expect(_href).to.eq('#i-loading');
 
-  _button.$el.remove();
+  _vm.$el.remove();
 
-  _button.$destroy();
+  _vm.$destroy();
 }
 {
   var div = document.createElement('div');
   document.body.appendChild(div);
 
-  var _Constructor2 = _vue.default.extend(_button5.default);
+  var _Constructor2 = _vue.default.extend(_button.default);
 
-  var _button2 = new _Constructor2({
+  var _vm2 = new _Constructor2({
     propsData: {
       icon: 'setting'
     }
   });
 
-  _button2.$mount(div);
+  _vm2.$mount(div);
 
-  var svg = _button2.$el.querySelector('svg');
+  var svg = _vm2.$el.querySelector('svg');
 
   var _window$getComputedSt = window.getComputedStyle(svg),
       order = _window$getComputedSt.order;
 
   expect(order).to.eq('1');
 
-  _button2.$el.remove();
+  _vm2.$el.remove();
 
-  _button2.$destroy();
+  _vm2.$destroy();
 }
 {
   var _div = document.createElement('div');
 
   document.body.appendChild(_div);
 
-  var _Constructor3 = _vue.default.extend(_button5.default);
+  var _Constructor3 = _vue.default.extend(_button.default);
 
-  var _button3 = new _Constructor3({
+  var _vm3 = new _Constructor3({
     propsData: {
       icon: 'setting',
       iconPosition: 'right'
     }
   });
 
-  _button3.$mount(_div);
+  _vm3.$mount(_div);
 
-  var _svg = _button3.$el.querySelector('svg');
+  var _svg = _vm3.$el.querySelector('svg');
 
   var _window$getComputedSt2 = window.getComputedStyle(_svg),
       _order = _window$getComputedSt2.order;
 
   expect(_order).to.eq('2');
 
-  _button3.$el.remove();
+  _vm3.$el.remove();
 
-  _button3.$destroy();
+  _vm3.$destroy();
 }
 {
-  var _Constructor4 = _vue.default.extend(_button5.default);
+  var _Constructor4 = _vue.default.extend(_button.default);
 
-  var gButton = new _Constructor4({
+  var _vm4 = new _Constructor4({
     propsData: {
       icon: 'setting'
     }
   });
-  gButton.$mount();
-  gButton.$on('click', function () {
+
+  _vm4.$mount();
+
+  _vm4.$on('click', function () {
     console.log('2');
   });
-  var _button4 = gButton.$el;
 
-  _button4.click();
+  var button = _vm4.$el;
+  button.click();
 
-  gButton.$el.remove();
-  gButton.$destroy();
+  _vm4.$el.remove();
+
+  _vm4.$destroy();
 }
 },{"vue":"node_modules/vue/dist/vue.common.js","./components/Button/button.vue":"src/components/Button/button.vue","./components/Icon/icon.vue":"src/components/Icon/icon.vue","./components/Button/button-group.vue":"src/components/Button/button-group.vue","chai":"node_modules/chai/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
