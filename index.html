@@ -3,30 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gulu</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      :root {
-        --button-height: 32px;
-        --font-size: 14px; 
-        --button-bg: white;
-        --button-active-bg: #eee;
-        --border-radius: 4px;
-        --color: #333;
-        --border-color: #999;
-        --border-color-hover: #666;
-      }
-      #app {
-        margin: 20px;
-      }
-      body {
-        font-size: var(--font-size);
-      }
-    </style>
+    <link rel="stylesheet" href="./src/scss/main.scss" />
+    <title>vue轮子</title>
   </head>
   <body>
     <div id="app">
@@ -34,7 +12,6 @@
       <g-button loading>炫酷钮</g-button>
       <g-button icon="setting">炫酷钮</g-button>
       <g-button icon="setting" icon-position="right">炫酷钮</g-button>
-      <g-icon name="download"></g-icon>
     </div>
     <script src="./src/app.js"></script>
     <script src="//at.alicdn.com/t/font_1288776_f74c42zqoyo.js"></script>
