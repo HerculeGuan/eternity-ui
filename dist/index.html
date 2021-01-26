@@ -8,10 +8,9 @@
   <script src="/main.d9ee62f6.js"></script><link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
-      <g-button>炫酷钮</g-button>
-      <g-button loading="">炫酷钮</g-button>
-      <g-button icon="setting">炫酷钮</g-button>
-      <g-button icon="setting" icon-position="right">炫酷钮</g-button>
+      <g-button :loading="loading1" @click="loading1 = !loading1">标准按钮</g-button>
+      <g-button :loading="loading2" @click="loading2 = !loading2" icon="setting">按钮左</g-button>
+      <g-button :loading="loading3" @click="loading3 = !loading3" icon="setting" icon-position="right">按钮右</g-button>
     </div>
     <script src="/app.a6a4d504.js"></script>
     <script src="//at.alicdn.com/t/font_1288776_f74c42zqoyo.js"></script>
