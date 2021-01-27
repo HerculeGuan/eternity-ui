@@ -1,4 +1,4 @@
-# Hercule-wheel - 一个 Vue UI 组件
+# Hercule-wheel —— 一个 Vue UI 组件
 
 [![Build Status](https://travis-ci.org/HerculeGuan/vue-wheel.svg?branch=main)](https://travis-ci.org/HerculeGuan/vue-wheel)
 
@@ -9,6 +9,7 @@
 ## 开始使用
 
 1. CSS 样式
+
    使用本框架前请在 CSS 中开启 border-box
 
    ```
