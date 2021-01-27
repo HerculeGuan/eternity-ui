@@ -1,3 +1,7 @@
+.g-icon[data-v-259d1d] {
+  width: 1em;
+  height: 1em;
+}
 @keyframes circle-data-v-b9bbc9 {
 0% {
     transform: rotate(0deg);
@@ -46,10 +50,6 @@
 .g-button .loading[data-v-b9bbc9] {
   animation: circle-data-v-b9bbc9 1s infinite linear;
   margin-right: 0.2em;
-}
-.g-icon[data-v-259d1d] {
-  width: 1em;
-  height: 1em;
 }
 .g-button-group[data-v-09d399] {
   display: inline-flex;
