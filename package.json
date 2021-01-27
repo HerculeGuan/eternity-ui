@@ -2,7 +2,7 @@
   "name": "hercule-wheel-0",
   "version": "0.0.1",
   "description": "一个用Vue写的UI框架",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
