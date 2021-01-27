@@ -1,8 +1,10 @@
 # 一个 Vue UI 组件
 
+[![Build Status](https://travis-ci.org/HerculeGuan/vue-wheel.svg?branch=main)](https://travis-ci.org/HerculeGuan/vue-wheel)
+
 ## 介绍
 
-这是我在学习Vue过程中做的一个UI框架,希望对你有用
+一个使用 Vue.js 的 Web 端 UI
 
 ## 开始使用
 
