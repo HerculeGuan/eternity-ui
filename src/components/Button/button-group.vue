@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "GButtonGroup",
   mounted() {
     // $el 指向当前组件的DOM元素 $children 属性只会寻找vue实例
     for (let node of this.$el.children) {
