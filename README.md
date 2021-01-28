@@ -1,10 +1,10 @@
-# Hercule-wheel —— 一个 Vue UI 组件
+# hercule-ui —— 一个 Vue UI 组件
 
 [![Build Status](https://travis-ci.org/HerculeGuan/vue-wheel.svg?branch=main)](https://travis-ci.org/HerculeGuan/vue-wheel)
 
 ## 介绍
 
-使用 Vue.js 的 Web 端 UI
+使用 Vue.js 的 Web 端 UI 组件库
 
 ## 开始使用
 
@@ -33,17 +33,17 @@
    }
    ```
 
-2. 安装 Hercule-wheel
+2. 安装 hercule-ui
 
    ```
-   npm i --save Hercule-wheel
+   npm i --save hercule-ui
    ```
 
-3. 引入 Hercule-wheel
+3. 引入 hercule-ui
 
    ```
-   import {Button,ButtonGroup,Icon} from 'hercule-wheel'
-   import 'hercule-wheel/dist/index/css'
+   import {Button,ButtonGroup,Icon} from 'hercule-ui'
+   import 'hercule-ui/dist/index/css'
 
    export default {
       name: 'app',
