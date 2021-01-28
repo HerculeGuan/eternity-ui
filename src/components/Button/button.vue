@@ -1,6 +1,6 @@
 <template>
   <button
-    class="g-button"
+    class="button"
     :class="{ [`icon-${iconPosition}`]: true }"
     @click="$emit('click')"
   >
@@ -45,7 +45,7 @@ export default {
     transform: rotate(360deg);
   }
 }
-.g-button {
+.button {
   font-size: var(--font-size);
   height: var(--button-height);
   padding: 0 0.8em;

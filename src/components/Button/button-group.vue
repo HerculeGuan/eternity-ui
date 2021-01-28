@@ -1,5 +1,5 @@
 <template>
-  <div class="g-button-group">
+  <div class="button-group">
     <slot></slot>
   </div>
 </template>
@@ -20,10 +20,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.g-button-group {
+.button-group {
   display: inline-flex;
   vertical-align: middle;
-  > .g-button {
+  > .button {
     border-radius: 0;
     &:not(:first-child) {
       margin-left: -1px;

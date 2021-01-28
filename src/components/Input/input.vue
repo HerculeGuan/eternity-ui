@@ -1,5 +1,5 @@
 <template>
-  <div class="g-input" :class="{ error }">
+  <div class="input" :class="{ error }">
     <input
       :value="value"
       :disabled="disabled"
@@ -55,7 +55,7 @@ $font-size: 12px;
 $box-shadow-color: rgba(0, 0, 0, 0.5);
 $disabled-color: #aaa;
 $red: #f1453d;
-.g-input {
+.input {
   font-size: $font-size;
   display: inline-flex;
   align-items: center;
