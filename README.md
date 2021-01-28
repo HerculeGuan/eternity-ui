@@ -1,4 +1,4 @@
-# hercule-ui —— 一个 Vue UI 组件
+# hercule-ui —— 一个 Vue UI 组件库
 
 [![Build Status](https://travis-ci.org/HerculeGuan/vue-wheel.svg?branch=main)](https://travis-ci.org/HerculeGuan/vue-wheel)
 
