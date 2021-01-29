@@ -37,8 +37,6 @@ export default {
 
 <style scoped lang="scss">
 .col {
-  width: 100%;
-
   $class-prefix-col: col-;
   $class-prefix-offset: offset-;
   @for $n from 1 through 24 {

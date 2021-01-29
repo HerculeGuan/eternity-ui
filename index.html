@@ -7,30 +7,40 @@
     <title>vue轮子</title>
   </head>
   <body>
+    <style>
+      .demoBox {
+        height: 50px;
+        background: gray;
+        border: 1px solid blue;
+      }
+    </style>
     <div id="app">
       <div class="box">
-        <g-row gutter="20">
-          <g-col>1</g-col>
-          <g-col>2</g-col>
+        <g-row>
+          <g-col class="demoBox" span="9">
+            <g-row site="left">
+              <g-col>a</g-col>
+              <g-col>b</g-col>
+              <g-col>c</g-col>
+              <g-col>d</g-col>
+            </g-row>
+          </g-col>
+          <g-col class="demoBox" span="15">
+            <g-row site="right">
+              <g-col>a</g-col>
+              <g-col>b</g-col>
+              <g-col>c</g-col>
+              <g-col>d</g-col>
+              <g-col>b</g-col>
+              <g-col>c</g-col>
+              <g-col>d</g-col>
+            </g-row>
+          </g-col>
         </g-row>
         <g-row>
-          <g-col>1</g-col>
-          <g-col>2</g-col>
-          <g-col>2</g-col>
-        </g-row>
-        <g-row>
-          <g-col>1</g-col>
-          <g-col>2</g-col>
-          <g-col>2</g-col>
-          <g-col>2</g-col>
-        </g-row>
-        <g-row>
-          <g-col span="2">1</g-col>
-          <g-col span="20" offset="2">2</g-col>
-        </g-row>
-        <g-row>
-          <g-col span="4">1</g-col>
-          <g-col span="20">2</g-col>
+          <g-col class="demoBox" span="4"></g-col>
+          <g-col class="demoBox" span="14"></g-col>
+          <g-col class="demoBox" span="6"></g-col>
         </g-row>
       </div>
       <div class="box">
