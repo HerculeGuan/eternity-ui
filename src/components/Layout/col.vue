@@ -14,6 +14,19 @@ export default {
     offset: {
       type: [Number, String],
     },
+    phone: {
+      type: Object,
+      validator(value) {
+        let keys = Object.keys(value);
+        let valid = true;
+        keys.forEach((key) => {
+          if (!["span", "offset"].includes(key)) {
+            valid = false;
+          }
+        });
+        return valid;
+      },
+    },
   },
   data() {
     return {
@@ -47,5 +60,8 @@ export default {
       margin-left: ($n / 24) * 100%;
     }
   }
+}
+@media (min-width:576px) {
+    
 }
 </style>

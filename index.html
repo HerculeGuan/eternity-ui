@@ -10,11 +10,17 @@
     <style>
       .demoBox {
         height: 50px;
-        background: gray;
-        border: 1px solid blue;
+        background: #9CA9BD;
+        border: 1px solid #fff;
       }
     </style>
     <div id="app">
+      <div class="box">
+        <g-row>
+          <g-col span="2" :phone="{span:12}"></g-col>
+          <g-col span="20" offset="2" :phone="{span:12,offset:0}"></g-col>
+        </g-row>
+      </div>
       <div class="box">
         <g-row>
           <g-col class="demoBox" span="9">

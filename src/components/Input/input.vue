@@ -54,7 +54,8 @@ $border-radius: 4px;
 $font-size: 12px;
 $box-shadow-color: rgba(0, 0, 0, 0.5);
 $disabled-color: #aaa;
-$red: #f1453d;
+$red: #e65f58;
+$error-red: #f00e02;
 .input {
   font-size: $font-size;
   display: inline-flex;
@@ -65,6 +66,9 @@ $red: #f1453d;
   &.error {
     > input {
       border-color: $red;
+      &:hover {
+        border-color: $error-red;
+      }
     }
   }
   .icon-error {
