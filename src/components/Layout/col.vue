@@ -36,10 +36,6 @@ export default {
       type: Object,
       validator,
     },
-    pc: {
-      type: Object,
-      validator,
-    },
     widePc: {
       type: Object,
       validator,
@@ -52,14 +48,13 @@ export default {
   },
   computed: {
     colClass() {
-      let { span, offset, phone, ipad, narrowPc, pc, widePc } = this;
+      let { span, offset, phone, ipad, narrowPc, widePc } = this;
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,
         ...(phone && [`col-phone-${phone.span}`]),
         ...(ipad && [`col-ipad-${ipad.span}`]),
         ...(narrowPc && [`col-narrowPc-${narrowPc.span}`]),
-        ...(pc && [`col-pc-${pc.span}`]),
         ...(widePc && [`col-widePc-${widePc.span}`]),
       ];
     },
@@ -109,7 +104,7 @@ export default {
       }
     }
   }
-  @media (min-width: 769px) and (max-width: 992px) {
+  @media (min-width: 769px) and (max-width: 1200px) {
     $class-prefix-col: col-narrowPc-;
     $class-prefix-offset: offset-;
     @for $n from 1 through 24 {
@@ -121,19 +116,8 @@ export default {
       }
     }
   }
-  @media (min-width: 993px) and (max-width: 1200px) {
-    $class-prefix-col: col-pc-;
-    $class-prefix-offset: offset-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix-col}#{$n} {
-        width: ($n / 24) * 100%;
-      }
-      &.#{$class-prefix-offset}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
-    }
-  }
-  @media (min-width: 1201px) {
+
+  @media (min-width: 1921px) {
     $class-prefix-col: col-widePc-;
     $class-prefix-offset: offset-;
     @for $n from 1 through 24 {
