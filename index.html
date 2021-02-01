@@ -10,15 +10,33 @@
     <style>
       .demoBox {
         height: 50px;
-        background: #9CA9BD;
+        background: #9ca9bd;
         border: 1px solid #fff;
       }
     </style>
     <div id="app">
       <div class="box">
         <g-row>
-          <g-col span="2" :phone="{span:12}"></g-col>
-          <g-col span="20" offset="2" :phone="{span:12,offset:0}"></g-col>
+          <g-col
+            class="demoBox"
+            span="2"
+            :phone="{span:12}"
+            :ipad="{span:8}"
+            :narrow-pc="{span:4}"
+            :pc="{span:2}"
+            :wide-pc="{span:1}"
+            >左边</g-col
+          >
+          <g-col
+            class="demoBox"
+            span="20"
+            :phone="{span:12}"
+            :ipad="{span:16}"
+            :narrow-pc="{span:20}"
+            :pc="{span:22}"
+            :wide-pc="{span:23}"
+            >右边</g-col
+          >
         </g-row>
       </div>
       <div class="box">

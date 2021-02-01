@@ -42,6 +42,7 @@ export default {
 <style scoped lang="scss">
 .row {
   display: flex;
+  flex-wrap: wrap;
   &.site-left {
     justify-content: flex-start;
   }
