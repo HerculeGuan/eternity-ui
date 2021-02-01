@@ -56,7 +56,7 @@ export default {
         array.push(`col-${str}${obj.span}`);
       }
       if (obj.offset) {
-        array.push(`col-${str}${obj.offset}`);
+        array.push(`offset-${str}${obj.offset}`);
       }
       return array;
     },
@@ -104,7 +104,7 @@ export default {
   }
   @media (min-width: 577px) and (max-width: 768px) {
     $class-prefix-col: col-ipad-;
-    $class-prefix-offset: offset-;
+    $class-prefix-offset: offset-ipad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix-col}#{$n} {
         width: ($n / 24) * 100%;
@@ -116,7 +116,7 @@ export default {
   }
   @media (min-width: 769px) and (max-width: 1200px) {
     $class-prefix-col: col-narrow-pc-;
-    $class-prefix-offset: offset-;
+    $class-prefix-offset: offset-narrow-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix-col}#{$n} {
         width: ($n / 24) * 100%;
@@ -128,7 +128,7 @@ export default {
   }
   @media (min-width: 1201px) and (max-width: 1920px) {
     $class-prefix-col: col-pc-;
-    $class-prefix-offset: offset-;
+    $class-prefix-offset: offset-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix-col}#{$n} {
         width: ($n / 24) * 100%;
@@ -141,7 +141,7 @@ export default {
 
   @media (min-width: 1921px) {
     $class-prefix-col: col-wide-pc-;
-    $class-prefix-offset: offset-;
+    $class-prefix-offset: offset-wide-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix-col}#{$n} {
         width: ($n / 24) * 100%;

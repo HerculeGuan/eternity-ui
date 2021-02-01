@@ -28,7 +28,6 @@ describe('Row', () => {
             const row = vm.$el.querySelector('.row')
             expect(getComputedStyle(row).marginLeft).to.eq('-10px')
             expect(getComputedStyle(row).marginRight).to.eq('-10px')
-
             const cols = vm.$el.querySelectorAll('.col')
             expect(getComputedStyle(cols[0]).paddingLeft).to.eq('10px')
             expect(getComputedStyle(cols[1]).paddingRight).to.eq('10px')
