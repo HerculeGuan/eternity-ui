@@ -9,62 +9,59 @@
   <body>
     <style>
       .demoBox {
-        height: 50px;
+        height: 100px;
         background: #9ca9bd;
-        border: 1px solid #fff;
+        border: 1px solid #666;
       }
     </style>
     <div id="app">
       <div class="box">
         <g-row>
           <g-col
-            class="demoBox"
+            :pc="{span:4}"
+            :ipad="{span:12}"
+            :narrow-pc="{span:8}"
             span="24"
-            :phone="{span:12}"
-            :ipad="{span:8}"
-            :narrow-pc="{span:4}"
-            :wide-pc="{span:1}"
-            >左边</g-col
-          >
+            ><div class="demoBox"></div
+          ></g-col>
           <g-col
-            class="demoBox"
+            :pc="{span:4}"
+            :ipad="{span:12}"
+            :narrow-pc="{span:8}"
             span="24"
-            :phone="{span:12}"
-            :ipad="{span:16}"
-            :narrow-pc="{span:20}"
-            :wide-pc="{span:23}"
-            >右边</g-col
-          >
+            ><div class="demoBox"></div
+          ></g-col>
+          <g-col
+            :pc="{span:4}"
+            :ipad="{span:12}"
+            :narrow-pc="{span:8}"
+            span="24"
+            ><div class="demoBox"></div
+          ></g-col>
+          <g-col
+            :pc="{span:4}"
+            :ipad="{span:12}"
+            :narrow-pc="{span:8}"
+            span="24"
+            ><div class="demoBox"></div
+          ></g-col>
+          <g-col
+            :pc="{span:4}"
+            :ipad="{span:12}"
+            :narrow-pc="{span:8}"
+            span="24"
+            ><div class="demoBox"></div
+          ></g-col>
+          <g-col
+            :pc="{span:4}"
+            :ipad="{span:12}"
+            :narrow-pc="{span:8}"
+            span="24"
+            ><div class="demoBox"></div
+          ></g-col>
         </g-row>
       </div>
-      <div class="box">
-        <g-row>
-          <g-col class="demoBox" span="9">
-            <g-row site="left">
-              <g-col>a</g-col>
-              <g-col>b</g-col>
-              <g-col>c</g-col>
-              <g-col>d</g-col>
-            </g-row>
-          </g-col>
-          <g-col class="demoBox" span="15">
-            <g-row site="right">
-              <g-col>a</g-col>
-              <g-col>b</g-col>
-              <g-col>c</g-col>
-              <g-col>d</g-col>
-              <g-col>b</g-col>
-              <g-col>c</g-col>
-              <g-col>d</g-col>
-            </g-row>
-          </g-col>
-        </g-row>
-        <g-row>
-          <g-col class="demoBox" span="4"></g-col>
-          <g-col class="demoBox" span="14"></g-col>
-          <g-col class="demoBox" span="6"></g-col>
-        </g-row>
-      </div>
+
       <div class="box">
         <g-input v-model="inputValue" @change="inputChange"></g-input>
         <g-input value="输入框" disabled></g-input>
