@@ -8,49 +8,22 @@
   </head>
   <body>
     <style>
-      .demoBox {
+      .demo {
         height: 50px;
         background: #9ca9bd;
         border: 1px solid #666;
       }
     </style>
     <div id="app">
-      
       <div class="box">
-        <g-row>
-          <g-col
-            :pc="{span:4,offset:2}"
-            :ipad="{span:6,offset:2}"
-            :narrow-pc="{span:10,offset:2}"
-            offset="22"
-            span="2"
-            ><div class="demoBox"></div
-          ></g-col>
-          <g-col
-          :pc="{span:4,offset:2}"
-          :ipad="{span:6,offset:2}"
-            :narrow-pc="{span:10,offset:2}"
-            offset="22"
-            span="2"
-            ><div class="demoBox"></div
-          ></g-col>
-          <g-col
-            :pc="{span:4,offset:2}"
-            :ipad="{span:6,offset:2}"
-            :narrow-pc="{span:10,offset:2}"
-            offset="22"
-            span="2"
-            ><div class="demoBox"></div
-          ></g-col>
-          <g-col
-          :pc="{span:4,offset:2}"
-          :ipad="{span:6,offset:2}"
-            :narrow-pc="{span:10,offset:2}"
-            offset="22"
-            span="2"
-            ><div class="demoBox"></div
-          ></g-col>
-        </g-row>
+        <g-container style="height:100vh;">
+          <g-header class="demo">header</g-header>
+          <g-container class="demo">
+            <g-sider>sider</g-sider>
+            <g-content>content</g-content>
+          </g-container>
+          <g-footer class="demo">footer</g-footer>
+        </g-container>
       </div>
 
       <div class="box">

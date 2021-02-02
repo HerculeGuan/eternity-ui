@@ -1,16 +1,17 @@
 <template>
-  <div class="slider">
+  <div class="content">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "GSider",
+  name: "GContent",
 };
 </script>
 
 <style lang="scss" scoped>
-.slider {
+.content {
+  flex-grow: 1;
 }
 </style>
