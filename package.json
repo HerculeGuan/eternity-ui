@@ -1,6 +1,6 @@
 {
   "name": "hercule-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "用Vue写的UI组件库",
   "main": "dist/index.js",
   "scripts": {
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/HerculeGuan/vue-wheel#readme",
   "dependencies": {
-    "chia": "0.0.1",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
   },

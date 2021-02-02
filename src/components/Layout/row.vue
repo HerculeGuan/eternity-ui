@@ -11,7 +11,7 @@ export default {
     gutter: {
       type: [Number, String],
     },
-    site: {
+    justify: {
       type: String,
       validator(value) {
         return ["left", "center", "right"].includes(value);
@@ -27,8 +27,8 @@ export default {
       };
     },
     rowClass() {
-      let { site } = this;
-      return [site && `site-${site}`];
+      let { justify } = this;
+      return [justify && `justify-${justify}`];
     },
   },
   mounted() {
@@ -43,13 +43,13 @@ export default {
 .row {
   display: flex;
   flex-wrap: wrap;
-  &.site-left {
+  &.justify-left {
     justify-content: flex-start;
   }
-  &.site-center {
+  &.justify-center {
     justify-content: center;
   }
-  &.site-right {
+  &.justify-right {
     justify-content: flex-end;
   }
 }

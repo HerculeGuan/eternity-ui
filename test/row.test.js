@@ -37,13 +37,13 @@ describe('Row', () => {
         })
 
     })
-    it('接收 site 属性', () => {
+    it('接收 justify 属性', () => {
         const div = document.createElement('div')
         document.body.appendChild(div)
         const Constructor = Vue.extend(Row)
         const vm = new Constructor({
             propsData: {
-                site: 'center'
+                justify: 'center'
             }
         }).$mount(div)
         const element = vm.$el
