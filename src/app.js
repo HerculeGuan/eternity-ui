@@ -12,6 +12,9 @@ import Sider from "./components/Container/sider.vue"
 import Content from "./components/Container/content.vue"
 import Footer from "./components/Container/footer.vue"
 
+import Toast from "./components/Toast/toast.vue"
+import plugin from "./plugin"
+
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
 Vue.component('g-button-group', ButtonGroup)
@@ -23,6 +26,9 @@ Vue.component('g-header', Header)
 Vue.component('g-sider', Sider)
 Vue.component('g-content', Content)
 Vue.component('g-footer', Footer)
+Vue.component('g-toast', Toast)
+Vue.use(plugin)
+
 
 new Vue({
     el: "#app",
@@ -33,8 +39,11 @@ new Vue({
         inputValue: "输入框",
     },
     methods: {
-        inputChange(e) {
-            console.log(e);
+        showToast() {
+            this.$toast('这是一条message')
         }
-    }
+        // inputChange(e) {
+        //     console.log(e);
+        // }
+    },
 })
