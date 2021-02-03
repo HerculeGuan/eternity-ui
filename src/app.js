@@ -48,7 +48,9 @@ new Vue({
                             console.log(toast)
                         },
                     },
-                    enableHtml: true
+                    enableHtml: true,
+                    autoCloseDelay: 1000,
+                    position: 'bottom'
                 }
             )
         },
