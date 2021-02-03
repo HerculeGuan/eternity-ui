@@ -61,7 +61,7 @@ $toast-border-radius: 4px;
 $toast-bg: rgba(0, 0, 0, 0.75);
 .toast {
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   font-size: $font-size;
