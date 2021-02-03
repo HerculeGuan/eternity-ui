@@ -51,7 +51,7 @@ new Vue({
                     enableHtml: true,
                     autoClose: false,
                     autoCloseDelay: 1,
-                    position: 'middle'
+                    position: 'top'
                 }
             )
         },
