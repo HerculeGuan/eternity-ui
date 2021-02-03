@@ -40,8 +40,18 @@ new Vue({
     },
     methods: {
         showToast() {
-            this.$toast('这是一条message')
-        }
+            this.$toast('这是一条message',
+                {
+                    closeButton: {
+                        text: '关闭',
+                        callback(toast) {
+                            console.log(toast)
+                        }
+                    }
+                }
+            )
+        },
+
         // inputChange(e) {
         //     console.log(e);
         // }
