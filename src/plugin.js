@@ -1,9 +1,5 @@
 import Toast from "./components/Toast/toast"
 
-
-
-let currentToast
-
 export default {
     install(Vue, options) {
         Vue.prototype.$toast = function (message, toastOptions) {
@@ -18,7 +14,7 @@ export default {
     }
 }
 
-
+let currentToast
 
 function createToast({ Vue, message, propsData, onClose }) {
     let Constructor = Vue.extend(Toast)

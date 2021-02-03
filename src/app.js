@@ -49,8 +49,7 @@ new Vue({
                         },
                     },
                     enableHtml: true,
-                    autoClose: false,
-                    autoCloseDelay: 1,
+                    // autoClose: 3,
                     position: 'top'
                 }
             )
