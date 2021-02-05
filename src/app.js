@@ -39,8 +39,8 @@ new Vue({
         inputValue: "输入框",
     },
     methods: {
-        showToast() {
-            this.$toast(`消息${parseInt(Math.random(0, 100)*100)}`,
+        showToast(position) {
+            this.$toast(`消息${parseInt(Math.random(0, 100) * 100)}`,
                 {
                     closeButton: {
                         text: '关闭',
@@ -49,8 +49,8 @@ new Vue({
                         },
                     },
                     enableHtml: true,
-                    // autoClose: 3,
-                    position: 'top'
+                    autoClose: 3,
+                    position
                 }
             )
         },

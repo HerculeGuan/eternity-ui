@@ -16,7 +16,9 @@
     </style>
     <div id="app">
       <div class="box">
-        <button @click="showToast">按钮</button>
+        <button @click="showToast('top')">按钮top</button>
+        <button @click="showToast('middle')">按钮middle</button>
+        <button @click="showToast('bottom')">按钮bottom</button>
       </div>
       <!-- <div class="box">
         <g-container style="height:100vh;">
