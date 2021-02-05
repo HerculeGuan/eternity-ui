@@ -43,7 +43,7 @@
 
    ```
    import {Button,ButtonGroup,Icon} from 'hercule-ui'
-   import 'hercule-ui/dist/index/css'
+   import 'hercule-ui/dist/index.css'
 
    export default {
       name: 'app',
