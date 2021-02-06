@@ -29,10 +29,8 @@ export default {
       eventBus: this.eventBus,
     };
   },
-  created() {
-    // console.log(this);
-    // console.log(this.eventBus);
-    // this.$emit("update:selected");
+  mounted() {
+    this.eventBus.$emit("update:selected", this.selected);
   },
 };
 </script>
