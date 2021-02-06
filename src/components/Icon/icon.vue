@@ -5,7 +5,7 @@
 <script>
 import "../../svg";
 export default {
-  name: "GIcon",
+  name: "EtIcon",
   props: {
     name: {
       type: String,

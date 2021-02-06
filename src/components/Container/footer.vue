@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "GFooter",
+  name: "EtFooter",
 };
 </script>
 

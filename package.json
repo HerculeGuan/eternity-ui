@@ -1,6 +1,6 @@
 {
-  "name": "hercule-ui",
-  "version": "0.0.6",
+  "name": "eternity-ui",
+  "version": "0.1.0",
   "description": "用Vue写的UI组件库",
   "main": "dist/index.js",
   "scripts": {

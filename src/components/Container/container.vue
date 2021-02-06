@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "GContainer",
+  name: "EtContainer",
   data() {
     return {
       containerClass: { hasSider: false },
@@ -14,7 +14,7 @@ export default {
   },
   mounted() {
     this.$children.forEach((vm) => {
-      if (vm.$options.name === "GSider") {
+      if (vm.$options.name === "EtSider") {
         this.containerClass.hasSider = true;
       }
     });

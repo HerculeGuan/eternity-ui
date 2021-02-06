@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: "GButtonGroup",
+  name: "EtButtonGroup",
   mounted() {
     // $el 指向当前组件的DOM元素 $children 属性只会寻找vue实例
     for (let node of this.$el.children) {
       let name = node.nodeName.toLowerCase();
       if (name !== "button") {
-        console.warn(`g-button-group的子元素应该全是button,但你写的是${name}`);
+        console.warn(`et-button-group的子元素应该全是button,但你写的是${name}`);
       }
     }
   },

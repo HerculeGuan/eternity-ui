@@ -1,6 +1,6 @@
 import Vue from "vue";
-import Button from "./components/Button/button.vue"
 import Icon from "./components/Icon/icon.vue"
+import Button from "./components/Button/button.vue"
 import ButtonGroup from "./components/Button/button-group.vue"
 import Input from "./components/Input/input.vue"
 import Row from "./components/Layout/row.vue"
@@ -15,18 +15,18 @@ import Footer from "./components/Container/footer.vue"
 import Toast from "./components/Toast/toast.vue"
 import plugin from "./plugin"
 
-Vue.component('g-button', Button)
-Vue.component('g-icon', Icon)
-Vue.component('g-button-group', ButtonGroup)
-Vue.component('g-input', Input)
-Vue.component('g-row', Row)
-Vue.component('g-col', Col)
-Vue.component('g-container', Container)
-Vue.component('g-header', Header)
-Vue.component('g-sider', Sider)
-Vue.component('g-content', Content)
-Vue.component('g-footer', Footer)
-Vue.component('g-toast', Toast)
+Vue.component('et-icon', Icon)
+Vue.component('et-button', Button)
+Vue.component('et-button-group', ButtonGroup)
+Vue.component('et-input', Input)
+Vue.component('et-row', Row)
+Vue.component('et-col', Col)
+Vue.component('et-container', Container)
+Vue.component('et-header', Header)
+Vue.component('et-sider', Sider)
+Vue.component('et-content', Content)
+Vue.component('et-footer', Footer)
+Vue.component('et-toast', Toast)
 Vue.use(plugin)
 
 
@@ -53,10 +53,6 @@ new Vue({
                     position
                 }
             )
-        },
-
-        // inputChange(e) {
-        //     console.log(e);
-        // }
+        }
     },
 })

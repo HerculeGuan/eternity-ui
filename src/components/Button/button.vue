@@ -4,8 +4,8 @@
     :class="[`icon-${iconPosition}`]"
     @click="$emit('click')"
   >
-    <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
-    <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
+    <et-icon class="loading icon" v-if="loading" name="loading"></et-icon>
+    <et-icon class="icon" v-if="icon && !loading" :name="icon"></et-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -15,7 +15,7 @@
 <script>
 import Icon from "../Icon/icon";
 export default {
-  name: "GButton",
+  name: "EtButton",
   props: {
     icon: {},
     iconPosition: {
@@ -31,7 +31,7 @@ export default {
     },
   },
   components: {
-    "g-icon": Icon,
+    "et-icon": Icon,
   },
 };
 </script>

@@ -11,7 +11,7 @@
       type="text"
     />
     <template v-if="error">
-      <g-icon name="error" class="icon-error"></g-icon>
+      <et-icon name="error" class="icon-error"></et-icon>
       <span class="error-msg">{{ error }}</span>
     </template>
   </div>
@@ -20,7 +20,7 @@
 <script>
 import Icon from "../Icon/icon";
 export default {
-  name: "GInput",
+  name: "EtInput",
   props: {
     value: {
       type: String,
@@ -41,7 +41,7 @@ export default {
     return {};
   },
   components: {
-    "g-icon": Icon,
+    "et-icon": Icon,
   },
 };
 </script>

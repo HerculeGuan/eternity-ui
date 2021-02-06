@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "GToast",
+  name: "EtToast",
   props: {
     autoClose: {
       type: [Boolean, Number],

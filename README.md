@@ -1,10 +1,10 @@
-# hercule-ui —— 一个 Vue UI 组件库
+# eternity-ui —— Vue UI 组件库
 
 [![Build Status](https://travis-ci.org/HerculeGuan/vue-wheel.svg?branch=main)](https://travis-ci.org/HerculeGuan/vue-wheel)
 
 ## 介绍
 
-使用 Vue.js 的 Web 端 UI 组件库
+使用 Vue.js 的 Web 端 UI 组件库 (持续更新中)
 
 ## 开始使用
 
@@ -33,23 +33,23 @@
    }
    ```
 
-2. 安装 hercule-ui
+2. 安装 eternity-ui
 
    ```
-   npm i --save hercule-ui
+   npm i eternity-ui
    ```
 
-3. 引入 hercule-ui
+3. 引入 eternity-ui
 
    ```
-   import {Button,ButtonGroup,Icon} from 'hercule-ui'
-   import 'hercule-ui/dist/index.css'
+   import {Button,ButtonGroup,Icon} from 'eternity-ui'
+   import 'eternity-ui/dist/index.css'
 
    export default {
       name: 'app',
       components: {
          HelloWorld,
-         'g-button': Button,
+         'et-button': Button,
          ...
       }
    }

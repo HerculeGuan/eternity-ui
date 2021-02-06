@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "GHeader",
+  name: "EtHeader",
 };
 </script>
 

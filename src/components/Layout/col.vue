@@ -16,7 +16,7 @@ let validator = (value) => {
   return valid;
 };
 export default {
-  name: "GCol",
+  name: "EtCol",
   props: {
     span: {
       type: [Number, String],
