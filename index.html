@@ -15,11 +15,28 @@
       }
     </style>
     <div id="app">
-      <div class="box">
+      <et-tabs :selected.sync="selectedTab">
+        <!-- <et-tabs :selected="selectedTab" @update:selected="selectedTab = $event"> -->
+        <et-tabs-head>
+          <template slot="actions"><et-button>按钮</et-button></template>
+          <et-tabs-item name="first">
+            <et-icon name="loading"></et-icon>
+            head1
+          </et-tabs-item>
+          <et-tabs-item name="second" disabled>head2</et-tabs-item>
+          <et-tabs-item name="third">head3</et-tabs-item>
+        </et-tabs-head>
+        <et-tabs-body>
+          <et-tabs-pane name="first">第一个body</et-tabs-pane>
+          <et-tabs-pane name="second">第二个body</et-tabs-pane>
+          <et-tabs-pane name="third">第三个body</et-tabs-pane>
+        </et-tabs-body>
+      </et-tabs>
+      <!-- <div class="box">
         <button @click="showToast('top')">按钮top</button>
         <button @click="showToast('middle')">按钮middle</button>
         <button @click="showToast('bottom')">按钮bottom</button>
-      </div>
+      </div> -->
     </div>
     <script src="./src/app.js"></script>
   </body>

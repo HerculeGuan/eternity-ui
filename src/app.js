@@ -13,6 +13,13 @@ import Content from "./components/Container/content.vue"
 import Footer from "./components/Container/footer.vue"
 
 import Toast from "./components/Toast/toast.vue"
+
+import Tabs from "./components/Tabs/tabs.vue"
+import TabsHead from "./components/Tabs/tabs-head.vue"
+import TabsBody from "./components/Tabs/tabs-body.vue"
+import TabsItem from "./components/Tabs/tabs-item.vue"
+import TabsPane from "./components/Tabs/tabs-pane.vue"
+
 import plugin from "./plugin"
 
 Vue.component('et-icon', Icon)
@@ -27,32 +34,36 @@ Vue.component('et-sider', Sider)
 Vue.component('et-content', Content)
 Vue.component('et-footer', Footer)
 Vue.component('et-toast', Toast)
+Vue.component('et-tabs', Tabs)
+Vue.component('et-tabs-head', TabsHead)
+Vue.component('et-tabs-body', TabsBody)
+Vue.component('et-tabs-item', TabsItem)
+Vue.component('et-tabs-pane', TabsPane)
+
+
 Vue.use(plugin)
 
 
 new Vue({
     el: "#app",
     data: {
-        loading1: false,
-        loading2: false,
-        loading3: false,
-        inputValue: "输入框",
+        selectedTab: 'second'
     },
     methods: {
-        showToast(position) {
-            this.$toast(`消息${parseInt(Math.random(0, 100) * 100)}`,
-                {
-                    closeButton: {
-                        text: '关闭',
-                        callback(toast) {
-                            console.log(toast)
-                        },
-                    },
-                    enableHtml: true,
-                    autoClose: 3,
-                    position
-                }
-            )
-        }
+        // showToast(position) {
+        //     this.$toast(`消息${parseInt(Math.random(0, 100) * 100)}`,
+        //         {
+        //             closeButton: {
+        //                 text: '关闭',
+        //                 callback(toast) {
+        //                     console.log(toast)
+        //                 },
+        //             },
+        //             enableHtml: true,
+        //             autoClose: 3,
+        //             position
+        //         }
+        //     )
+        // }
     },
 })
