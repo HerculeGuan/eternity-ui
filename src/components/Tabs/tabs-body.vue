@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "EnTabsBody",
+  name: "EtTabsBody",
   inject: ["eventBus"],
   created() {
 

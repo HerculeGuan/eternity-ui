@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "EnTabsItem",
+  name: "EtTabsItem",
   inject: ["eventBus"],
   props: {
     disabled: {
@@ -33,18 +33,24 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit("update:selected", this.name);
+      this.eventBus.$emit("update:selected", this.name,this);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+$blue: #409eff;
 .tabs-item {
   padding: 0 1em;
   flex-shrink: 0;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
   &.active {
-    background-color: red;
+    color: $blue;
   }
 }
 </style>

@@ -5,7 +5,7 @@
 <script>
 import Vue from "Vue";
 export default {
-  name: "EnTabs",
+  name: "EtTabs",
   props: {
     selected: {
       type: String,
@@ -30,7 +30,18 @@ export default {
     };
   },
   mounted() {
-    this.eventBus.$emit("update:selected", this.selected);
+    this.$children.forEach((vm) => {
+      if (vm.$options.name === "EtTabsHead") {
+        vm.$children.forEach((item) => {
+          if (
+            item.$options.name === "EtTabsItem" &&
+            item.name === this.selected
+          ) {
+            this.eventBus.$emit("update:selected", this.selected, item);
+          }
+        });
+      }
+    });
   },
 };
 </script>
