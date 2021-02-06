@@ -1,16 +1,31 @@
 <template>
-  <div class="tabs-item"><slot></slot></div>
+  <div class="tabs-item" @click="xxx"><slot></slot></div>
 </template>
 
 <script>
 export default {
   name: "EnTabsItem",
+  inject: ["eventBus"],
   props: {
-    disabled:{
+    disabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+    name: {
+      type: [String, Number],
+      required: true,
+    },
+  },
+  created() {
+    this.eventBus.$on('update:selected',(name)=>{
+      console.log(name);
+    })
+  },
+  methods: {
+    xxx() {
+      this.eventBus.$emit("update:selected", this.name);
+    },
+  },
 };
 </script>
 

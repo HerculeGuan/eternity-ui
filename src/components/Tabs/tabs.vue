@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import Vue from "Vue";
 export default {
   name: "EnTabs",
   props: {
@@ -18,7 +19,19 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus,
+    };
+  },
   created() {
+    // console.log(this);
+    // console.log(this.eventBus);
     // this.$emit("update:selected");
   },
 };

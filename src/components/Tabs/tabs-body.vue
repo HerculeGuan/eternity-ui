@@ -7,6 +7,10 @@
 <script>
 export default {
   name: "EnTabsBody",
+  inject: ["eventBus"],
+  created() {
+
+  },
 };
 </script>
 
