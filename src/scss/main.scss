@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --button-height: 32px;
+  --button-height: 28px;
   --font-size: 14px;
   --button-bg: white;
   --button-active-bg: #eee;
@@ -14,11 +14,8 @@
   --border-color-hover: #666;
 }
 #app {
-  margin: 20px;
+  // margin: 20px;
 }
 body {
   font-size: var(--font-size);
-  .box {
-    margin: 20px;
-  }
 }

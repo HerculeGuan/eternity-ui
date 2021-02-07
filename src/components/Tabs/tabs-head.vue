@@ -10,9 +10,12 @@
 export default {
   name: "EtTabsHead",
   inject: ["eventBus"],
-  created() {
+  mounted() {
     this.eventBus.$on("update:selected", (name, vm) => {
-      console.log(name, vm);
+      let { width, height, top, left } = vm.$el.getBoundingClientRect();
+      console.log(left);
+      this.$refs.line.style.width = `${width}px`;
+      this.$refs.line.style.left = `${left}px`;
     });
   },
 };
@@ -21,21 +24,25 @@ export default {
 <style lang="scss" scoped>
 $tab-height: 40px;
 $blue: #409eff;
-
+$border-color: #ddd;
 .tabs-head {
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
-  border: 1px solid red;
   position: relative;
+  border-bottom: 1px solid $border-color;
   > .line {
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid $blue;
-    width: 100px;
+    border-bottom: 2px solid $blue;
+    transition: all 450ms;
   }
   > .actions-wrapper {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 0 1em;
   }
 }
 </style>

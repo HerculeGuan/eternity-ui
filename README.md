@@ -22,7 +22,7 @@
 
    ```
    html {
-      --button-height: 32px;
+      --button-height: 28px;
       --font-size: 14px;
       --button-bg: white;
       --button-active-bg: #eee;
