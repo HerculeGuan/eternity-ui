@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-item" :class="classes" @click="xxx"><slot></slot></div>
+  <div class="tabs-item" :class="classes" @click="clickItem"><slot></slot></div>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     classes() {
-      return { active: this.active };
+      return { active: this.active, disabled: this.disabled };
     },
   },
   created() {
@@ -32,8 +32,11 @@ export default {
     });
   },
   methods: {
-    xxx() {
-      this.eventBus.$emit("update:selected", this.name,this);
+    clickItem() {
+      if (this.disabled) {
+        return;
+      }
+      this.eventBus.$emit("update:selected", this.name, this);
     },
   },
 };
@@ -41,6 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 $blue: #409eff;
+$disabled-color: grey;
 .tabs-item {
   padding: 0 1em;
   flex-shrink: 0;
@@ -51,6 +55,9 @@ $blue: #409eff;
 
   &.active {
     color: $blue;
+  }
+  &.disabled {
+    color: $disabled-color;
   }
 }
 </style>
