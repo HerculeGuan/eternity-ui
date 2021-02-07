@@ -47,7 +47,7 @@ Vue.use(plugin)
 new Vue({
     el: "#app",
     data: {
-        selectedTab: 'second'
+        selectedTab: 'first'
     },
     methods: {
         // showToast(position) {

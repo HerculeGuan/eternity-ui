@@ -1,5 +1,7 @@
 <template>
-  <div class="tabs-item" :class="classes" @click="clickItem"><slot></slot></div>
+  <div class="tabs-item" :class="classes" @click="clickItem" :data-name="name">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -27,16 +29,19 @@ export default {
     },
   },
   created() {
-    this.eventBus.$on("update:selected", (name) => {
-      this.active = name === this.name;
-    });
+    if (this.eventBus) {
+      this.eventBus.$on("update:selected", (name) => {
+        this.active = name === this.name;
+      });
+    }
   },
   methods: {
     clickItem() {
       if (this.disabled) {
         return;
       }
-      this.eventBus.$emit("update:selected", this.name, this);
+      this.eventBus && this.eventBus.$emit("update:selected", this.name, this);
+      this.$emit("click", this);
     },
   },
 };
