@@ -8,8 +8,19 @@
   </head>
   <body>
     <div id="app">
-      <et-tabs :selected.sync="selectedTab">
-        <!-- <et-tabs :selected="selectedTab" @update:selected="selectedTab = $event"> -->
+      <et-popover>
+        <template slot="content">
+          <div class="">内容1</div>
+        </template>
+        <et-button>按钮1</et-button>
+      </et-popover>
+      <et-popover>
+        <template slot="content">
+          <div class="">内容2</div>
+        </template>
+        <et-button>按钮2</et-button>
+      </et-popover>
+      <!-- <et-tabs :selected.sync="selectedTab">
         <et-tabs-head>
           <template slot="actions"><et-button>按钮</et-button></template>
           <et-tabs-item name="first">
@@ -24,7 +35,7 @@
           <et-tabs-pane name="second">第二个body</et-tabs-pane>
           <et-tabs-pane name="third">第三个body</et-tabs-pane>
         </et-tabs-body>
-      </et-tabs>
+      </et-tabs> -->
       <!-- <div class="box">
         <button @click="showToast('top')">按钮top</button>
         <button @click="showToast('middle')">按钮middle</button>
