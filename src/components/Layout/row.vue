@@ -9,7 +9,7 @@ export default {
   name: "EtRow",
   props: {
     gutter: {
-      type: [Number, String],
+      type: [Number, String], 
     },
     justify: {
       type: String,
