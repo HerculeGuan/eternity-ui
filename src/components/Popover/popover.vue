@@ -24,28 +24,33 @@ export default {
       this.$refs.contentWrapper.style.left = `${left + window.scrollX}px`;
       this.$refs.contentWrapper.style.top = `${top + window.scrollY}px`;
     },
-    listenToDocument() {
-      let eventHandler = (e) => {
-        if (this.$refs.popover && this.$refs.popover.contains(e.target)) {
-          return;
-        }
-        this.visible = false;
-        document.removeEventListener("click", eventHandler);
-      };
-      document.addEventListener("click", eventHandler);
+    onClickDocument(e) {
+      if (
+        this.$refs.popover &&
+        (this.$refs.popover === e.target ||
+          this.$refs.popover === this.$refs.popover.contains(e.target))
+      ) {
+        return;
+      }
+      this.close();
     },
-    onShow() {
+    close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+    open() {
+      this.visible = true;
       setTimeout(() => {
         this.positionPopover();
-        this.listenToDocument();
+        document.addEventListener("click", this.onClickDocument);
       }, 0);
     },
     onClick(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {
-        console.log(111);
-        this.visible = !this.visible;
         if (this.visible === true) {
-          this.onShow();
+          this.close();
+        } else {
+          this.open();
         }
       }
     },
