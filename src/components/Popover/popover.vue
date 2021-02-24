@@ -27,16 +27,11 @@ export default {
     onClickDocument(e) {
       if (
         this.$refs.popover &&
-        (this.$refs.popover === e.target ||
-          this.$refs.popover === this.$refs.popover.contains(e.target))
+        (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))
       ) {
         return;
       }
       this.close();
-    },
-    close() {
-      this.visible = false;
-      document.removeEventListener("click", this.onClickDocument);
     },
     open() {
       this.visible = true;
@@ -44,6 +39,10 @@ export default {
         this.positionPopover();
         document.addEventListener("click", this.onClickDocument);
       }, 0);
+    },
+    close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
     },
     onClick(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {
