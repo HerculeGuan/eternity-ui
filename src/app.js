@@ -57,12 +57,6 @@ new Vue({
         selectedTab: '3',
 
     },
-    mounted() {
-        this.$on("updated:selected", (v) => {
-            this.selectedTab = v
-        });
-
-    },
     methods: {
         // showToast(position) {
         //     this.$toast(`消息${parseInt(Math.random(0, 100) * 100)}`,

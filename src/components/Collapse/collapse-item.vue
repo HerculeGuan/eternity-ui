@@ -21,14 +21,15 @@ export default {
   data() {
     return {
       open: false,
+      accordion: false,
     };
   },
   methods: {
     toggle() {
       if (this.open) {
-        this.open = false;
+        this.close();
       } else {
-        this.eventBus && this.eventBus.$emit("update:selected", this.name);
+        this.eventBus.$emit("update:selected", this.name);
       }
     },
     close() {
@@ -40,14 +41,15 @@ export default {
   },
   inject: ["eventBus"],
   mounted() {
-    this.eventBus &&
-      this.eventBus.$on("update:selected", (name) => {
-        if (name === this.name) {
-          this.show();
-        } else {
+    this.eventBus.$on("update:selected", (name) => {
+      if (name === this.name) {
+        this.show();
+      } else {
+        if (this.accordion) {
           this.close();
         }
-      });
+      }
+    });
   },
 };
 </script>
