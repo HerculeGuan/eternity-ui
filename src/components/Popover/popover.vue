@@ -116,10 +116,10 @@ export default {
     },
     open() {
       this.visible = true;
-      setTimeout(() => {
+      this.$nextTick(() => {
         this.positionPopover();
         document.addEventListener("click", this.onClickDocument);
-      }, 0);
+      });
     },
     close() {
       this.visible = false;
