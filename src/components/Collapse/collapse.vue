@@ -5,8 +5,27 @@
 </template>
 
 <script>
+import Vue from "vue";
 export default {
   name: "EtCollapse",
+  props: {
+    accordion: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
+  provide() {
+    if (this.accordion) {
+      return {
+        eventBus: this.eventBus,
+      };
+    }
+  },
 };
 </script>
 
