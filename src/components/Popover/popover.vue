@@ -6,7 +6,7 @@
       v-if="visible"
       :class="[`position-${position}`]"
     >
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="triggerWrapper" class="popover-span">
       <slot></slot>

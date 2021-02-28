@@ -10,51 +10,52 @@
     <div id="app">
       <div class="domo">
         <et-popover>
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容1</div>
           </template>
           <et-button>按钮1</et-button>
         </et-popover>
         <et-popover position="bottom">
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容2</div>
           </template>
           <et-button>按钮2</et-button>
         </et-popover>
         <et-popover position="left">
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容3</div>
           </template>
           <et-button>按钮3</et-button>
         </et-popover>
         <et-popover position="right">
-          <template slot="content">
+          <template v-slot:content="{close}">
             <div class="">这是我的内容4</div>
+            <et-button @click="close">关闭</et-button>
           </template>
           <et-button>按钮4</et-button>
         </et-popover>
       </div>
       <div class="domo">
         <et-popover trigger="hover">
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容1</div>
           </template>
           <et-button>按钮1</et-button>
         </et-popover>
         <et-popover position="bottom" trigger="hover">
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容2</div>
           </template>
           <et-button>按钮2</et-button>
         </et-popover>
         <et-popover position="left" trigger="hover">
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容3</div>
           </template>
           <et-button>按钮3</et-button>
         </et-popover>
         <et-popover position="right" trigger="hover">
-          <template slot="content">
+          <template v-slot:content>
             <div class="">这是我的内容4</div>
           </template>
           <et-button>按钮4</et-button>
