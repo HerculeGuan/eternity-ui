@@ -9,11 +9,13 @@
   <body>
     <div id="app">
       <div class="demo">
-        <et-collapse accordion selected="2">
+        <et-collapse  :selected.sync="selectedTab">
           <et-collapse-item title="标题1" name="1">内容1</et-collapse-item>
           <et-collapse-item title="标题2" name="2">内容2</et-collapse-item>
           <et-collapse-item title="标题3" name="3">内容3</et-collapse-item>
         </et-collapse>
+        {{selectedTab}}
+
       </div>
       <!-- <div class="domo">
         <et-popover>

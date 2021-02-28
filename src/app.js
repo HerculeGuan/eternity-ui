@@ -53,7 +53,15 @@ Vue.use(plugin)
 new Vue({
     el: "#app",
     data: {
-        selectedTab: 'first'
+        // selectedTab: 'first',
+        selectedTab: '3',
+
+    },
+    mounted() {
+        this.$on("updated:selected", (v) => {
+            this.selectedTab = v
+        });
+
     },
     methods: {
         // showToast(position) {

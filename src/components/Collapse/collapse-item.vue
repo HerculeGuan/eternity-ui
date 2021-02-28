@@ -28,7 +28,7 @@ export default {
       if (this.open) {
         this.open = false;
       } else {
-        this.eventBus && this.eventBus.$emit("updated:selected", this.name);
+        this.eventBus && this.eventBus.$emit("update:selected", this.name);
       }
     },
     close() {
@@ -41,8 +41,7 @@ export default {
   inject: ["eventBus"],
   mounted() {
     this.eventBus &&
-      this.eventBus.$on("updated:selected", (name) => {
-        console.log(name);
+      this.eventBus.$on("update:selected", (name) => {
         if (name === this.name) {
           this.show();
         } else {
