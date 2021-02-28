@@ -14,7 +14,7 @@ describe('Popover', () => {
         const div = document.createElement('div')
         document.body.appendChild(div)
         div.innerHTML = `
-            <et-popover position="bottom" ref="a">
+            <et-popover position="bottom" ref="testRef">
             <template v-slot:content>
                 <div class="">这是我的内容</div>
             </template>
@@ -26,23 +26,36 @@ describe('Popover', () => {
         })
         vm.$el.querySelector('button').click()
         vm.$nextTick(() => {
-            const { contentWrapper } = vm.$refs.a.$refs
+            const { contentWrapper } = vm.$refs.testRef.$refs
             expect(contentWrapper.classList.contains('position-bottom')).to.be.true
             done()
         })
     })
-    // it('点击 button 触发 click 事件', () => {
-    //     const Constructor = Vue.extend(Button)
-    //     const vm = new Constructor({
-    //         propsData: {
-    //             icon: 'setting',
-    //         }
-    //     }).$mount()
+    xit('可以设置trigger', (done) => {
+        Vue.component('et-popover', Popover)
+        const div = document.createElement('div')
+        document.body.appendChild(div)
+        div.innerHTML = `
+            <et-popover trigger="hover" ref="testRef">
+            <template v-slot:content>
+                <div class="">这是我的内容</div>
+            </template>
+            <button>按钮</button>
+            </et-popover>
+        `
+        const vm = new Vue({
+            el: div
+        })
+        // 触发事件
+        vm.$nextTick(() => {
+            let event = new Event('mouseenter');
+            vm.$el.dispatchEvent(event)
+            vm.$nextTick(() => {
+                const { contentWrapper } = vm.$refs.testRef.$refs
+                expect(contentWrapper).to.exist
+                done()
+            })
+        })
 
-    //     const callback = sinon.fake();
-    //     vm.$on('click', callback)
-    //     vm.$el.click()
-    //     expect(callback).to.have.been.called
-
-    // })
+    })
 })
