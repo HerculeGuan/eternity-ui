@@ -13,6 +13,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    selected: {
+      type: String,
+    },
   },
   data() {
     return {
@@ -20,11 +23,14 @@ export default {
     };
   },
   provide() {
-    if (this.accordion) {
-      return {
-        eventBus: this.eventBus,
-      };
-    }
+    // if (this.accordion) {
+    return {
+      eventBus: this.eventBus,
+    };
+    // }
+  },
+  mounted() {
+    this.eventBus.$emit("updated:selected", this.selected);
   },
 };
 </script>

@@ -13,6 +13,10 @@ export default {
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -24,19 +28,24 @@ export default {
       if (this.open) {
         this.open = false;
       } else {
-        this.open = true;
-        this.eventBus && this.eventBus.$emit("updated:selected", this);
+        this.eventBus && this.eventBus.$emit("updated:selected", this.name);
       }
     },
     close() {
       this.open = false;
     },
+    show() {
+      this.open = true;
+    },
   },
   inject: ["eventBus"],
   mounted() {
     this.eventBus &&
-      this.eventBus.$on("updated:selected", (vm) => {
-        if (vm !== this) {
+      this.eventBus.$on("updated:selected", (name) => {
+        console.log(name);
+        if (name === this.name) {
+          this.show();
+        } else {
           this.close();
         }
       });
