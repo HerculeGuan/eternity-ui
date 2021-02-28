@@ -33,25 +33,31 @@ export default {
   },
   methods: {
     positionPopover() {
+      // 表驱动编程
       const { contentWrapper, triggerWrapper } = this.$refs;
       document.body.appendChild(contentWrapper);
-      let { top, left, height, width } = triggerWrapper.getBoundingClientRect();
-      console.log(height);
-      if (this.position === "top") {
-        contentWrapper.style.left = `${left + window.scrollX}px`;
-        contentWrapper.style.top = `${top + window.scrollY}px`;
-      } else if (this.position === "bottom") {
-        contentWrapper.style.left = `${left + window.scrollX}px`;
-        contentWrapper.style.top = `${top + height + window.scrollY}px`;
-      } else if (this.position === "left") {
-        contentWrapper.style.left = `${left + window.scrollX}px`;
-        let { height: height2 } = contentWrapper.getBoundingClientRect();
-        contentWrapper.style.top = `${top + window.scrollY + (height - height2) / 2}px`;
-      } else if (this.position === "right") {
-        contentWrapper.style.left = `${left + width + window.scrollX}px`;
-        let { height: height2 } = contentWrapper.getBoundingClientRect();
-        contentWrapper.style.top = `${top + window.scrollY + (height - height2) / 2}px`;
-      }
+      const { top, left, height, width } = triggerWrapper.getBoundingClientRect();
+      const { height: height2 } = contentWrapper.getBoundingClientRect();
+      let positions = {
+        top: {
+          left: left + window.scrollX,
+          top: top + window.scrollY,
+        },
+        bottom: {
+          left: left + window.scrollX,
+          top: top + height + window.scrollY,
+        },
+        left: {
+          left: left + window.scrollX,
+          top: top + window.scrollY + (height - height2) / 2,
+        },
+        right: {
+          left: left + width + window.scrollX,
+          top: top + window.scrollY + (height - height2) / 2,
+        },
+      };
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     onClickDocument(e) {
       if (
@@ -147,11 +153,11 @@ $border-radius: 4px;
     }
     &::before {
       border-bottom-color: $border-color;
-      bottom: 100%;
+      bottom: calc(100% + 1px);
     }
     &::after {
       border-bottom-color: #ffffff;
-      bottom: calc(100% - 1px);
+      bottom: 100%;
     }
   }
   &.position-left {
@@ -164,7 +170,6 @@ $border-radius: 4px;
     }
     &::before {
       border-left-color: $border-color;
-      left: 100%;
       left: 100%;
     }
     &::after {
