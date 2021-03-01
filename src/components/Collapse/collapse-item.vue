@@ -27,27 +27,19 @@ export default {
   methods: {
     toggle() {
       if (this.open) {
-        this.close();
+        this.eventBus.$emit("update:removeSelected", this.name);
       } else {
-        this.eventBus.$emit("update:selected", this.name);
+        this.eventBus.$emit("update:addSelected", this.name);
       }
-    },
-    close() {
-      this.open = false;
-    },
-    show() {
-      this.open = true;
     },
   },
   inject: ["eventBus"],
   mounted() {
-    this.eventBus.$on("update:selected", (name) => {
-      if (name === this.name) {
-        this.show();
+    this.eventBus.$on("update:selected", (names) => {
+      if (names.indexOf(this.name) >= 0) {
+        this.open = true;
       } else {
-        if (this.accordion) {
-          this.close();
-        }
+        this.open = false;
       }
     });
   },

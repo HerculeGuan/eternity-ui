@@ -1,8 +1,11 @@
 import Vue from "vue";
 import Icon from "./components/Icon/icon.vue"
+
 import Button from "./components/Button/button.vue"
 import ButtonGroup from "./components/Button/button-group.vue"
+
 import Input from "./components/Input/input.vue"
+
 import Row from "./components/Layout/row.vue"
 import Col from "./components/Layout/col.vue"
 
@@ -22,6 +25,7 @@ import TabsItem from "./components/Tabs/tabs-item.vue"
 import TabsPane from "./components/Tabs/tabs-pane.vue"
 
 import Popover from "./components/Popover/popover.vue"
+
 import Collapse from "./components/Collapse/collapse.vue"
 import CollapseItem from "./components/Collapse/collapse-item.vue"
 
@@ -54,7 +58,7 @@ new Vue({
     el: "#app",
     data: {
         // selectedTab: 'first',
-        selectedTab: '3',
+        selectedTab: ['3','2'],
 
     },
     methods: {
