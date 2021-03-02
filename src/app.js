@@ -59,7 +59,6 @@ new Vue({
     data: {
         // selectedTab: 'first',
         selectedTab: ['3','2'],
-
     },
     methods: {
         // showToast(position) {
