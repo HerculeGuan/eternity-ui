@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/vue-wheel/',
     title: 'Eternity UI',
     description: 'Vue UI 组件库',
     themeConfig: {
@@ -13,7 +14,17 @@ module.exports = {
             },
             {
                 title: '组件',
-                children: ['/components/button',],
+                children: [
+                    '/components/icon',
+                    '/components/button',
+                    '/components/input',
+                    '/components/layout',
+                    '/components/container',
+                    '/components/toast',
+                    '/components/popover',
+                    '/components/tabs',
+                    '/components/collapse',
+                ],
                 collapsable: false,
             }
         ],
