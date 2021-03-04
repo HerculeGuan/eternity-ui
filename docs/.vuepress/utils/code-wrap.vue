@@ -9,8 +9,8 @@ import hljs from "highlight.js";
 // import "highlight.js/styles/qtcreator_light.css";
 // import "highlight.js/styles/kimbie.light.css";
 // import "highlight.js/styles/atelier-seaside-light.css";
-import "highlight.js/styles/hopscotch.css";
 // import "highlight.js/styles/gradient-light.css";
+import "highlight.js/styles/hopscotch.css";
 
 export default {
   name: "CodeWrap",

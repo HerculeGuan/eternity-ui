@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Button from "../../../src/components/button/button";
+import Button from "../../../src/components/Button/button";
 import CodeWrap from "../utils/code-wrap";
 
 export default {
