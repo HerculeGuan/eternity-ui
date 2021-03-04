@@ -1,19 +1,21 @@
 <template>
   <div>
-    <et-button>默认按钮</et-button>
-    <et-button icon="setting">默认按钮</et-button>
-    <et-button loading>默认按钮</et-button>
-    <et-button disabled>默认按钮</et-button>
+    <div class="demo">
+      <et-input />
+    </div>
+    <div>
+      <et-input disabled />
+    </div>
     <pre><code>{{ content }}</code></pre>
   </div>
 </template>
 
 <script>
-import Button from "../../../src/components/button/button";
+import Input from "../../../src/components/Input/input";
 
 export default {
   components: {
-    "et-button": Button,
+    "et-input": Input,
   },
   data() {
     return {

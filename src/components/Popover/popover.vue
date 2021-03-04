@@ -139,7 +139,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$border-color: #333;
+$border-color: #ebeef5;
 $border-radius: 4px;
 .popover {
   display: inline-block;
@@ -153,7 +153,7 @@ $border-radius: 4px;
   position: absolute;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,.03));
   background: #ffffff;
   padding: 0.5em 1em;
   max-width: 20em;

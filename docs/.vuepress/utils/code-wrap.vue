@@ -1,9 +1,9 @@
 <template>
   <div class="code-wrap" v-highlight>
-    <pre><code>{{ code }}</code></pre>
+    <pre><code>{{ formatCode }}</code></pre>
   </div>
 </template>
-
+===
 <script>
 import hljs from "highlight.js";
 // import "highlight.js/styles/qtcreator_light.css";
@@ -18,6 +18,11 @@ export default {
     code: {
       type: String,
       required: true,
+    },
+  },
+  computed: {
+    formatCode() {
+      return this.code.replace(/^ {4}/gm, "").trim();
     },
   },
   data() {
@@ -38,12 +43,18 @@ export default {
 
 <style lang="scss" scoped>
 .code-wrap {
+  border: 1px solid #ebebeb;
+  border-top: none;
+  padding: 20px;
+  background-color: #fafafa;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   pre {
     padding: 0;
-    background-color: #fafafa !important;
-
+    margin: 0;
     code {
       color: #000;
+      background-color: #fafafa;
     }
   }
 }
