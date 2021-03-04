@@ -47,15 +47,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$height: 32px;
-$border-color: #999;
-$border-color-hover: #666;
-$border-radius: 4px;
-$font-size: 12px;
-$box-shadow-color: rgba(0, 0, 0, 0.5);
-$disabled-color: #aaa;
-$red: #e65f58;
-$error-red: #f00e02;
+@import "../var";
+
 .input {
   font-size: $font-size;
   display: inline-flex;

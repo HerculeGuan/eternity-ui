@@ -48,8 +48,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$blue: #409eff;
-$disabled-color: grey;
+@import "../var";
+
 .tabs-item {
   padding: 0 1em;
   flex-shrink: 0;
