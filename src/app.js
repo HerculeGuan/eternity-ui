@@ -29,6 +29,8 @@ import Popover from "./components/Popover/popover.vue"
 import Collapse from "./components/Collapse/collapse.vue"
 import CollapseItem from "./components/Collapse/collapse-item.vue"
 
+import Cascader from "./components/Cascader/cascader.vue"
+
 Vue.component('et-icon', Icon)
 Vue.component('et-button', Button)
 Vue.component('et-button-group', ButtonGroup)
@@ -49,6 +51,7 @@ Vue.component('et-tabs-pane', TabsPane)
 Vue.component('et-popover', Popover)
 Vue.component('et-collapse', Collapse)
 Vue.component('et-collapse-item', CollapseItem)
+Vue.component('et-cascader', Cascader)
 
 
 Vue.use(plugin)
