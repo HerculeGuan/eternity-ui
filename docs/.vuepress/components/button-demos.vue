@@ -4,24 +4,28 @@
     <et-button icon="setting">默认按钮</et-button>
     <et-button loading>默认按钮</et-button>
     <et-button disabled>默认按钮</et-button>
-    <pre><code>{{ content }}</code></pre>
+    <code-wrap :code="content"></code-wrap>
   </div>
 </template>
 
 <script>
 import Button from "../../../src/components/button/button";
+import CodeWrap from "../utils/code-wrap";
 
 export default {
   components: {
     "et-button": Button,
+    "code-wrap": CodeWrap,
   },
   data() {
     return {
       content: `
-    <et-button>默认按钮</et-button>
-    <et-button icon="settings">默认按钮</et-button>
-    <et-button loading>默认按钮</et-button>
-    <et-button disabled>默认按钮</et-button>
+    <template>
+      <et-button>默认按钮</et-button>
+      <et-button icon="settings">默认按钮</et-button>
+      <et-button loading>默认按钮</et-button>
+      <et-button disabled>默认按钮</et-button>
+    </template>
     `,
     };
   },

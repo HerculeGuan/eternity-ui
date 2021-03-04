@@ -3,6 +3,11 @@ module.exports = {
     title: 'Eternity UI',
     description: 'Vue UI 组件库',
     themeConfig: {
+        nav: [
+            { text: 'Home', link: '/' },
+            { text: 'Guide', link: '/guide/' },
+            { text: 'External', link: 'https://google.com' },
+        ],
         sidebar: [
             {
                 title: '开发指南',
@@ -28,10 +33,6 @@ module.exports = {
                 collapsable: false,
             }
         ],
-        nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Guide', link: '/guide/' },
-            { text: 'External', link: 'https://google.com' },
-        ]
+
     }
 }
