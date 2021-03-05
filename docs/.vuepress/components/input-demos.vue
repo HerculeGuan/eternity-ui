@@ -1,7 +1,7 @@
 <template>
   <div class="input-demos">
     <div class="code-example">
-      <h3>基础输入框</h3>
+      <h3>基础用法</h3>
       <div class="example button-example">
         <et-input v-model="input1" placeholder="请输入内容" />
       </div>
