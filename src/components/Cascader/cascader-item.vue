@@ -1,8 +1,9 @@
 <template>
+  <!-- 递归组件 -->
   <div class="cascader-item">
     {{ optionsItem.name }}
     <et-cascader-item
-      v-if="item.children"
+      v-if="optionsItem.children"
       v-for="item in optionsItem.children"
       :optionsItem="item"
     >
@@ -24,6 +25,6 @@ export default {
 <style lang="scss" scoped>
 .cascader-item {
   border: 1px solid red;
-  margin: 20px;
+  margin: 10px;
 }
 </style>
