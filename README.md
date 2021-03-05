@@ -8,49 +8,46 @@
 
 ## 开始使用
 
-1. CSS 样式
+#### 安装 eternity-ui
 
-   使用本框架前请在 CSS 中开启 border-box
+```
+npm i eternity-ui
+```
 
-   ```
-   *,*::before,*::after{box-sizing: border-box;}
-   ```
+#### 快速开始
 
-   IE 8 及以上浏览器都支持此样式
+```
+import {Button,ButtonGroup,Icon} from 'eternity-ui'
+import 'eternity-ui/dist/index.css'
 
-
-2. 安装 eternity-ui
-
-   ```
-   npm i eternity-ui
-   ```
-
-3. 引入 eternity-ui
-
-   ```
-   import {Button,ButtonGroup,Icon} from 'eternity-ui'
-   import 'eternity-ui/dist/index.css'
-
-   export default {
-      name: 'app',
-      components: {
-         HelloWorld,
-         'et-button': Button,
-         ...
-      }
+export default {
+   name: 'app',
+   components: {
+      HelloWorld,
+      'et-button': Button,
+      ...
    }
-   ```
+}
+```
 
+#### 文档
 
-IE 15 及以上浏览器都支持此样式
+[点击此处查看文档](https://herculeguan.github.io/vue-wheel/)
 
-## 文档
+#### 样式修改
 
+使用本框架前请在 CSS 中开启 border-box
 
-## 提问
+```
+*,*::before,*::after{box-sizing: border-box;}
+```
 
-## 变更记录
+#### 兼容性
 
-## 联系方式
+IE 8 及以上浏览器都支持此样式
 
-## 贡献记录
+#### 联系方式
+
+email: sherlock_guan@163.com
+
+#### 变更记录
