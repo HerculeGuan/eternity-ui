@@ -1,9 +1,6 @@
 import Vue from "vue";
 import Icon from "./components/Icon/icon.vue"
 
-import Button from "./components/Button/button.vue"
-import ButtonGroup from "./components/Button/button-group.vue"
-
 import Input from "./components/Input/input.vue"
 
 import Row from "./components/Layout/row.vue"
@@ -32,8 +29,6 @@ import CollapseItem from "./components/Collapse/collapse-item.vue"
 import Cascader from "./components/Cascader/cascader.vue"
 
 Vue.component('et-icon', Icon)
-Vue.component('et-button', Button)
-Vue.component('et-button-group', ButtonGroup)
 Vue.component('et-input', Input)
 Vue.component('et-row', Row)
 Vue.component('et-col', Col)
