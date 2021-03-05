@@ -1,7 +1,7 @@
 <template>
   <button
     class="button"
-    :class="[`icon-${iconPosition}`]"
+    :class="[`icon-${iconPosition}`, { [`bg-${type}`]: type }]"
     @click="$emit('click')"
   >
     <et-icon class="loading icon" v-if="loading" name="loading"></et-icon>
@@ -28,6 +28,12 @@ export default {
     loading: {
       type: Boolean,
       default: false,
+    },
+    type: {
+      type: String,
+      validator(value) {
+        return ["primary", "success", "warning", "danger"].indexOf(value) >= 0;
+      },
     },
   },
   components: {
@@ -59,6 +65,7 @@ export default {
   align-items: center;
   vertical-align: middle;
   cursor: pointer;
+
   &:hover {
     border-color: $border-color-hover;
   }
@@ -68,6 +75,7 @@ export default {
   &:focus {
     outline: none;
   }
+
   > .content {
     order: 2;
   }
@@ -88,6 +96,37 @@ export default {
   .loading {
     animation: circle 1s infinite linear;
     margin-right: 0.2em;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    border-color: $border-color;
+  }
+  $buttonType: primary, success, warning, danger;
+  @each $c in $buttonType {
+    &.bg-#{$c} {
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      &:hover,
+      &:disabled {
+        opacity: 0.8;
+      }
+      > svg {
+        fill: #fff;
+      }
+    }
+  }
+  &.bg-primary {
+    background-color: $primary-color;
+  }
+  &.bg-success {
+    background-color: $success-color;
+  }
+  &.bg-warning {
+    background-color: $warning-color;
+  }
+  &.bg-danger {
+    background-color: $danger-color;
   }
 }
 </style>

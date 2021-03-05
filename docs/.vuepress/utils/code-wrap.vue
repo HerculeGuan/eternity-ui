@@ -1,9 +1,12 @@
 <template>
-  <div class="code-wrap" v-highlight>
-    <pre><code>{{ formatCode }}</code></pre>
+  <div class="code-wrap">
+    <div class="tips" v-if="tips" v-html="tips"></div>
+    <div class="code" v-highlight>
+      <pre><code>{{ formatCode }}</code></pre>
+    </div>
   </div>
 </template>
-===
+
 <script>
 import hljs from "highlight.js";
 // import "highlight.js/styles/qtcreator_light.css";
@@ -18,6 +21,9 @@ export default {
     code: {
       type: String,
       required: true,
+    },
+    tips: {
+      type: String,
     },
   },
   computed: {
@@ -45,16 +51,24 @@ export default {
 .code-wrap {
   border: 1px solid #ebebeb;
   border-top: none;
-  padding: 20px;
   background-color: #fafafa;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  pre {
-    padding: 0;
-    margin: 0;
-    code {
-      color: #000;
-      background-color: #fafafa;
+  .tips {
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #fff;
+  }
+  .code {
+    padding: 20px;
+
+    pre {
+      padding: 0;
+      margin: 0;
+      code {
+        color: #000;
+        background-color: #fafafa;
+      }
     }
   }
 }
