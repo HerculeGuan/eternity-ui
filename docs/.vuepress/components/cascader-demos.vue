@@ -2,9 +2,8 @@
   <div>
     <div class="code-example">
       <h3>简单</h3>
-
       <div class="example">
-        <et-cascader :options="options"></et-cascader>
+        <et-cascader :options="options" :popover-height="100"></et-cascader>
       </div>
       <code-wrap :code="content1"></code-wrap>
       {{ options }}
@@ -90,3 +89,6 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+
+</style>

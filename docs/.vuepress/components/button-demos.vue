@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="button-demos">
     <div class="code-example">
       <h3>基础用法</h3>
       <div class="example button-example">
@@ -127,3 +127,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scope>
+.button-demos {
+  .button-example {
+    button {
+      margin-right: 20px;
+    }
+  }
+}
+</style>

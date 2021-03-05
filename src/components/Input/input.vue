@@ -4,6 +4,7 @@
       :value="value"
       :disabled="disabled"
       :readonly="readonly"
+      :placeholder="placeholder"
       @change="$emit('change', $event.target.value)"
       @input="$emit('input', $event.target.value)"
       @focus="$emit('focus', $event.target.value)"
@@ -28,6 +29,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    placeholder: {
+      type: [String, Number],
     },
     readonly: {
       type: Boolean,
@@ -78,7 +82,7 @@ export default {
       border-color: $border-color-hover;
     }
     &:focus {
-      box-shadow: inset 0 1px 2px $box-shadow-color;
+      box-shadow: inset 0 1px 2px #fff;
       outline: none;
     }
     &[disabled],

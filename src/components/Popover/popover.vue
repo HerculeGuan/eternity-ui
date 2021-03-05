@@ -153,7 +153,7 @@ export default {
   position: absolute;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  filter: drop-shadow(0 2px 12px rgba(0,0,0,.03));
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.03));
   background: #ffffff;
   padding: 0.5em 1em;
   max-width: 20em;

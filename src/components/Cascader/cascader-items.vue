@@ -1,6 +1,6 @@
 <template>
   <!-- 递归组件 -->
-  <div class="cascader-items">
+  <div class="cascader-items" :style="{ height: height + 'px' }">
     <div class="left">
       <div class="label" v-for="item in items" @click="leftSelected = item">
         {{ item.name }}
@@ -18,6 +18,9 @@ export default {
   props: {
     items: {
       type: Array,
+    },
+    height: {
+      type: [String, Number],
     },
   },
   data() {
@@ -46,8 +49,10 @@ export default {
   justify-content: flex-start;
   .left {
     border: 1px solid red;
+    height: 100%;
   }
   .right {
+    height: 100%;
   }
 }
 </style>
