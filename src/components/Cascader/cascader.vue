@@ -9,8 +9,9 @@
   </div>
 </template>
 
-<script>
+<script> 
 import CascaderItems from "./cascader-items";
+
 export default {
   name: "EtCascader",
   props: {

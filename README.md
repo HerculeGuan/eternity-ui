@@ -6,6 +6,10 @@
 
 使用 Vue.js 的 Web 端 UI 组件库 (持续更新中)
 
+## 文档
+
+[点击此处查看文档](https://herculeguan.github.io/vue-wheel/)
+
 ## 开始使用
 
 #### 安装 eternity-ui
@@ -30,11 +34,7 @@ export default {
 }
 ```
 
-#### 文档
-
-[点击此处查看文档](https://herculeguan.github.io/vue-wheel/)
-
-#### 样式修改
+#### 开启样式
 
 使用本框架前请在 CSS 中开启 border-box
 
@@ -42,12 +42,12 @@ export default {
 *,*::before,*::after{box-sizing: border-box;}
 ```
 
-#### 兼容性
+## 兼容性
 
 IE 8 及以上浏览器都支持此样式
 
-#### 联系方式
+## 联系方式
 
 email: sherlock_guan@163.com
 
-#### 变更记录
+## 变更记录
