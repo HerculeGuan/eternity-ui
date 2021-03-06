@@ -9,16 +9,16 @@ export default {
   name: "EtContainer",
   data() {
     return {
-      containerClass: { hasSider: false },
+      containerClass: { hasSider: false }
     };
   },
   mounted() {
-    this.$children.forEach((vm) => {
+    this.$children.forEach(vm => {
       if (vm.$options.name === "EtSider") {
         this.containerClass.hasSider = true;
       }
     });
-  },
+  }
 };
 </script>
 

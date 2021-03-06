@@ -2,7 +2,12 @@
   <!-- 递归组件 -->
   <div class="cascader-items" :style="{ height: height + 'px' }">
     <div class="left">
-      <div class="label" v-for="item in items" @click="leftSelected = item">
+      <div
+        class="label"
+        v-for="(item, index) in items"
+        :key="index"
+        @click="leftSelected = item"
+      >
         <span>{{ item.name }}</span>
         <et-icon name="right" v-if="item.children"></et-icon>
       </div>
@@ -19,15 +24,15 @@ export default {
   name: "EtCascaderItems",
   props: {
     items: {
-      type: Array,
+      type: Array
     },
     height: {
-      type: [String, Number],
-    },
+      type: [String, Number]
+    }
   },
   data() {
     return {
-      leftSelected: null,
+      leftSelected: null
     };
   },
   computed: {
@@ -37,11 +42,11 @@ export default {
       } else {
         return null;
       }
-    },
+    }
   },
   components: {
-    "et-icon": Icon,
-  },
+    "et-icon": Icon
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -65,7 +70,7 @@ export default {
     align-items: center;
     padding: 0.3em 1em;
     svg {
-      margin-left: .2em;
+      margin-left: 0.2em;
     }
   }
 }

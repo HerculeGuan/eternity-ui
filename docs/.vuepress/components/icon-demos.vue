@@ -6,7 +6,6 @@
         <et-icon name="setting"></et-icon>
       </div>
       <code-wrap :code="content" :tips="tips"></code-wrap>
-      {{ options }}
     </div>
   </div>
 </template>

@@ -9,34 +9,34 @@ export default {
   name: "EtRow",
   props: {
     gutter: {
-      type: [Number, String], 
+      type: [Number, String]
     },
     justify: {
       type: String,
       validator(value) {
         // return ["left", "center", "right"].includes(value);
         return ["left", "center", "right"].indexOf(value) >= 0;
-      },
-    },
+      }
+    }
   },
   computed: {
     rowStyle() {
       let { gutter } = this;
       return {
         marginLeft: -gutter / 2 + "px",
-        marginRight: -gutter / 2 + "px",
+        marginRight: -gutter / 2 + "px"
       };
     },
     rowClass() {
       let { justify } = this;
       return [justify && `justify-${justify}`];
-    },
+    }
   },
   mounted() {
-    this.$children.forEach((vm) => {
+    this.$children.forEach(vm => {
       vm.gutter = this.gutter;
     });
-  },
+  }
 };
 </script>
 

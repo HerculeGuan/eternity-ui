@@ -11,17 +11,17 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
       open: false,
-      accordion: false,
+      accordion: false
     };
   },
   methods: {
@@ -31,18 +31,18 @@ export default {
       } else {
         this.eventBus.$emit("update:addSelected", this.name);
       }
-    },
+    }
   },
   inject: ["eventBus"],
   mounted() {
-    this.eventBus.$on("update:selected", (names) => {
+    this.eventBus.$on("update:selected", names => {
       if (names.indexOf(this.name) >= 0) {
         this.open = true;
       } else {
         this.open = false;
       }
     });
-  },
+  }
 };
 </script>
 

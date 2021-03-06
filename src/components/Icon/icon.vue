@@ -8,9 +8,9 @@ export default {
   name: "EtIcon",
   props: {
     name: {
-      type: String,
-    },
-  },
+      type: String
+    }
+  }
 };
 </script>
 

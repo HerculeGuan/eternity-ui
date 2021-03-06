@@ -24,7 +24,7 @@ export default {
       default: 5,
       validator(value) {
         return value === false || typeof value === "number";
-      },
+      }
     },
 
     closeButton: {
@@ -32,13 +32,13 @@ export default {
       default() {
         return {
           text: "关闭",
-          callback: undefined,
+          callback: undefined
         };
-      },
+      }
     },
     enableHtml: {
       type: Boolean,
-      default: false,
+      default: false
     },
     position: {
       type: String,
@@ -46,8 +46,8 @@ export default {
       validator(value) {
         // return ["top", "middle", "bottom"].includes(value);
         return ["top", "middle", "bottom"].indexOf(value) >= 0;
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.updateStyle();
@@ -56,7 +56,7 @@ export default {
   computed: {
     toastClasses() {
       return [`position-${this.position}`];
-    },
+    }
   },
   methods: {
     execAutoClose() {
@@ -83,8 +83,8 @@ export default {
       if (this.closeButton && typeof this.closeButton.callback === "function") {
         this.closeButton.callback(this);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

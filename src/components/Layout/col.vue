@@ -5,10 +5,10 @@
 </template>
 
 <script>
-let validator = (value) => {
+let validator = value => {
   let keys = Object.keys(value);
   let valid = true;
-  keys.forEach((key) => {
+  keys.forEach(key => {
     if (!["span", "offset"].includes(key)) {
       valid = false;
     }
@@ -19,31 +19,31 @@ export default {
   name: "EtCol",
   props: {
     span: {
-      type: [Number, String],
+      type: [Number, String]
     },
     offset: {
-      type: [Number, String],
+      type: [Number, String]
     },
     ipad: {
       type: Object,
-      validator,
+      validator
     },
     narrowPc: {
       type: Object,
-      validator,
+      validator
     },
     pc: {
       type: Object,
-      validator,
+      validator
     },
     widePc: {
       type: Object,
-      validator,
-    },
+      validator
+    }
   },
   data() {
     return {
-      gutter: 0,
+      gutter: 0
     };
   },
   methods: {
@@ -59,17 +59,17 @@ export default {
         array.push(`offset-${str}${obj.offset}`);
       }
       return array;
-    },
+    }
   },
   computed: {
     colClass() {
-      let { span, offset, ipad, narrowPc, pc, widePc,createClasses } = this;
+      let { span, offset, ipad, narrowPc, pc, widePc, createClasses } = this;
       return [
         ...createClasses({ span, offset }),
         ...createClasses(ipad, "ipad-"),
         ...createClasses(narrowPc, "narrow-pc-"),
         ...createClasses(pc, "pc-"),
-        ...createClasses(widePc, "wide-pc-"),
+        ...createClasses(widePc, "wide-pc-")
       ];
       //   return [
       //     span && `col-${span}`,
@@ -83,10 +83,10 @@ export default {
     colStyle() {
       return {
         paddingLeft: this.gutter / 2 + "px",
-        paddingRight: this.gutter / 2 + "px",
+        paddingRight: this.gutter / 2 + "px"
       };
-    },
-  },
+    }
+  }
 };
 </script>
 

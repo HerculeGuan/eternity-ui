@@ -15,7 +15,7 @@ export default {
         console.warn(`et-button-group的子元素应该全是button,但你写的是${name}`);
       }
     }
-  },
+  }
 };
 </script>
 

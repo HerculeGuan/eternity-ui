@@ -20,21 +20,21 @@ export default {
   name: "EtCascader",
   props: {
     options: {
-      type: Array,
+      type: Array
     },
     popoverHeight: {
       type: [String, Number],
-      default: "100",
-    },
+      default: "100"
+    }
   },
   data() {
     return {
-      popoverVisible: false,
+      popoverVisible: false
     };
   },
   components: {
-    "et-cascader-items": CascaderItems,
-  },
+    "et-cascader-items": CascaderItems
+  }
 };
 </script>
 

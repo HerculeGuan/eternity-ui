@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "EtSider",
+  name: "EtSider"
 };
 </script>
 

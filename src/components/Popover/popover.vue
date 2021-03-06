@@ -19,7 +19,7 @@ export default {
   name: "EtPopover",
   data() {
     return {
-      visible: false,
+      visible: false
     };
   },
   computed: {
@@ -36,7 +36,7 @@ export default {
       } else {
         return "mouseleave";
       }
-    },
+    }
   },
   props: {
     position: {
@@ -44,15 +44,15 @@ export default {
       default: "top",
       validator(value) {
         return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
-      },
+      }
     },
     trigger: {
       type: String,
       default: "click",
       validator(value) {
         return ["click", "hover"].indexOf(value) >= 0;
-      },
-    },
+      }
+    }
   },
   mounted() {
     if (this.trigger === "click") {
@@ -75,25 +75,30 @@ export default {
       // 表驱动编程
       const { contentWrapper, triggerWrapper } = this.$refs;
       document.body.appendChild(contentWrapper);
-      const { top, left, height, width } = triggerWrapper.getBoundingClientRect();
+      const {
+        top,
+        left,
+        height,
+        width
+      } = triggerWrapper.getBoundingClientRect();
       const { height: height2 } = contentWrapper.getBoundingClientRect();
       let positions = {
         top: {
           left: left + window.scrollX,
-          top: top + window.scrollY,
+          top: top + window.scrollY
         },
         bottom: {
           left: left + window.scrollX,
-          top: top + height + window.scrollY,
+          top: top + height + window.scrollY
         },
         left: {
           left: left + window.scrollX,
-          top: top + window.scrollY + (height - height2) / 2,
+          top: top + window.scrollY + (height - height2) / 2
         },
         right: {
           left: left + width + window.scrollX,
-          top: top + window.scrollY + (height - height2) / 2,
-        },
+          top: top + window.scrollY + (height - height2) / 2
+        }
       };
       contentWrapper.style.left = positions[this.position].left + "px";
       contentWrapper.style.top = positions[this.position].top + "px";
@@ -101,7 +106,8 @@ export default {
     onClickDocument(e) {
       if (
         this.$refs.popover &&
-        (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))
+        (this.$refs.popover === e.target ||
+          this.$refs.popover.contains(e.target))
       ) {
         return;
       }
@@ -133,8 +139,8 @@ export default {
           this.open();
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

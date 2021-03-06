@@ -23,22 +23,22 @@ export default {
       default: "left",
       validator(value) {
         return value === "left" || value === "right";
-      },
+      }
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     type: {
       type: String,
       validator(value) {
         return ["primary", "success", "warning", "danger"].indexOf(value) >= 0;
-      },
-    },
+      }
+    }
   },
   components: {
-    "et-icon": Icon,
-  },
+    "et-icon": Icon
+  }
 };
 </script>
 

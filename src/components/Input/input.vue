@@ -24,29 +24,29 @@ export default {
   name: "EtInput",
   props: {
     value: {
-      type: String,
+      type: String
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     placeholder: {
-      type: [String, Number],
+      type: [String, Number]
     },
     readonly: {
       type: Boolean,
-      default: false,
+      default: false
     },
     error: {
-      type: String,
-    },
+      type: String
+    }
   },
   data() {
     return {};
   },
   components: {
-    "et-icon": Icon,
-  },
+    "et-icon": Icon
+  }
 };
 </script>
 

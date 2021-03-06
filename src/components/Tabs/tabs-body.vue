@@ -8,13 +8,11 @@
 export default {
   name: "EtTabsBody",
   inject: ["eventBus"],
-  created() {
-
-  },
+  created() {}
 };
 </script>
 
 <style lang="scss" scoped>
-.tabs-body {
-}
+// .tabs-body {
+// }
 </style>

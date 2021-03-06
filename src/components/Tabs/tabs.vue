@@ -9,24 +9,24 @@ export default {
   props: {
     selected: {
       type: String,
-      required: true,
+      required: true
     },
     direction: {
       type: String,
       default: "horizontal",
       validator(value) {
         return ["horizontal", "vertical"].indexOf(value) >= 0;
-      },
-    },
+      }
+    }
   },
   data() {
     return {
-      eventBus: new Vue(),
+      eventBus: new Vue()
     };
   },
   provide() {
     return {
-      eventBus: this.eventBus,
+      eventBus: this.eventBus
     };
   },
   methods: {
@@ -39,9 +39,9 @@ export default {
       }
     },
     selectTab() {
-      this.$children.forEach((vm) => {
+      this.$children.forEach(vm => {
         if (vm.$options.name === "EtTabsHead") {
-          vm.$children.forEach((childVm) => {
+          vm.$children.forEach(childVm => {
             if (
               childVm.$options.name === "EtTabsItem" &&
               childVm.name === this.selected
@@ -51,12 +51,12 @@ export default {
           });
         }
       });
-    },
+    }
   },
   mounted() {
     this.checkChildren();
     this.selectTab();
-  },
+  }
 };
 </script>
 
