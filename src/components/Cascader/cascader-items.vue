@@ -3,7 +3,8 @@
   <div class="cascader-items" :style="{ height: height + 'px' }">
     <div class="left">
       <div class="label" v-for="item in items" @click="leftSelected = item">
-        {{ item.name }}
+        <span>{{ item.name }}</span>
+        <et-icon name="right" v-if="item.children"></et-icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import Icon from "../../../src/components/Icon/icon";
 export default {
   name: "EtCascaderItems",
   props: {
@@ -31,28 +33,40 @@ export default {
   computed: {
     rightItems() {
       if (this.leftSelected && this.leftSelected.children) {
-        console.log(this.leftSelected.children, "first");
         return this.leftSelected.children;
       } else {
-        console.log("second");
         return null;
       }
     },
   },
+  components: {
+    "et-icon": Icon,
+  },
 };
 </script>
-
 <style lang="scss" scoped>
+@import "../var";
+
 .cascader-items {
+  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   .left {
-    border: 1px solid red;
     height: 100%;
+    padding: 0.3em 0;
   }
   .right {
     height: 100%;
+    border-left: 1px solid $border-color-light;
+  }
+  .label {
+    display: flex;
+    align-items: center;
+    padding: 0.3em 1em;
+    svg {
+      margin-left: .2em;
+    }
   }
 }
 </style>

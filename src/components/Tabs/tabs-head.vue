@@ -32,7 +32,7 @@ export default {
   > .line {
     position: absolute;
     bottom: 0;
-    border-bottom: 2px solid $blue;
+    border-bottom: 2px solid $primary-color;
     transition: all 450ms;
   }
   > .actions-wrapper {

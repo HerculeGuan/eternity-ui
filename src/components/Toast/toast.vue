@@ -154,7 +154,7 @@ export default {
     align-items: center;
     color: white;
     background: $toast-bg;
-    border-radius: $toast-border-radius;
+    border-radius: $border-radius;
     box-shadow: 0 0 3 0 rgba(0, 0, 0, 0.5);
     padding: 0 16px;
     .message {

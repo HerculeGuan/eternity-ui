@@ -41,6 +41,7 @@ export default {
 <style lang="scss" scoped>
 @import "../var";
 .cascader {
+  font-size: $font-size;
   position: relative;
   .trigger {
     border: 1px solid red;
@@ -51,9 +52,9 @@ export default {
     position: absolute;
     top: 100%;
     left: 0;
-    border: 1px solid red;
     display: flex;
     background-color: #fff;
+    @extend .box-shadow;
   }
 }
 </style>

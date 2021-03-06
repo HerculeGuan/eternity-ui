@@ -59,7 +59,7 @@ export default {
   align-items: center;
 
   &.active {
-    color: $blue;
+    color: $primary-color;
   }
   &.disabled {
     color: $disabled-color;

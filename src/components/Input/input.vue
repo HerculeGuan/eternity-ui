@@ -62,17 +62,17 @@ export default {
   }
   &.error {
     > input {
-      border-color: $red;
+      border-color: $danger-color;
       &:hover {
-        border-color: $error-red;
+        border-color: $danger-red-hover;
       }
     }
   }
   .icon-error {
-    fill: $red;
+    fill: $danger-color;
   }
   .error-msg {
-    color: $red;
+    color: $danger-color;
   }
   > input {
     height: 32px;
