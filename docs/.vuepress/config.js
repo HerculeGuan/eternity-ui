@@ -1,3 +1,4 @@
+const path = require('path')
 module.exports = {
     base: '/vue-wheel/',
     title: 'Eternity UI',
