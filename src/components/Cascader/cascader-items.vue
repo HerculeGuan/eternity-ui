@@ -6,14 +6,21 @@
         class="label"
         v-for="(item, index) in items"
         :key="index"
-        @click="leftSelected = item"
+        @click="onClickLabel(item)"
       >
         <span>{{ item.name }}</span>
         <et-icon name="right" v-if="item.children"></et-icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <et-cascader-items :items="rightItems"> </et-cascader-items>
+      <et-cascader-items
+        :level="level + 1"
+        :items="rightItems"
+        :height="height"
+        :selected="selected"
+        @update:selected="onUpdateSelected"
+      >
+      </et-cascader-items>
     </div>
   </div>
 </template>
@@ -24,36 +31,55 @@ export default {
   name: "EtCascaderItems",
   props: {
     items: {
-      type: Array
+      type: Array,
     },
     height: {
-      type: [String, Number]
-    }
+      type: [String, Number],
+    },
+    selected: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+    level: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
-    return {
-      leftSelected: null
-    };
+    return {};
+  },
+  methods: {
+    onClickLabel(item) {
+      let copy = JSON.parse(JSON.stringify(this.selected));
+      copy[this.level] = item;
+      this.$emit("update:selected", copy);
+    },
+    onUpdateSelected(newSelected) {
+      this.$emit("update:selected", newSelected);
+    },
   },
   computed: {
     rightItems() {
-      if (this.leftSelected && this.leftSelected.children) {
-        return this.leftSelected.children;
+      let currentSelected = this.selected[this.level];
+      if (currentSelected && currentSelected.children) {
+        return currentSelected.children;
       } else {
         return null;
       }
-    }
+    },
   },
   components: {
-    "et-icon": Icon
-  }
+    "et-icon": Icon,
+  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>
 @import "../var";
 
 .cascader-items {
-  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -66,6 +92,7 @@ export default {
     border-left: 1px solid $border-color-light;
   }
   .label {
+    white-space: nowrap;
     display: flex;
     align-items: center;
     padding: 0.3em 1em;

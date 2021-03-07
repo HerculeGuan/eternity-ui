@@ -3,7 +3,11 @@
     <div class="code-example">
       <h3>简单</h3>
       <div class="example">
-        <et-cascader :options="options" :popover-height="200"></et-cascader>
+        <et-cascader
+          :options="options"
+          :popover-height="200"
+          :selected.sync="selected"
+        ></et-cascader>
       </div>
       <code-wrap :code="content1"></code-wrap>
       {{ options }}
@@ -23,6 +27,7 @@ export default {
   },
   data() {
     return {
+      selected: [],
       options: [
         {
           name: "河北省",
@@ -89,6 +94,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

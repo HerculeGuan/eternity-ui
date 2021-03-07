@@ -5,9 +5,11 @@
     </div>
     <div class="popover-wrapper" v-if="popoverVisible">
       <et-cascader-items
-        :items="options"
         class="popover"
+        :items="options"
+        :selected="selected"
         :height="popoverHeight"
+        @update:selected="onUpdateSelected"
       ></et-cascader-items>
     </div>
   </div>
@@ -20,21 +22,33 @@ export default {
   name: "EtCascader",
   props: {
     options: {
-      type: Array
+      type: Array,
     },
     popoverHeight: {
       type: [String, Number],
-      default: "100"
-    }
+      default: "100",
+    },
+    selected: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
   },
   data() {
     return {
-      popoverVisible: false
+      popoverVisible: false,
     };
   },
+  methods: {
+    // 单向数据流 从顶层更新所有数据
+    onUpdateSelected(newSelected) {
+      this.$emit("update:selected", newSelected);
+    },
+  },
   components: {
-    "et-cascader-items": CascaderItems
-  }
+    "et-cascader-items": CascaderItems,
+  },
 };
 </script>
 
