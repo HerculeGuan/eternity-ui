@@ -55,7 +55,7 @@ export default {
 }
 .button {
   font-size: $font-size;
-  height: $button-height;
+  height: $height;
   padding: 0 0.8em;
   border-radius: $border-radius;
   border: 1px solid $border-color;
