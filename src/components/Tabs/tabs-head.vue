@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-head">
+  <div class="tabs-head" ref="head">
     <slot></slot>
     <div class="line" ref="line"></div>
     <div class="actions-wrapper"><slot name="actions"></slot></div>
@@ -13,10 +13,11 @@ export default {
   mounted() {
     this.eventBus.$on("update:selected", (name, vm) => {
       let { width, left } = vm.$el.getBoundingClientRect();
+      let { left: left2 } = this.$refs.head.getBoundingClientRect();
       this.$refs.line.style.width = `${width}px`;
-      this.$refs.line.style.left = `${left}px`;
+      this.$refs.line.style.left = `${left - left2}px`;
     });
-  }
+  },
 };
 </script>
 
@@ -33,7 +34,7 @@ export default {
     position: absolute;
     bottom: 0;
     border-bottom: 2px solid $primary-color;
-    transition: all 450ms;
+    transition: all 300ms;
   }
   > .actions-wrapper {
     margin-left: auto;
@@ -41,6 +42,9 @@ export default {
     align-items: center;
     justify-items: center;
     padding: 0 1em;
+  }
+  .tabs-item:not(:first-child) {
+    margin-left: 1em;
   }
 }
 </style>
