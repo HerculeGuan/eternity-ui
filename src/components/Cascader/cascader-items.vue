@@ -97,6 +97,7 @@ export default {
     display: flex;
     align-items: center;
     padding: 0.3em 1em;
+    cursor: pointer;
     svg {
       margin-left: 0.2em;
     }
