@@ -14,7 +14,7 @@ export default {
   },
   mounted() {
     this.$children.forEach(vm => {
-      if (vm.$options.name === "EtSider") {
+      if (vm.$options.name === "EtAside") {
         this.containerClass.hasSider = true;
       }
     });

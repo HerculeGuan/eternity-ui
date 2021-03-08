@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cascader-demos">
     <div class="code-example">
       <h3>简单</h3>
       <div class="example">
