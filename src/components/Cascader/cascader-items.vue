@@ -63,11 +63,13 @@ export default {
   },
   computed: {
     rightItems() {
-      let currentSelected = this.selected[this.level];
-      if (currentSelected && currentSelected.children) {
-        return currentSelected.children;
-      } else {
-        return null;
+      if (this.selected && this.selected[this.level]) {
+        let select = this.items.filter(
+          (item) => item.name === this.selected[this.level].name
+        )[0];
+        if (select && select.children && select.children.length > 0) {
+          return select.children;
+        }
       }
     },
   },
@@ -85,6 +87,7 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   .left {
+    min-width: 120px;
     height: 100%;
     padding: 0.3em 0;
     overflow: auto;
@@ -97,7 +100,8 @@ export default {
     white-space: nowrap;
     display: flex;
     align-items: center;
-    padding: 0.3em 1em;
+    padding: 0.3em 0.5em 0.3em 1.5em;
+    justify-content: space-between;
     cursor: pointer;
     svg {
       margin-left: 0.2em;

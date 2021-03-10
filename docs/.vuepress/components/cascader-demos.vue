@@ -4,13 +4,14 @@
       <h3>简单</h3>
       <div class="example">
         <et-cascader
-          :options="options"
+          :options.sync="options"
+          @update:options="updateOptions"
           :popover-height="200"
           :selected.sync="selected"
+          :load-data="loadData"
         ></et-cascader>
       </div>
       <code-wrap :code="content1"></code-wrap>
-      {{ options }}
     </div>
   </div>
 </template>
@@ -21,8 +22,13 @@ import CodeWrap from "../utils/code-wrap";
 import "../style/common.scss";
 import db from "../../../src/components/Cascader/db";
 
-function ajax(parentId = 0) {
-  return db.filter((item) => item.parent_id == parentId);
+function ajaxPromise(parentId = 0) {
+  return new Promise((success, fail) => {
+    setTimeout(() => {
+      let result = db.filter((item) => item.parent_id === parentId);
+      success(result);
+    }, 100);
+  });
 }
 
 export default {
@@ -30,10 +36,33 @@ export default {
     "et-cascader": Cascader,
     "code-wrap": CodeWrap,
   },
+  created() {
+    ajaxPromise(0).then((result) => {
+      this.options = result;
+    });
+  },
+  methods: {
+    loadData(node, callback) {
+      const { id } = node;
+      ajaxPromise(id).then((result) => {
+        // 回调:把别人传给我的函数调用一下
+        callback(result);
+      });
+    },
+    updateOptions() {},
+    xxx() {
+      ajaxPromise(this.selected[0].id).then((result) => {
+        let lastLevelChildren = this.options.filter(
+          (item) => item.id === this.selected[0].id
+        )[0];
+        this.$set(lastLevelChildren, "children", result);
+      });
+    },
+  },
   data() {
     return {
       selected: [],
-      options: ajax(),
+      options: [],
       // options: [
       //   {
       //     name: "河北省",
