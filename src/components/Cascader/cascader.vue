@@ -10,6 +10,7 @@
         :items="options"
         :selected="selected"
         :height="popoverHeight"
+        :loadData="loadData"
         @update:selected="onUpdateSelected"
       ></et-cascader-items>
     </div>
@@ -88,7 +89,9 @@ export default {
         toUpdate.children = result;
         this.$emit("update:options", copy);
       };
-      this.loadData(lastItem, updateSource);
+      if (!lastItem.isLeaf) {
+        this.loadData && this.loadData(lastItem, updateSource);
+      }
     },
   },
   computed: {

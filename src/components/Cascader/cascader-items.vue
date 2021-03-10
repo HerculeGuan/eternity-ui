@@ -9,7 +9,11 @@
         @click="onClickLabel(item)"
       >
         <span>{{ item.name }}</span>
-        <et-icon name="right" v-if="item.children"></et-icon>
+        <et-icon
+          class="icon"
+          name="right"
+          v-if="rightArrowVisible(item)"
+        ></et-icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
@@ -18,6 +22,7 @@
         :items="rightItems"
         :height="height"
         :selected="selected"
+        :loadData="loadData"
         @update:selected="onUpdateSelected"
       >
       </et-cascader-items>
@@ -46,6 +51,9 @@ export default {
       type: Number,
       default: 0,
     },
+    loadData: {
+      type: Function,
+    },
   },
   data() {
     return {};
@@ -59,6 +67,9 @@ export default {
     },
     onUpdateSelected(newSelected) {
       this.$emit("update:selected", newSelected);
+    },
+    rightArrowVisible(item) {
+      return this.loadData ? !item.isLeaf : item.children;
     },
   },
   computed: {
@@ -100,11 +111,15 @@ export default {
     white-space: nowrap;
     display: flex;
     align-items: center;
-    padding: 0.3em 0.5em 0.3em 1.5em;
+    padding: 0.5em 1em 0.5em 1.5em;
     justify-content: space-between;
+    user-select: none;
     cursor: pointer;
-    svg {
+    .icon {
       margin-left: 0.2em;
+    }
+    &:hover {
+      background-color: $grey-light;
     }
   }
 }
