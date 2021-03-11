@@ -4,6 +4,9 @@
     <div class="left">
       <div
         class="label"
+        :class="{
+          active: item.name === (selected[level] && selected[level].name),
+        }"
         v-for="(item, index) in items"
         :key="index"
         @click="onClickLabel(item)"
@@ -123,6 +126,12 @@ export default {
     justify-content: space-between;
     user-select: none;
     cursor: pointer;
+    &.active {
+      background-color: $grey-light;
+      color: $primary-color;
+      font-weight: bold;
+      fill: $primary-color;
+    }
     .icons {
       display: flex;
       align-items: center;

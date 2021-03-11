@@ -11,6 +11,7 @@
       </div>
       <code-wrap :code="content1"></code-wrap>
     </div>
+    {{selected1}}
 
     <div class="code-example">
       <h3>动态加载</h3>
