@@ -9,11 +9,14 @@
         @click="onClickLabel(item)"
       >
         <span>{{ item.name }}</span>
-        <et-icon
-          class="icon"
-          name="right"
-          v-if="rightArrowVisible(item)"
-        ></et-icon>
+        <span class="icons">
+          <template v-if="loadingItem.name === item.name">
+            <et-icon class="loading" name="loading"></et-icon
+          ></template>
+          <template v-else>
+            <et-icon name="right" v-if="rightArrowVisible(item)"></et-icon>
+          </template>
+        </span>
       </div>
     </div>
     <div class="right" v-if="rightItems">
@@ -22,7 +25,8 @@
         :items="rightItems"
         :height="height"
         :selected="selected"
-        :loadData="loadData"
+        :load-data="loadData"
+        :loading-item="loadingItem"
         @update:selected="onUpdateSelected"
       >
       </et-cascader-items>
@@ -53,6 +57,10 @@ export default {
     },
     loadData: {
       type: Function,
+    },
+    loadingItem: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {
@@ -115,8 +123,15 @@ export default {
     justify-content: space-between;
     user-select: none;
     cursor: pointer;
-    .icon {
-      margin-left: 0.2em;
+    .icons {
+      display: flex;
+      align-items: center;
+      svg {
+        margin-left: 0.2em;
+      }
+      .loading {
+        animation: spin 1s infinite linear;
+      }
     }
     &:hover {
       background-color: $grey-light;

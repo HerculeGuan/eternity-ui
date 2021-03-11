@@ -17,7 +17,6 @@
       <div class="example">
         <et-cascader
           :options.sync="options2"
-          @update:options="updateOptions"
           :popover-height="200"
           :selected.sync="selected2"
           :load-data="loadData"
@@ -67,7 +66,6 @@ export default {
         callback(result);
       });
     },
-    updateOptions() {},
   },
   // destroyed() {
   //   removeListener();

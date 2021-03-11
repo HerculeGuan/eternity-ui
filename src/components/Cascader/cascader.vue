@@ -11,7 +11,8 @@
         :items="options"
         :selected="selected"
         :height="popoverHeight"
-        :loadData="loadData"
+        :load-data="loadData"
+        :loading-item="loadingItem"
         @update:selected="onUpdateSelected"
       ></et-cascader-items>
     </div>
@@ -47,6 +48,7 @@ export default {
   data() {
     return {
       popoverVisible: false,
+      loadingItem: {},
     };
   },
   methods: {
@@ -88,13 +90,15 @@ export default {
       };
 
       let updateSource = (result) => {
+        this.loadingItem = {};
         let copy = JSON.parse(JSON.stringify(this.options));
         let toUpdate = complex(copy, lastItem.id);
         toUpdate.children = result;
         this.$emit("update:options", copy);
       };
-      if (!lastItem.isLeaf) {
+      if (!lastItem.isLeaf && this.loadData) {
         this.loadData && this.loadData(lastItem, updateSource);
+        this.loadingItem = lastItem;
       }
     },
     toggle() {
@@ -126,7 +130,7 @@ export default {
   },
   computed: {
     result() {
-      return this.selected.map((item) => item.name).join("/");
+      return this.selected.map((item) => item.name).join(" / ");
     },
   },
   components: {

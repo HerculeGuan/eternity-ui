@@ -45,14 +45,6 @@ export default {
 <style lang="scss" scoped>
 @import "../var";
 
-@keyframes circle {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 .button {
   font-size: $font-size;
   height: $height;
@@ -94,7 +86,7 @@ export default {
     }
   }
   .loading {
-    animation: circle 1s infinite linear;
+    animation: spin 1s infinite linear;
     margin-right: 0.2em;
   }
   &:disabled {
