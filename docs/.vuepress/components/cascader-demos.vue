@@ -11,7 +11,7 @@
       </div>
       <code-wrap :code="content1"></code-wrap>
     </div>
-    
+
     <div class="code-example">
       <h3>动态加载</h3>
       <div class="example">
@@ -33,6 +33,7 @@ import Cascader from "../../../src/components/Cascader/cascader";
 import CodeWrap from "../utils/code-wrap";
 import "../style/common.scss";
 import db from "../../../src/components/Cascader/db";
+// import { removeListener } from "../../../src/directive/click-outside";
 
 function ajaxPromise(parentId = 0) {
   return new Promise((success, fail) => {
@@ -68,6 +69,9 @@ export default {
     },
     updateOptions() {},
   },
+  // destroyed() {
+  //   removeListener();
+  // },
   data() {
     return {
       selected1: [],

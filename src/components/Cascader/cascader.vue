@@ -1,5 +1,6 @@
 <template>
   <div class="cascader" ref="cascader">
+    <!-- <div class="cascader" ref="cascader" v-click-outside="close"> -->
     <div class="trigger" @click="toggle">
       {{ result || "&nbsp;" }}
       <slot></slot>
@@ -19,7 +20,7 @@
 
 <script>
 import CascaderItems from "./cascader-items";
-
+import ClickOutside from "../../directive/click-outside";
 export default {
   name: "EtCascader",
   props: {
@@ -39,6 +40,9 @@ export default {
     loadData: {
       type: Function,
     },
+  },
+  directives: {
+    clickOutside: ClickOutside,
   },
   data() {
     return {
