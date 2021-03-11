@@ -28,7 +28,6 @@ describe("Button", () => {
         loading: true,
       },
     });
-    const vm = wrapper.vm;
     const useElements = wrapper.findAll("use");
     expect(useElements.length).to.equal(1);
     expect(useElements.at(0).attributes("href")).to.equal("#i-loading");
@@ -69,7 +68,7 @@ describe("Button", () => {
 
     const callback = sinon.fake();
     vm.$on("click", callback);
-    vm.$el.click();
+    wrapper.trigger("click");
     expect(callback).to.have.been.called;
   });
 });
