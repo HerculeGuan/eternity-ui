@@ -1,6 +1,6 @@
 <template>
-  <div class="cascader">
-    <div class="trigger" @click="popoverVisible = !popoverVisible">
+  <div class="cascader" ref="cascader">
+    <div class="trigger" @click="toggle">
       {{ result || "&nbsp;" }}
       <slot></slot>
     </div>
@@ -93,6 +93,32 @@ export default {
         this.loadData && this.loadData(lastItem, updateSource);
       }
     },
+    toggle() {
+      if (this.popoverVisible === true) {
+        this.close();
+      } else {
+        this.open();
+      }
+    },
+    open() {
+      this.popoverVisible = true;
+      this.$nextTick(() => {
+        document.addEventListener("click", this.onClickDocument);
+      });
+    },
+    close() {
+      this.popoverVisible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+    onClickDocument(e) {
+      if (
+        e.target === this.$refs.cascader ||
+        this.$refs.cascader.contains(e.target)
+      ) {
+        return;
+      }
+      this.close();
+    },
   },
   computed: {
     result() {
@@ -108,6 +134,7 @@ export default {
 <style lang="scss" scoped>
 @import "../var";
 .cascader {
+  display: inline-block;
   font-size: $font-size;
   position: relative;
   .trigger {
@@ -127,6 +154,7 @@ export default {
     display: flex;
     background-color: #fff;
     margin-top: 8px;
+    z-index: 1;
     @extend .box-shadow;
   }
 }
