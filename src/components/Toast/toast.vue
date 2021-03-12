@@ -8,7 +8,7 @@
       <template v-if="closeButton">
         <div class="line" ref="line"></div>
         <span class="close" @click="onClickClose">{{
-          closeButton.text
+          closeButton.text || "关闭"
         }}</span></template
       >
     </div>
@@ -16,6 +16,10 @@
 </template>
 
 <script>
+import Vue from "vue";
+import plugin from "../../plugin";
+Vue.use(plugin);
+
 export default {
   name: "EtToast",
   props: {
@@ -24,21 +28,15 @@ export default {
       default: 5,
       validator(value) {
         return value === false || typeof value === "number";
-      }
+      },
     },
 
     closeButton: {
       type: Object,
-      default() {
-        return {
-          text: "关闭",
-          callback: undefined
-        };
-      }
     },
     enableHtml: {
       type: Boolean,
-      default: false
+      default: false,
     },
     position: {
       type: String,
@@ -46,8 +44,8 @@ export default {
       validator(value) {
         // return ["top", "middle", "bottom"].includes(value);
         return ["top", "middle", "bottom"].indexOf(value) >= 0;
-      }
-    }
+      },
+    },
   },
   mounted() {
     this.updateStyle();
@@ -56,7 +54,7 @@ export default {
   computed: {
     toastClasses() {
       return [`position-${this.position}`];
-    }
+    },
   },
   methods: {
     execAutoClose() {
@@ -67,11 +65,13 @@ export default {
       }
     },
     updateStyle() {
-      this.$nextTick(() => {
-        this.$refs.line.style.height = `${
-          this.$refs.toast.getBoundingClientRect().height
-        }px`;
-      });
+      if (this.closeButton) {
+        this.$nextTick(() => {
+          this.$refs.line.style.height = `${
+            this.$refs.toast.getBoundingClientRect().height
+          }px`;
+        });
+      }
     },
     close() {
       this.$el.remove();
@@ -83,8 +83,8 @@ export default {
       if (this.closeButton && typeof this.closeButton.callback === "function") {
         this.closeButton.callback(this);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -120,6 +120,7 @@ export default {
   }
 }
 .wrapper {
+  z-index: 100;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
