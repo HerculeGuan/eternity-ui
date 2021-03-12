@@ -1,6 +1,8 @@
-import { expect } from "chai";
+import chai, { expect } from "chai";
 import sinon from "sinon";
+import sinonChai from "sinon-chai";
 import { mount } from "@vue/test-utils";
+chai.use(sinonChai);
 
 import Toast from "@/components/Toast/toast";
 
