@@ -40,8 +40,7 @@ describe("Button", () => {
         icon: "setting",
       },
     });
-    const vm = wrapper.vm;
-    const icon = vm.$el.querySelector("svg");
+    const icon = wrapper.find("svg");
     expect(getComputedStyle(icon).order).to.eq("1");
   });
 
@@ -53,8 +52,7 @@ describe("Button", () => {
         iconPosition: "right",
       },
     });
-    const vm = wrapper.vm;
-    const icon = vm.$el.querySelector("svg");
+    const icon = wrapper.find("svg");
     expect(getComputedStyle(icon).order).to.eq("2");
   });
 
@@ -64,10 +62,8 @@ describe("Button", () => {
         icon: "setting",
       },
     });
-    const vm = wrapper.vm;
-
     const callback = sinon.fake();
-    vm.$on("click", callback);
+    wrapper.vm.$on("click", callback);
     wrapper.trigger("click");
     expect(callback).to.have.been.called;
   });

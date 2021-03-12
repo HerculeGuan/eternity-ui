@@ -1,4 +1,4 @@
-import chai, { expect } from "chai";
+import { expect } from "chai";
 import { mount } from "@vue/test-utils";
 
 import Col from "@/components/Layout/col";
@@ -8,94 +8,61 @@ describe("Col", () => {
     expect(Col).to.exist;
   });
 
-//   it("接收 span 属性", () => {
-//     const wrapper = mount(Col, {
-//         propsData: {
-//             span: 1,
-//           },
-//       });
+  it("接收 span 属性", () => {
+    const wrapper = mount(Col, {
+      propsData: {
+        span: 1,
+      },
+    });
+    expect(wrapper.classes()).include("col-1");
+  });
 
-//     const element = vm.$el;
-//     expect(vm.$el.classList.contains("col-1")).to.equal(true);
-//     vm.$el.remove();
-//     vm.$destroy();
-//   });
+  it("接收 offset 属性", () => {
+    const wrapper = mount(Col, {
+      propsData: {
+        offset: 1,
+      },
+    });
+    expect(wrapper.classes()).include("offset-1");
+  });
 
-//   it("接收 offset 属性", () => {
-//     const div = document.createElement("div");
-//     document.body.appendChild(div);
-//     const Constructor = Vue.extend(Col);
-//     const vm = new Constructor({
-//       propsData: {
-//         offset: 1,
-//       },
-//     }).$mount(div);
-//     const element = vm.$el;
-//     expect(vm.$el.classList.contains("offset-1")).to.equal(true);
-//     vm.$el.remove();
-//     vm.$destroy();
-//   });
+  it("接收 ipad 属性", () => {
+    const wrapper = mount(Col, {
+      propsData: {
+        ipad: { span: 1, offset: 2 },
+      },
+    });
+    expect(wrapper.classes()).include("col-ipad-1");
+    expect(wrapper.classes()).include("offset-ipad-2");
+  });
 
-//   it("接收 ipad 属性", () => {
-//     const div = document.createElement("div");
-//     document.body.appendChild(div);
-//     const Constructor = Vue.extend(Col);
-//     const vm = new Constructor({
-//       propsData: {
-//         ipad: { span: 1, offset: 2 },
-//       },
-//     }).$mount(div);
-//     const element = vm.$el;
-//     expect(vm.$el.classList.contains("col-ipad-1")).to.equal(true);
-//     expect(vm.$el.classList.contains("offset-ipad-2")).to.equal(true);
-//     vm.$el.remove();
-//     vm.$destroy();
-//   });
+  it("接收 narrow-pc 属性", () => {
+    const wrapper = mount(Col, {
+      propsData: {
+        narrowPc: { span: 1, offset: 2 },
+      },
+    });
+    expect(wrapper.classes()).include("col-narrow-pc-1");
+    expect(wrapper.classes()).include("offset-narrow-pc-2");
+  });
 
-//   it("接收 narrow-pc 属性", () => {
-//     const div = document.createElement("div");
-//     document.body.appendChild(div);
-//     const Constructor = Vue.extend(Col);
-//     const vm = new Constructor({
-//       propsData: {
-//         narrowPc: { span: 1, offset: 2 },
-//       },
-//     }).$mount(div);
-//     const element = vm.$el;
-//     expect(vm.$el.classList.contains("col-narrow-pc-1")).to.equal(true);
-//     expect(vm.$el.classList.contains("offset-narrow-pc-2")).to.equal(true);
-//     vm.$el.remove();
-//     vm.$destroy();
-//   });
-  
-//   it("接收 pc 属性", () => {
-//     const div = document.createElement("div");
-//     document.body.appendChild(div);
-//     const Constructor = Vue.extend(Col);
-//     const vm = new Constructor({
-//       propsData: {
-//         pc: { span: 1, offset: 2 },
-//       },
-//     }).$mount(div);
-//     const element = vm.$el;
-//     expect(vm.$el.classList.contains("col-pc-1")).to.equal(true);
-//     expect(vm.$el.classList.contains("offset-pc-2")).to.equal(true);
-//     vm.$el.remove();
-//     vm.$destroy();
-//   });
-//   it("接收 wide-pc 属性", () => {
-//     const div = document.createElement("div");
-//     document.body.appendChild(div);
-//     const Constructor = Vue.extend(Col);
-//     const vm = new Constructor({
-//       propsData: {
-//         widePc: { span: 1, offset: 2 },
-//       },
-//     }).$mount(div);
-//     const element = vm.$el;
-//     expect(vm.$el.classList.contains("col-wide-pc-1")).to.equal(true);
-//     expect(vm.$el.classList.contains("offset-wide-pc-2")).to.equal(true);
-//     vm.$el.remove();
-//     vm.$destroy();
-//   });
+  it("接收 pc 属性", () => {
+    const wrapper = mount(Col, {
+      propsData: {
+        pc: { span: 1, offset: 2 },
+      },
+    });
+    expect(wrapper.classes()).include("col-pc-1");
+    expect(wrapper.classes()).include("offset-pc-2");
+  });
+
+  it("接收 wide-pc 属性", () => {
+    const wrapper = mount(Col, {
+      propsData: {
+        widePc: { span: 1, offset: 2 },
+      },
+    });
+    expect(wrapper.classes()).include("col-wide-pc-1");
+    expect(wrapper.classes()).include("offset-wide-pc-2");
+  });
 });
