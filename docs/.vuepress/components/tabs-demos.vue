@@ -2,7 +2,7 @@
   <div class="tabs-demos">
     <div class="code-example">
       <h3>基础标签页</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-tabs :selected.sync="selectedTab1" @tab-click="tabClick">
           <et-tabs-head>
             <et-tabs-item name="first">财经新闻</et-tabs-item>
@@ -21,7 +21,7 @@
 
     <div class="code-example">
       <h3>禁用标签页</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-tabs :selected.sync="selectedTab2" @tab-click="tabClick">
           <et-tabs-head>
             <et-tabs-item name="first">财经新闻</et-tabs-item>
@@ -40,7 +40,7 @@
 
     <div class="code-example">
       <h3>自定义按钮</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-tabs :selected.sync="selectedTab3" @tab-click="tabClick">
           <et-tabs-head>
             <template slot="actions"

@@ -11,17 +11,17 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       open: false,
-      accordion: false
+      accordion: false,
     };
   },
   methods: {
@@ -31,18 +31,18 @@ export default {
       } else {
         this.eventBus.$emit("update:addSelected", this.name);
       }
-    }
+    },
   },
   inject: ["eventBus"],
   mounted() {
-    this.eventBus.$on("update:selected", names => {
+    this.eventBus.$on("update:selected", (names) => {
       if (names.indexOf(this.name) >= 0) {
         this.open = true;
       } else {
         this.open = false;
       }
     });
-  }
+  },
 };
 </script>
 
@@ -50,13 +50,15 @@ export default {
 @import "../var";
 
 .collapse-item {
+  font-size: $font-size;
   > .title {
     border: 1px solid $grey;
     margin: -1px;
     min-height: 32px;
     display: flex;
     align-items: center;
-    padding: 0 8px;
+    padding: 1em;
+    font-weight: bold;
     cursor: pointer;
   }
   &:first-child {
@@ -72,7 +74,7 @@ export default {
     }
   }
   > .content {
-    padding: 8px;
+    padding: 2em 1em;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="input-demos">
     <div class="code-example">
       <h3>基础用法</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-input v-model="input1" placeholder="请输入内容" />
       </div>
       <code-wrap :code="content1" :tips="tips1"></code-wrap>
@@ -10,7 +10,7 @@
 
     <div class="code-example">
       <h3>禁用输入框</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-input v-model="input2" placeholder="请输入内容" disabled />
       </div>
       <code-wrap :code="content2" :tips="tips2"></code-wrap>
@@ -18,7 +18,7 @@
 
     <div class="code-example">
       <h3>只读输入框</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-input v-model="input3" placeholder="请输入内容" readonly />
       </div>
       <code-wrap :code="content3" :tips="tips3"></code-wrap>
@@ -26,7 +26,7 @@
 
     <div class="code-example">
       <h3>报错输入框</h3>
-      <div class="example button-example">
+      <div class="example">
         <et-input v-model="input4" placeholder="请输入内容" error="报错了" />
       </div>
       <code-wrap :code="content4" :tips="tips4"></code-wrap>
