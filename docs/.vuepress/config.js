@@ -17,16 +17,17 @@ module.exports = {
       {
         title: "组件",
         children: [
-          "/components/icon",
-          "/components/button",
-          "/components/input",
-          "/components/layout",
-          "/components/container",
-          "/components/toast",
-          // '/components/popover',
-          "/components/tabs",
-          "/components/collapse",
-          "/components/cascader",
+          "/components/icon", //图标
+          "/components/button", //按钮
+          "/components/input", //输入框
+          "/components/layout", //布局
+          "/components/container", //容器
+          "/components/toast", //提示
+          // '/components/popover', //弹出层
+          "/components/tabs", //标签页
+          "/components/collapse", //折叠面板
+          "/components/cascader", //级联选择器
+          "/components/carousel", //轮播
         ],
         collapsable: false,
       },
