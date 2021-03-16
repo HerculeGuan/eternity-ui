@@ -3,14 +3,14 @@
     <div class="code-example">
       <h3>基础用法</h3>
       <div class="example">
-        <et-carousel :selected="selected">
-          <et-carousel-item name="1"
+        <et-carousel :selected.sync="selected">
+          <et-carousel-item name="first"
             ><div class="box">轮播1</div></et-carousel-item
           >
-          <et-carousel-item name="2"
+          <et-carousel-item name="second"
             ><div class="box">轮播2</div></et-carousel-item
           >
-          <et-carousel-item name="3"
+          <et-carousel-item name="third"
             ><div class="box">轮播3</div></et-carousel-item
           >
         </et-carousel>
@@ -35,30 +35,20 @@ export default {
   },
   data() {
     return {
-      selected: "1",
+      selected: "first",
       content1: "",
     };
   },
-  created() {
-    let n = 1;
-    setInterval(() => {
-      if (n === 4) {
-        n = 1;
-      }
-      this.selected = n.toString();
-      n++;
-    }, 2000);
-  },
+  created() {},
   methods: {},
 };
 </script>
 <style lang="scss" scoped>
 .carousel-demos {
   .box {
-    border: 1px solid red;
-    width: 200px;
-    height: 150px;
-    background: #ddd;
+    width: 100%;
+    height: 200px;
+    background: rgb(0, 162, 255);
   }
 }
 </style>

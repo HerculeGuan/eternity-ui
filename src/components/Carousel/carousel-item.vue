@@ -1,6 +1,6 @@
 <template>
   <transition name="carousel">
-    <div class="et-carousel-item" v-if="visible">
+    <div class="et-carousel-item" v-if="visible" :class="{ reverse }">
       <slot />
     </div>
   </transition>
@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       selected: undefined,
+      reverse: false,
     };
   },
   computed: {
@@ -35,13 +36,24 @@ export default {
 }
 .carousel-leave-active {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
 }
 .carousel-enter {
-  transform: translateX(100%);
+  opacity: 0;
+  transform: translateX(100%) scale(0.5);
+  &.reverse {
+    transform: translateX(-100%) scale(0.5);
+  }
 }
 .carousel-leave-to {
-  transform: translateX(-100%);
+  opacity: 0;
+  transform: scale(0.5);
+  transform: translateX(-100%) scale(0.5);
+  &.reverse {
+    transform: translateX(100%) scale(0.5);
+  }
 }
 </style>
