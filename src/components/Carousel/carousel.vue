@@ -12,16 +12,23 @@
       </div>
     </div>
     <div class="et-carousel-dots">
+      <span @click="clickPrevious">
+        <et-icon name="left"></et-icon>
+      </span>
       <span
         v-for="n in childrenLength"
         :class="{ active: n - 1 === selectedIndex }"
         @click="select(n - 1)"
       ></span>
+      <span @click="clickNext">
+        <et-icon name="right"></et-icon>
+      </span>
     </div>
   </div>
 </template>
 
 <script>
+import Icon from "../Icon/icon";
 export default {
   name: "EtCarousel",
   props: {
@@ -41,9 +48,12 @@ export default {
       startTouch: undefined,
     };
   },
+  components: {
+    "et-icon": Icon,
+  },
   methods: {
     getSelected() {
-      return this.selected || this.$children[0].name;
+      return this.selected || this.items[0].name;
     },
     onMouseEnter() {
       this.pause();
@@ -67,14 +77,20 @@ export default {
       let rate = distance / deltaY;
       if (rate > 2) {
         if (x2 > x1) {
-          this.select(this.selectedIndex - 1);
+          this.clickPrevious();
         } else {
-          this.select(this.selectedIndex + 1);
+          this.clickNext();
         }
       }
       this.$nextTick(() => {
         this.playAutomatically();
       });
+    },
+    clickPrevious() {
+      this.select(this.selectedIndex - 1);
+    },
+    clickNext() {
+      this.select(this.selectedIndex + 1);
     },
     playAutomatically() {
       if (this.timerId) {
@@ -96,7 +112,7 @@ export default {
     },
     updateChildren() {
       let selected = this.getSelected();
-      this.$children.forEach((vm) => {
+      this.items.forEach((vm) => {
         let reverse =
           this.selectedIndex > this.lastSelectedIndex ? false : true;
         if (
@@ -134,13 +150,18 @@ export default {
       return this.names.indexOf(this.getSelected()) || 0;
     },
     names() {
-      return this.$children.map((vm) => vm.name);
+      return this.items.map((vm) => vm.name);
+    },
+    items() {
+      return this.$children.filter(
+        (vm) => vm.$options.name === "EtCarouselItem"
+      );
     },
   },
   mounted() {
     this.updateChildren();
     this.playAutomatically();
-    this.childrenLength = this.$children.length;
+    this.childrenLength = this.items.length;
     this.lastSelectedIndex = this.selectedIndex;
   },
   updated() {
