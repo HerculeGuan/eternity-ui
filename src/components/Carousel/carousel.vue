@@ -14,8 +14,7 @@
         v-for="n in childrenLength"
         :class="{ active: n - 1 === selectedIndex }"
         @click="select(n - 1)"
-        >{{ n - 1 }}</span
-      >
+      ></span>
     </div>
   </div>
 </template>
@@ -56,18 +55,7 @@ export default {
       let run = () => {
         let index = this.names.indexOf(this.getSelected());
         this.timerId = setTimeout(() => {
-          if (index === this.names.length) {
-            index = 0;
-          }
-          this.select(index + 1);
-          index++;
-          run();
-        }, 1000);
-      };
-      let runReverse = () => {
-        let index = this.names.indexOf(this.getSelected());
-        this.timerId = setTimeout(() => {
-          let newIndex = index - 1;
+          let newIndex = index + 1;
           if (newIndex === -1) {
             newIndex = this.names.length - 1;
           }
@@ -75,10 +63,10 @@ export default {
             newIndex = 0;
           }
           this.select(newIndex);
-          runReverse();
+          run();
         }, 1000);
       };
-      runReverse();
+      run();
     },
     pause() {
       window.clearTimeout(this.timerId);
@@ -133,6 +121,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../var";
+
 .et-carousel {
   //   display: inline-block;
   &-window {
@@ -142,9 +132,22 @@ export default {
     position: relative;
   }
   &-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     > span {
+      cursor: pointer;
+      margin: 0.2em 0.5em;
+      display: inline-flex;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      background-color: $grey;
       &.active {
-        background-color: red;
+        background-color: $primary-color;
+        cursor: default;
       }
     }
   }
