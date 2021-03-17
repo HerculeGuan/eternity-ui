@@ -49,6 +49,11 @@ export default {
     width: 100%;
     height: 200px;
     background: rgb(0, 162, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
   }
 }
 </style>

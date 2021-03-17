@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .carousel-enter-active,
 .carousel-leave-active {
-  transition: all 1s;
+  transition: all .5s;
 }
 .carousel-leave-active {
   position: absolute;
