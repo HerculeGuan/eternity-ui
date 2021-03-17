@@ -3,6 +3,8 @@
     class="et-carousel"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
+    @touchstart="onTouchStart"
+    @touchend="onTouchEnd"
   >
     <div class="et-carousel-window">
       <div class="et-carousel-wrapper">
@@ -36,6 +38,7 @@ export default {
       childrenLength: 0,
       lastSelectedIndex: undefined,
       timerId: undefined,
+      startTouch: undefined,
     };
   },
   methods: {
@@ -48,6 +51,31 @@ export default {
     onMouseLeave() {
       this.playAutomatically();
     },
+    onTouchStart(e) {
+      this.pause();
+      if (e.touches.length > 1) {
+        return;
+      }
+      this.startTouch = e.touches[0];
+    },
+    onTouchEnd(e) {
+      let endTouch = e.changedTouches[0];
+      let { clientX: x1, clientY: y1 } = this.startTouch;
+      let { clientX: x2, clientY: y2 } = endTouch;
+      let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+      let deltaY = Math.abs(y2 - y1);
+      let rate = distance / deltaY;
+      if (rate > 2) {
+        if (x2 > x1) {
+          this.select(this.selectedIndex - 1);
+        } else {
+          this.select(this.selectedIndex + 1);
+        }
+      }
+      this.$nextTick(() => {
+        this.playAutomatically();
+      });
+    },
     playAutomatically() {
       if (this.timerId) {
         return;
@@ -55,13 +83,7 @@ export default {
       let run = () => {
         let index = this.names.indexOf(this.getSelected());
         this.timerId = setTimeout(() => {
-          let newIndex = index + 1;
-          if (newIndex === -1) {
-            newIndex = this.names.length - 1;
-          }
-          if (newIndex === this.names.length) {
-            newIndex = 0;
-          }
+          let newIndex = index - 1;
           this.select(newIndex);
           run();
         }, 1000);
@@ -96,7 +118,14 @@ export default {
       });
     },
     select(index) {
+      if (index === -1) {
+        index = this.names.length - 1;
+      }
+      if (index === this.names.length) {
+        index = 0;
+      }
       this.lastSelectedIndex = this.selectedIndex;
+
       this.$emit("update:selected", this.names[index]);
     },
   },
