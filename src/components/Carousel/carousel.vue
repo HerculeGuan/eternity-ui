@@ -19,6 +19,7 @@
         v-for="n in childrenLength"
         :class="{ active: n - 1 === selectedIndex }"
         @click="select(n - 1)"
+        :data-index="n"
       ></span>
       <span @click="clickNext">
         <et-icon name="right"></et-icon>
@@ -37,7 +38,11 @@ export default {
     },
     autoPlay: {
       type: Boolean,
-      defaulut: true,
+      default: true,
+    },
+    autoPlayDelay: {
+      type: Number,
+      default: 1000,
     },
   },
   data() {
@@ -93,16 +98,19 @@ export default {
       this.select(this.selectedIndex + 1);
     },
     playAutomatically() {
+      if (!this.autoPlay) {
+        return;
+      }
       if (this.timerId) {
         return;
       }
       let run = () => {
         let index = this.names.indexOf(this.getSelected());
         this.timerId = setTimeout(() => {
-          let newIndex = index - 1;
+          let newIndex = index+ 1;
           this.select(newIndex);
           run();
-        }, 1000);
+        }, this.autoPlayDelay);
       };
       run();
     },
