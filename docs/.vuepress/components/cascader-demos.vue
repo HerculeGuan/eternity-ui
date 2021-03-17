@@ -31,7 +31,7 @@
 import Cascader from "../../../src/components/Cascader/cascader";
 import CodeWrap from "../utils/code-wrap";
 import "../style/common.scss";
-import db from "../../../src/components/Cascader/db";
+import db from "../../../tests/fixtures/db"
 // import { removeListener } from "../../../src/directive/click-outside";
 
 function ajaxPromise(parentId = 0) {
