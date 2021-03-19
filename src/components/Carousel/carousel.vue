@@ -9,12 +9,14 @@
     <div class="et-carousel-window">
       <div class="et-carousel-wrapper">
         <slot />
-        <span @click="clickPrevious" class="et-carousel-icon left">
-          <et-icon name="left"></et-icon>
-        </span>
-        <span @click="clickNext" class="et-carousel-icon right">
-          <et-icon name="right"></et-icon>
-        </span>
+        <template v-if="indicatorVisible">
+          <span @click="clickPrevious" class="et-carousel-icon left">
+            <et-icon name="left"></et-icon>
+          </span>
+          <span @click="clickNext" class="et-carousel-icon right">
+            <et-icon name="right"></et-icon>
+          </span>
+        </template>
       </div>
     </div>
 
@@ -22,7 +24,7 @@
       <span
         v-for="n in childrenLength"
         :class="{ active: n - 1 === selectedIndex }"
-        @click="select(n - 1)"
+        @[triggerEvent]="select(n - 1)"
         :data-index="n"
       ></span>
     </div>
@@ -45,6 +47,17 @@ export default {
       type: Number,
       default: 1000,
     },
+    playReverse: {
+      type: Boolean,
+      default: false,
+    },
+    trigger: {
+      type: String,
+      default: "click",
+      valicator(value) {
+        return ["click", "hover"].indexOf(value) > 0;
+      },
+    },
   },
   data() {
     return {
@@ -52,6 +65,7 @@ export default {
       lastSelectedIndex: undefined,
       timerId: undefined,
       startTouch: undefined,
+      indicatorVisible: false,
     };
   },
   components: {
@@ -62,9 +76,11 @@ export default {
       return this.selected || this.items[0].name;
     },
     onMouseEnter() {
+      this.indicatorVisible = true;
       this.pause();
     },
     onMouseLeave() {
+      this.indicatorVisible = false;
       this.playAutomatically();
     },
     onTouchStart(e) {
@@ -108,7 +124,7 @@ export default {
       let run = () => {
         let index = this.names.indexOf(this.getSelected());
         this.timerId = setTimeout(() => {
-          let newIndex = index + 1;
+          let newIndex = this.playReverse ? index - 1 : index + 1;
           this.select(newIndex);
           run();
         }, this.autoPlayDelay);
@@ -166,6 +182,13 @@ export default {
         (vm) => vm.$options.name === "EtCarouselItem"
       );
     },
+    triggerEvent() {
+      if (this.trigger === "hover") {
+        return "mouseenter";
+      } else {
+        return "click";
+      }
+    },
   },
   mounted() {
     this.updateChildren();
@@ -193,7 +216,7 @@ export default {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 40px;
+      font-size: 32px;
       cursor: pointer;
       fill: $grey;
       &.left {
@@ -220,7 +243,7 @@ export default {
       background-color: $grey;
       &.active {
         background-color: $primary-color;
-        cursor: default;
+        // cursor: default;
       }
     }
   }
