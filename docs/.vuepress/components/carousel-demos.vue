@@ -3,7 +3,7 @@
     <div class="code-example">
       <h3>基础用法</h3>
       <div class="example">
-        <et-carousel :selected.sync="selected">
+        <et-carousel :selected.sync="selected" :auto-play="false">
           <et-carousel-item name="first"
             ><div class="box">轮播1</div></et-carousel-item
           >
@@ -46,7 +46,6 @@ export default {
 <style lang="scss" scoped>
 .carousel-demos {
   .box {
-    width: 100%;
     height: 200px;
     background: rgb(0, 162, 255);
     display: flex;

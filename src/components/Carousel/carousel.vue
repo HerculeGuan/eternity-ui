@@ -9,21 +9,22 @@
     <div class="et-carousel-window">
       <div class="et-carousel-wrapper">
         <slot />
+        <span @click="clickPrevious" class="et-carousel-icon left">
+          <et-icon name="left"></et-icon>
+        </span>
+        <span @click="clickNext" class="et-carousel-icon right">
+          <et-icon name="right"></et-icon>
+        </span>
       </div>
     </div>
+
     <div class="et-carousel-dots">
-      <span @click="clickPrevious">
-        <et-icon name="left"></et-icon>
-      </span>
       <span
         v-for="n in childrenLength"
         :class="{ active: n - 1 === selectedIndex }"
         @click="select(n - 1)"
         :data-index="n"
       ></span>
-      <span @click="clickNext">
-        <et-icon name="right"></et-icon>
-      </span>
     </div>
   </div>
 </template>
@@ -107,7 +108,7 @@ export default {
       let run = () => {
         let index = this.names.indexOf(this.getSelected());
         this.timerId = setTimeout(() => {
-          let newIndex = index+ 1;
+          let newIndex = index + 1;
           this.select(newIndex);
           run();
         }, this.autoPlayDelay);
@@ -182,12 +183,26 @@ export default {
 @import "../var";
 
 .et-carousel {
-  //   display: inline-block;
   &-window {
     overflow: hidden;
   }
   &-wrapper {
     position: relative;
+    > .et-carousel-icon {
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      cursor: pointer;
+      fill: $grey;
+      &.left {
+        left: 5%;
+      }
+      &.right {
+        right: 5%;
+      }
+    }
   }
   &-dots {
     display: flex;
