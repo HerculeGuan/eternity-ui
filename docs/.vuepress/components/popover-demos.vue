@@ -2,25 +2,25 @@
   <div>
     <et-popover trigger="hover">
       <template v-slot:content>
-        <div class="">这是我的内容1</div>
+        <div>这是我的内容1</div>
       </template>
       <et-button>按钮1</et-button>
     </et-popover>
     <et-popover position="bottom" trigger="click">
       <template v-slot:content>
-        <div class="">这是我的内容2</div>
+        <div>这是我的内容2</div>
       </template>
       <et-button>按钮2</et-button>
     </et-popover>
     <et-popover position="left" trigger="hover">
       <template v-slot:content>
-        <div class="">这是我的内容3</div>
+        <div>这是我的内容3</div>
       </template>
       <et-button>按钮3</et-button>
     </et-popover>
     <et-popover position="right" trigger="hover">
       <template v-slot:content>
-        <div class="">这是我的内容4</div>
+        <div>这是我的内容4</div>
       </template>
       <et-button>按钮4</et-button>
     </et-popover>

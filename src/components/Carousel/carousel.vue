@@ -54,8 +54,8 @@ export default {
     trigger: {
       type: String,
       default: "click",
-      valicator(value) {
-        return ["click", "hover"].indexOf(value) > 0;
+      validator(value) {
+        return ["click", "hover"].indexOf(value) >= 0;
       },
     },
   },

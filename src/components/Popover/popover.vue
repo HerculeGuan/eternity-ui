@@ -1,8 +1,8 @@
 <template>
-  <div class="popover" ref="popover">
+  <div class="et-popover" ref="popover">
     <div
       ref="contentWrapper"
-      class="content-wrapper"
+      class="et-popover-wrapper"
       v-if="visible"
       :class="[`position-${position}`]"
     >
@@ -19,7 +19,7 @@ export default {
   name: "EtPopover",
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   computed: {
@@ -36,7 +36,7 @@ export default {
       } else {
         return "mouseleave";
       }
-    }
+    },
   },
   props: {
     position: {
@@ -44,15 +44,15 @@ export default {
       default: "top",
       validator(value) {
         return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
-      }
+      },
     },
     trigger: {
       type: String,
       default: "click",
       validator(value) {
         return ["click", "hover"].indexOf(value) >= 0;
-      }
-    }
+      },
+    },
   },
   mounted() {
     if (this.trigger === "click") {
@@ -79,26 +79,26 @@ export default {
         top,
         left,
         height,
-        width
+        width,
       } = triggerWrapper.getBoundingClientRect();
       const { height: height2 } = contentWrapper.getBoundingClientRect();
       let positions = {
         top: {
           left: left + window.scrollX,
-          top: top + window.scrollY
+          top: top + window.scrollY,
         },
         bottom: {
           left: left + window.scrollX,
-          top: top + height + window.scrollY
+          top: top + height + window.scrollY,
         },
         left: {
           left: left + window.scrollX,
-          top: top + window.scrollY + (height - height2) / 2
+          top: top + window.scrollY + (height - height2) / 2,
         },
         right: {
           left: left + width + window.scrollX,
-          top: top + window.scrollY + (height - height2) / 2
-        }
+          top: top + window.scrollY + (height - height2) / 2,
+        },
       };
       contentWrapper.style.left = positions[this.position].left + "px";
       contentWrapper.style.top = positions[this.position].top + "px";
@@ -139,15 +139,16 @@ export default {
           this.open();
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../var";
 
-.popover {
+.et-popover {
+  font-size: $font-size;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -155,12 +156,14 @@ export default {
     display: inline-block;
   }
 }
-.content-wrapper {
+.et-popover-wrapper {
+  font-size: $font-size;
   position: absolute;
   border: 1px solid $border-color;
   border-radius: $border-radius;
   filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.03));
   background: #ffffff;
+  color: #000;
   padding: 0.5em 1em;
   max-width: 20em;
   word-break: break-all;
@@ -173,6 +176,7 @@ export default {
     height: 0px;
     position: absolute;
   }
+
   &.position-top {
     transform: translateY(-100%);
     margin-top: -10px;
@@ -190,6 +194,7 @@ export default {
       top: 100%;
     }
   }
+
   &.position-bottom {
     margin-top: 10px;
     &::before,
@@ -199,15 +204,14 @@ export default {
     }
     &::before {
       border-bottom-color: $border-color;
-
       bottom: calc(100% + 1px);
     }
     &::after {
       border-bottom-color: #ffffff;
-
       bottom: 100%;
     }
   }
+
   &.position-left {
     transform: translateX(-100%);
     margin-left: -10px;
@@ -219,7 +223,6 @@ export default {
     }
     &::before {
       border-left-color: $border-color;
-
       left: 100%;
     }
     &::after {
@@ -227,6 +230,7 @@ export default {
       left: calc(100% - 1px);
     }
   }
+
   &.position-right {
     margin-left: 10px;
     &::before,
@@ -237,7 +241,6 @@ export default {
     }
     &::before {
       border-right-color: $border-color;
-
       right: calc(100% + 1px);
     }
     &::after {
