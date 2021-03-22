@@ -23,11 +23,12 @@ module.exports = {
           "/components/layout", //布局
           "/components/container", //容器
           "/components/toast", //提示
-          '/components/popover', //弹出层
+          "/components/popover", //弹出层
           "/components/tabs", //标签页
           "/components/collapse", //折叠面板
           "/components/cascader", //级联选择器
           "/components/carousel", //轮播
+          "/components/nav", //导航栏
         ],
         collapsable: false,
       },
