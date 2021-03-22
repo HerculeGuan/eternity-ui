@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "EtNavItem",
+  inject: ["root"],
   props: {
     name: {
       type: [String, Number],
@@ -17,6 +18,9 @@ export default {
     return {
       selected: false,
     };
+  },
+  created() {
+    this.root.addItem(this);
   },
   methods: {
     onClick() {

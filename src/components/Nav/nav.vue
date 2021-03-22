@@ -17,7 +17,20 @@ export default {
       default: false,
     },
   },
+  provide() {
+    return {
+      root: this,
+    };
+  },
+  data() {
+    return {
+      items: [],
+    };
+  },
   methods: {
+    addItem(vm) {
+      this.items.push(vm);
+    },
     updateChildren() {
       this.items.forEach((vm) => {
         vm.selected = this.selected.indexOf(vm.name) >= 0;
@@ -43,11 +56,7 @@ export default {
     this.updateChildren();
     this.listenToChildren();
   },
-  computed: {
-    items() {
-      return this.$children.filter((vm) => vm.$options.name === "EtNavItem");
-    },
-  },
+  computed: {},
   updated() {
     this.updateChildren();
   },

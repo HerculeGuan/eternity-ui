@@ -10,7 +10,7 @@
             <template v-slot:title>关于</template>
             <et-nav-item name="culture">文化</et-nav-item>
             <et-nav-item name="team">团队</et-nav-item>
-            <et-nav-item name="content">联系</et-nav-item>
+            <et-nav-item name="contact">联系</et-nav-item>
           </et-subnav>
           <et-nav-item name="content">内容</et-nav-item>
         </et-nav>
