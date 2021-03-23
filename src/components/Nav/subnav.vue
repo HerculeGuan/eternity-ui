@@ -1,9 +1,9 @@
 <template>
   <div class="et-subnav">
-    <span>
+    <span @click="onClick">
       <slot name="title"></slot>
     </span>
-    <div class="et-subnav-popover">
+    <div class="et-subnav-popover" v-show="open">
       <slot />
     </div>
   </div>
@@ -12,13 +12,27 @@
 <script>
 export default {
   name: "EtSubnav",
+  data() {
+    return {
+      open: false,
+    };
+  },
+  methods: {
+    onClick() {
+      this.open = !this.open;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .et-subnav {
-  padding: 10px 20px;
   position: relative;
+  > span {
+    display: inline-block;
+    padding: 10px 20px;
+    vertical-align: top;
+  }
   &-popover {
     position: absolute;
     top: 100%;
