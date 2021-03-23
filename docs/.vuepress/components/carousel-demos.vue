@@ -81,11 +81,11 @@ export default {
       selected3: "first",
       content1: `
     <template>
-        <et-carousel :selected.sync="selected">
-          <et-carousel-item name="first"><div>轮播1</div></et-carousel-item>
-          <et-carousel-item name="second"><div>轮播2</div></et-carousel-item>
-          <et-carousel-item name="third"><div>轮播3</div></et-carousel-item>
-        </et-carousel>
+      <et-carousel :selected.sync="selected">
+        <et-carousel-item name="first"><div>轮播1</div></et-carousel-item>
+        <et-carousel-item name="second"><div>轮播2</div></et-carousel-item>
+        <et-carousel-item name="third"><div>轮播3</div></et-carousel-item>
+      </et-carousel>
     </template>
     <script>
       export default {
@@ -100,11 +100,11 @@ export default {
       tips1: "使用<code>selected.sync</code>动态绑定当前轮播的值",
       content2: `
     <template>
-        <et-carousel :selected.sync="selected" trigger="hover">
-          <et-carousel-item name="first"><div>轮播1</div></et-carousel-item>
-          <et-carousel-item name="second"><div>轮播2</div></et-carousel-item>
-          <et-carousel-item name="third"><div>轮播3</div></et-carousel-item>
-        </et-carousel>
+      <et-carousel :selected.sync="selected" trigger="hover">
+        <et-carousel-item name="first"><div>轮播1</div></et-carousel-item>
+        <et-carousel-item name="second"><div>轮播2</div></et-carousel-item>
+        <et-carousel-item name="third"><div>轮播3</div></et-carousel-item>
+      </et-carousel>
     </template>
     <script>
       export default {
@@ -119,11 +119,11 @@ export default {
       tips2: "使用<code>trigger</code>设置轮播触发方式，默认是点击触发",
       content3: `
     <template>
-        <et-carousel :selected.sync="selected" play-reverse :auto-play-delay="500">
-          <et-carousel-item name="first"><div>轮播1</div></et-carousel-item>
-          <et-carousel-item name="second"><div>轮播2</div></et-carousel-item>
-          <et-carousel-item name="third"><div>轮播3</div></et-carousel-item>
-        </et-carousel>
+      <et-carousel :selected.sync="selected" play-reverse :auto-play-delay="500">
+        <et-carousel-item name="first"><div>轮播1</div></et-carousel-item>
+        <et-carousel-item name="second"><div>轮播2</div></et-carousel-item>
+        <et-carousel-item name="third"><div>轮播3</div></et-carousel-item>
+      </et-carousel>
     </template>
     <script>
       export default {
