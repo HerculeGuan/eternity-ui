@@ -1,30 +1,66 @@
 <template>
-  <div>
-    <et-popover trigger="hover">
-      <template v-slot:content>
-        <div>这是我的内容1</div>
-      </template>
-      <et-button>按钮1</et-button>
-    </et-popover>
-    <et-popover position="bottom" trigger="click">
-      <template v-slot:content>
-        <div>这是我的内容2</div>
-      </template>
-      <et-button>按钮2</et-button>
-    </et-popover>
-    <et-popover position="left" trigger="hover">
-      <template v-slot:content>
-        <div>这是我的内容3</div>
-      </template>
-      <et-button>按钮3</et-button>
-    </et-popover>
-    <et-popover position="right" trigger="hover">
-      <template v-slot:content>
-        <div>这是我的内容4</div>
-      </template>
-      <et-button>按钮4</et-button>
-    </et-popover>
-    <pre><code>{{ content }}</code></pre>
+  <div class="popover-demos">
+    <div class="code-example">
+      <h3>基础用法</h3>
+      <div class="example popover-example">
+        <et-popover>
+          <template v-slot:content>
+            <div>这是我的内容上</div>
+          </template>
+          <et-button>click上</et-button>
+        </et-popover>
+        <et-popover position="bottom">
+          <template v-slot:content>
+            <div>这是我的内容下</div>
+          </template>
+          <et-button>click下</et-button>
+        </et-popover>
+        <et-popover position="left">
+          <template v-slot:content>
+            <div>这是我的内容左</div>
+          </template>
+          <et-button>click左</et-button>
+        </et-popover>
+        <et-popover position="right">
+          <template v-slot:content>
+            <div>这是我的内容右</div>
+          </template>
+          <et-button>click右</et-button>
+        </et-popover>
+      </div>
+      <code-wrap :code="content1" :tips="tips1"></code-wrap>
+    </div>
+
+    <div class="code-example">
+      <h3>hover触发</h3>
+      <div class="example popover-example">
+        <et-popover trigger="hover">
+          <template v-slot:content>
+            <div>这是我的内容上</div>
+          </template>
+          <et-button>hover上</et-button>
+        </et-popover>
+        <et-popover position="bottom" trigger="hover">
+          <template v-slot:content>
+            <div>这是我的内容下</div>
+          </template>
+          <et-button>hover下</et-button>
+        </et-popover>
+        <et-popover position="left" trigger="hover">
+          <template v-slot:content>
+            <div>这是我的内容左</div>
+          </template>
+          <et-button>hover左</et-button>
+        </et-popover>
+        <et-popover position="right" trigger="hover">
+          <template v-slot:content>
+            <div>这是我的内容右</div>
+          </template>
+          <et-button>hover右</et-button>
+        </et-popover>
+      </div>
+      <code-wrap :code="content2" :tips="tips2"></code-wrap>
+    </div>
   </div>
 </template>
 
@@ -42,10 +78,75 @@ export default {
   },
   data() {
     return {
-      content: `
- 
+      content1: `
+    <template>
+      <et-popover>
+        <template v-slot:content>
+          <div>这是我的内容上</div>
+        </template>
+        <et-button>click上</et-button>
+      </et-popover>
+      <et-popover position="bottom">
+        <template v-slot:content>
+          <div>这是我的内容下</div>
+        </template>
+        <et-button>click下</et-button>
+      </et-popover>
+      <et-popover position="left">
+        <template v-slot:content>
+          <div>这是我的内容左</div>
+        </template>
+        <et-button>click左</et-button>
+      </et-popover>
+      <et-popover position="right">
+        <template v-slot:content>
+          <div>这是我的内容右</div>
+        </template>
+        <et-button>click右</et-button>
+      </et-popover>
+    </template>
     `,
+      tips1: "使用<code>position</code>设置弹出框的位置",
+      content2: `
+    <template>
+      <et-popover trigger="hover">
+        <template v-slot:content>
+          <div>这是我的内容上</div>
+        </template>
+        <et-button>hover上</et-button>
+      </et-popover>
+      <et-popover position="bottom" trigger="hover">
+        <template v-slot:content>
+          <div>这是我的内容下</div>
+        </template>
+        <et-button>hover下</et-button>
+      </et-popover>
+      <et-popover position="left" trigger="hover">
+        <template v-slot:content>
+          <div>这是我的内容左</div>
+        </template>
+        <et-button>hover左</et-button>
+      </et-popover>
+      <et-popover position="right" trigger="hover">
+        <template v-slot:content>
+          <div>这是我的内容右</div>
+        </template>
+        <et-button>hover右</et-button>
+      </et-popover>
+    </template>
+    `,
+      tips2: "使用<code>trigger</code>设置弹出框的触发方式",
     };
   },
 };
 </script>
+
+<style lang="scss" scope>
+.popover-demos {
+  .popover-example {
+    .et-popover {
+      margin-right: 20px;
+    }
+  }
+}
+</style>
