@@ -156,7 +156,7 @@ export default {
     color: white;
     background: $toast-bg;
     border-radius: $border-radius;
-    box-shadow: 0 0 3 0 rgba(0, 0, 0, 0.5);
+    @extend .box-shadow;
     padding: 0 16px;
     .message {
       padding: 6px 0;

@@ -64,8 +64,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../var";
+
 .et-nav {
   display: flex;
-  border: 1px solid red;
+  border-bottom: 1px solid $border-color;
+  cursor: default;
 }
 </style>

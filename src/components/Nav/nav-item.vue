@@ -31,10 +31,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../var";
 .et-nav-item {
   padding: 10px 20px;
+  position: relative;
+  cursor: pointer;
+
   &.selected {
-    background-color: red;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      top: calc(100% -1px);
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid $primary-color;
+    }
   }
 }
 </style>
