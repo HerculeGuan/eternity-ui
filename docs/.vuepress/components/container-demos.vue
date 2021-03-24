@@ -60,7 +60,7 @@ export default {
 
     `,
       tips1:
-        "包含<code>el-header</code>、<code>el-content</code>、<code>el-footer</code><code>el-aside</code>的基础布局",
+        "包含<code>et-header</code>、<code>et-content</code>、<code>et-footer</code><code>et-aside</code>的基础布局",
     };
   },
 };

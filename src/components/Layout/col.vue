@@ -1,5 +1,5 @@
 <template>
-  <div class="col" :class="colClass" :style="colStyle">
+  <div class="et-col" :class="colClass" :style="colStyle">
     <slot></slot>
   </div>
 </template>
@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.col {
+.et-col {
   $class-prefix-col: col-;
   $class-prefix-offset: offset-;
   @for $n from 1 through 24 {
