@@ -24,6 +24,8 @@ export default {
   },
   methods: {
     onClick() {
+      this.root.namePath = [];
+      this.$parent.updateNamePath && this.$parent.updateNamePath();
       this.$emit("add:selected", this.name);
     },
   },
@@ -34,8 +36,8 @@ export default {
 @import "../var";
 .et-nav-item {
   padding: 10px 20px;
-  position: relative;
   cursor: pointer;
+  position: relative;
 
   &.selected {
     &::after {

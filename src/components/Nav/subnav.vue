@@ -1,5 +1,5 @@
 <template>
-  <div class="et-subnav">
+  <div class="et-subnav" :class="{ active }" v-click-outside="close">
     <span @click="onClick">
       <slot name="title"></slot>
     </span>
@@ -10,16 +10,41 @@
 </template>
 
 <script>
+import ClickOutside from "../../directive/click-outside";
 export default {
   name: "EtSubnav",
+  inject: ["root"],
+  props: {
+    name: {
+      type: [String, Number],
+      required: true,
+    },
+  },
+  directives: {
+    clickOutside: ClickOutside,
+  },
   data() {
     return {
       open: false,
     };
   },
+  computed: {
+    active() {
+      return this.root.namePath.indexOf(this.name) >= 0;
+    },
+  },
   methods: {
     onClick() {
       this.open = !this.open;
+    },
+    updateNamePath() {
+      this.root.namePath.unshift(this.name);
+      if (this.$parent.updateNamePath) {
+        this.$parent.updateNamePath();
+      }
+    },
+    close() {
+      this.open = false;
     },
   },
 };
@@ -29,10 +54,20 @@ export default {
 @import "../var";
 
 .et-subnav {
-  // font-size: $font-size;
   position: relative;
   cursor: pointer;
-
+  &.active {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      top: calc(100% -1px);
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
   > span {
     display: block;
     padding: 10px 20px;
