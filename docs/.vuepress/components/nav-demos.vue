@@ -10,7 +10,16 @@
             <template v-slot:title>关于</template>
             <et-nav-item name="culture">文化</et-nav-item>
             <et-nav-item name="team">团队</et-nav-item>
-            <et-nav-item name="contact">联系</et-nav-item>
+            <et-subnav>
+              <template v-slot:title>联系</template>
+              <et-nav-item name="wechat">微信</et-nav-item>
+              <et-nav-item name="qq">QQ</et-nav-item>
+              <et-subnav>
+                <template v-slot:title>邮箱</template>
+                <et-nav-item name="wangyi">网易邮箱</et-nav-item>
+                <et-nav-item name="souhu">搜狐邮箱</et-nav-item>
+              </et-subnav>
+            </et-subnav>
           </et-subnav>
           <et-nav-item name="content">内容</et-nav-item>
         </et-nav>

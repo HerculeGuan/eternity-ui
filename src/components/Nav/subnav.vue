@@ -29,9 +29,8 @@ export default {
 .et-subnav {
   position: relative;
   > span {
-    display: inline-block;
+    display: block;
     padding: 10px 20px;
-    vertical-align: top;
   }
   &-popover {
     position: absolute;
@@ -39,6 +38,13 @@ export default {
     left: 0;
     border: 1px solid blue;
     white-space: nowrap;
+  }
+  .et-subnav {
+    .et-subnav-popover {
+      top: 0;
+      left: 100%;
+      margin-left: 8px;
+    }
   }
 }
 </style>
