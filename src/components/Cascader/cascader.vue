@@ -30,7 +30,7 @@ export default {
     },
     popoverHeight: {
       type: [String, Number],
-      default: "100",
+      default: "200",
     },
     selected: {
       type: Array,

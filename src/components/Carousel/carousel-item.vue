@@ -50,7 +50,6 @@ export default {
 }
 .carousel-leave-to {
   opacity: 0;
-  transform: scale(0.5);
   transform: translateX(-100%) scale(0.5);
   &.reverse {
     transform: translateX(100%) scale(0.5);
