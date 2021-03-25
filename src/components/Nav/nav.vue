@@ -70,6 +70,7 @@ export default {
 .et-nav {
   display: flex;
   border-bottom: 1px solid $border-color;
+  user-select: none;
   cursor: default;
 }
 </style>

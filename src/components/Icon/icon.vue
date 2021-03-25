@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon"><use :xlink:href="`#i-${name}`"></use></svg>
+  <svg class="et-icon"><use :xlink:href="`#i-${name}`"></use></svg>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
+.et-icon {
   width: 1em;
   height: 1em;
 }

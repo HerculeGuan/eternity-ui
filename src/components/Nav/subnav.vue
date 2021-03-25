@@ -1,7 +1,10 @@
 <template>
   <div class="et-subnav" :class="{ active }" v-click-outside="close">
-    <span @click="onClick">
+    <span @click="onClick" class="et-subnav-label">
       <slot name="title"></slot>
+      <span class="et-subnav-icon" :class="{ open }">
+        <et-icon name="right"></et-icon>
+      </span>
     </span>
     <div class="et-subnav-popover" v-show="open">
       <slot />
@@ -11,6 +14,7 @@
 
 <script>
 import ClickOutside from "../../directive/click-outside";
+import Icon from "../Icon/icon";
 export default {
   name: "EtSubnav",
   inject: ["root"],
@@ -47,6 +51,9 @@ export default {
       this.open = false;
     },
   },
+  components: {
+    "et-icon": Icon,
+  },
 };
 </script>
 
@@ -68,9 +75,13 @@ export default {
       border-bottom: 2px solid $primary-color;
     }
   }
-  > span {
-    display: block;
+  &-label {
     padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    .et-subnav-icon {
+      display: none;
+    }
   }
   &-popover {
     font-size: $font-size;
@@ -82,8 +93,24 @@ export default {
     background: white;
     min-width: 100px;
     @extend .box-shadow;
+    .et-subnav-icon {
+      display: inline-flex;
+      transition: transform 0.25s;
+      &.open {
+        transform: rotate(180deg);
+      }
+      > .et-icon {
+        margin: 0 0.5em;
+      }
+    }
   }
   .et-subnav {
+    &.active {
+      position: relative;
+      &::after {
+        display: none;
+      }
+    }
     .et-subnav-popover {
       top: 0;
       left: 100%;
