@@ -1,5 +1,5 @@
 <template>
-  <div class="et-nav">
+  <div class="et-nav" :class="{ vertical }">
     <slot />
   </div>
 </template>
@@ -16,10 +16,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    mode: {
+      type: String,
+      default: "horizontal",
+      validator(value) {
+        return ["horizontal", "vertical"].indexOf(value) >= 0;
+      },
+    },
   },
   provide() {
     return {
       root: this,
+      vertical: this.vertical,
     };
   },
   data() {
@@ -57,7 +65,11 @@ export default {
     this.updateChildren();
     this.listenToChildren();
   },
-  computed: {},
+  computed: {
+    vertical() {
+      return this.mode === "vertical";
+    },
+  },
   updated() {
     this.updateChildren();
   },
@@ -72,5 +84,13 @@ export default {
   border-bottom: 1px solid $border-color;
   user-select: none;
   cursor: default;
+  &.vertical {
+    flex-direction: column;
+    display: inline-flex;
+    min-width: 100px;
+
+    border-right: 1px solid $border-color;
+    border-bottom: none;
+  }
 }
 </style>

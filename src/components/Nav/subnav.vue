@@ -6,9 +6,16 @@
         <et-icon name="right"></et-icon>
       </span>
     </span>
-    <div class="et-subnav-popover" v-show="open">
-      <slot />
-    </div>
+    <transition
+      @enter="enter"
+      @leave="leave"
+      @after-leave="afterLeave"
+      @after-enter="afterEnter"
+    >
+      <div class="et-subnav-popover" v-show="open" :class="{ vertical }">
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -17,7 +24,7 @@ import ClickOutside from "../../directive/click-outside";
 import Icon from "../Icon/icon";
 export default {
   name: "EtSubnav",
-  inject: ["root"],
+  inject: ["root", "vertical"],
   props: {
     name: {
       type: [String, Number],
@@ -50,6 +57,30 @@ export default {
     close() {
       this.open = false;
     },
+    enter(el, done) {
+      let { height } = el.getBoundingClientRect();
+      el.style.height = "0px";
+      el.getBoundingClientRect();
+      el.style.height = `${height}px`;
+      el.addEventListener("transitionend", () => {
+        done();
+      });
+    },
+    afterEnter(el) {
+      el.style.height = "auto";
+    },
+    leave(el, done) {
+      let { height } = el.getBoundingClientRect();
+      el.style.height = `${height}px`;
+      el.getBoundingClientRect();
+      el.style.height = "0px";
+      el.addEventListener("transitionend", () => {
+        done();
+      });
+    },
+    afterLeave(el) {
+      el.style.height = "auto";
+    },
   },
   components: {
     "et-icon": Icon,
@@ -59,7 +90,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../var";
-
 .et-subnav {
   position: relative;
   cursor: pointer;
@@ -102,6 +132,13 @@ export default {
       > .et-icon {
         margin: 0 0.5em;
       }
+    }
+    &.vertical {
+      position: static;
+      border: none;
+      box-shadow: none;
+      transition: height 0.25s;
+      overflow: hidden;
     }
   }
   .et-subnav {

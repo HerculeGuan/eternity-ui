@@ -26,6 +26,32 @@
       </div>
       <!-- <code-wrap :code="content1" :tips="tips1"></code-wrap> -->
     </div>
+    <div class="code-example">
+      <h3>基础用法</h3>
+      <p>可以展开多个面板，面板之间互相不影响</p>
+      <div class="example">
+        <et-nav :selected.sync="selected1" mode="vertical">
+          <et-nav-item name="home">首页</et-nav-item>
+          <et-subnav name="about">
+            <template v-slot:title>关于</template>
+            <et-nav-item name="culture">文化</et-nav-item>
+            <et-nav-item name="team">团队</et-nav-item>
+            <et-subnav name="contact">
+              <template v-slot:title>联系</template>
+              <et-nav-item name="wechat">微信</et-nav-item>
+              <et-nav-item name="qq">QQ</et-nav-item>
+              <et-subnav name="email">
+                <template v-slot:title>邮箱</template>
+                <et-nav-item name="wangyi">网易邮箱</et-nav-item>
+                <et-nav-item name="souhu">搜狐邮箱</et-nav-item>
+              </et-subnav>
+            </et-subnav>
+          </et-subnav>
+          <et-nav-item name="content">内容</et-nav-item>
+        </et-nav>
+      </div>
+      <!-- <code-wrap :code="content1" :tips="tips1"></code-wrap> -->
+    </div>
   </div>
 </template>
 

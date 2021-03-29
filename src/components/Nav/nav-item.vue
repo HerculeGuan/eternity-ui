@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "EtNavItem",
-  inject: ["root"],
+  inject: ["root","vertical"],
   props: {
     name: {
       type: [String, Number],
