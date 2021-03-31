@@ -6,16 +6,23 @@
         <et-icon name="right"></et-icon>
       </span>
     </span>
-    <transition
-      @enter="enter"
-      @leave="leave"
-      @after-leave="afterLeave"
-      @after-enter="afterEnter"
-    >
-      <div class="et-subnav-popover" v-show="open" :class="{ vertical }">
+    <template v-if="vertical">
+      <transition
+        @enter="enter"
+        @leave="leave"
+        @after-leave="afterLeave"
+        @after-enter="afterEnter"
+      >
+        <div class="et-subnav-popover" v-show="open" :class="{ vertical }">
+          <slot />
+        </div>
+      </transition>
+    </template>
+    <template v-else>
+      <div class="et-subnav-popover" v-show="open">
         <slot />
       </div>
-    </transition>
+    </template>
   </div>
 </template>
 
@@ -122,6 +129,8 @@ export default {
     white-space: nowrap;
     background: white;
     min-width: 100px;
+    transition: height 0.25s;
+
     @extend .box-shadow;
     .et-subnav-icon {
       display: inline-flex;
@@ -137,7 +146,6 @@ export default {
       position: static;
       border: none;
       box-shadow: none;
-      transition: height 0.25s;
       overflow: hidden;
     }
   }
