@@ -1,8 +1,8 @@
 <template>
-  <div class="et-subnav" :class="{ active }" v-click-outside="close">
+  <div class="et-subnav" :class="{ active, vertical }" v-click-outside="close">
     <span @click="onClick" class="et-subnav-label">
       <slot name="title"></slot>
-      <span class="et-subnav-icon" :class="{ open }">
+      <span class="et-subnav-icon" :class="{ open, vertical }">
         <et-icon name="right"></et-icon>
       </span>
     </span>
@@ -100,18 +100,21 @@ export default {
 .et-subnav {
   position: relative;
   cursor: pointer;
-  &.active {
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      top: calc(100% -1px);
-      bottom: 0;
-      left: 0;
-      border-bottom: 2px solid $primary-color;
+  &:not(.vertical) {
+    &.active {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        top: calc(100% -1px);
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid $primary-color;
+      }
     }
   }
+
   &-label {
     padding: 10px 20px;
     display: flex;
@@ -138,6 +141,12 @@ export default {
       &.open {
         transform: rotate(180deg);
       }
+      &.vertical {
+        transform: rotate(90deg);
+        &.open {
+          transform: rotate(270deg);
+        }
+      }
       > .et-icon {
         margin: 0 0.5em;
       }
@@ -159,11 +168,14 @@ export default {
     .et-subnav-popover {
       top: 0;
       left: 100%;
-      margin-left: 8px;
+      &:not(.vertical) {
+        margin-left: 8px;
+      }
     }
   }
   .et-nav-item {
     &.selected {
+      color: $primary-color;
       background-color: $grey-light;
     }
     &::after {

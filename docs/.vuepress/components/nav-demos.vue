@@ -1,5 +1,6 @@
 <template>
   <div class="nav-demos">
+    {{selected1}}
     <div class="code-example">
       <h3>基础用法</h3>
       <p>可以展开多个面板，面板之间互相不影响</p>
@@ -30,7 +31,7 @@
       <h3>基础用法</h3>
       <p>可以展开多个面板，面板之间互相不影响</p>
       <div class="example">
-        <et-nav :selected.sync="selected1" mode="vertical">
+        <et-nav :selected.sync="selected2" mode="vertical">
           <et-nav-item name="home">首页</et-nav-item>
           <et-subnav name="about">
             <template v-slot:title>关于</template>
@@ -72,6 +73,7 @@ export default {
   data() {
     return {
       selected1: ["team"],
+      selected2: ["team"],
       content1: `
     <template>
       <et-collapse :selected.sync="selected" @update:selected="updateSelect">
