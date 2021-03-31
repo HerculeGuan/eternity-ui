@@ -72,8 +72,8 @@ export default {
   },
   data() {
     return {
-      selected1: ["team"],
-      selected2: ["team"],
+      selected1: "team",
+      selected2: "team",
       content1: `
     <template>
       <et-collapse :selected.sync="selected" @update:selected="updateSelect">
