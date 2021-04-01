@@ -1,5 +1,10 @@
 <template>
-  <div class="et-nav-item" :class="{ selected, vertical }" @click="onClick">
+  <div
+    class="et-nav-item"
+    :class="{ selected, vertical }"
+    @click="onClick"
+    :data-name="name"
+  >
     <slot />
   </div>
 </template>

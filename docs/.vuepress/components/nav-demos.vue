@@ -59,7 +59,7 @@
 <script>
 import Nav from "../../../src/components/Nav/nav";
 import NavItem from "../../../src/components/Nav/nav-item";
-import NavSubnav from "../../../src/components/Nav/subnav";
+import Subnav from "../../../src/components/Nav/subnav";
 import CodeWrap from "../utils/code-wrap";
 import "../style/common.scss";
 
@@ -67,7 +67,7 @@ export default {
   components: {
     "et-nav": Nav,
     "et-nav-item": NavItem,
-    "et-subnav": NavSubnav,
+    "et-subnav": Subnav,
     "code-wrap": CodeWrap,
   },
   data() {
