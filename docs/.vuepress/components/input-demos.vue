@@ -121,3 +121,10 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.input-demos {
+  .et-input {
+    width: 180px;
+  }
+}
+</style>
