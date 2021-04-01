@@ -1,6 +1,5 @@
 <template>
   <div class="nav-demos">
-    {{selected1}}
     <div class="code-example">
       <h3>基础用法</h3>
       <p>可以展开多个面板，面板之间互相不影响</p>

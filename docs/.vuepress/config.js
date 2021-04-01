@@ -29,6 +29,7 @@ module.exports = {
           "/components/cascader", //级联选择器
           "/components/carousel", //轮播
           "/components/nav", //导航栏
+          "/components/datePicker", //日期选择器
         ],
         collapsable: false,
       },
