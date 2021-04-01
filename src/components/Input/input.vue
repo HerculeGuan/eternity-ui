@@ -1,5 +1,5 @@
 <template>
-  <div class="input" :class="{ error }">
+  <div class="et-input" :class="{ error }">
     <input
       :value="value"
       :disabled="disabled"
@@ -53,10 +53,11 @@ export default {
 <style lang="scss" scoped>
 @import "../var";
 
-.input {
+.et-input {
   font-size: $font-size;
   display: inline-flex;
   align-items: center;
+  width: 100%;
   > :not(:last-child) {
     margin-right: 0.5em;
   }
@@ -78,6 +79,8 @@ export default {
     height: $height;
     border: 1px solid $border-color;
     font-size: inherit;
+    width: 100%;
+
     &:hover {
       border-color: $border-color-hover;
     }

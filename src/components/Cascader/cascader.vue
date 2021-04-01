@@ -11,10 +11,7 @@
           @update:selected="onUpdateSelected"
         ></et-cascader-items>
       </template>
-      <div class="et-trigger">
-        {{ result || "&nbsp;" }}
-        <slot></slot>
-      </div>
+      <et-input v-model="result"></et-input>
     </et-popover>
   </div>
 </template>
@@ -23,6 +20,7 @@
 import CascaderItems from "./cascader-items";
 import ClickOutside from "../../directive/click-outside";
 import Popover from "../Popover/popover";
+import Input from "../Input/input";
 
 export default {
   name: "EtCascader",
@@ -120,6 +118,7 @@ export default {
   components: {
     "et-cascader-items": CascaderItems,
     "et-popover": Popover,
+    "et-input": Input,
   },
 };
 </script>
@@ -130,15 +129,8 @@ export default {
   display: inline-block;
   font-size: $font-size;
   position: relative;
-  .et-trigger {
-    border: 1px solid $border-color;
-    font-size: inherit;
-    height: $height;
-    border-radius: $border-radius;
-    padding: 0 8px;
-    min-width: 160px;
-    display: inline-flex;
-    align-items: center;
+  .et-input {
+    width: 200px;
   }
 }
 </style>
