@@ -1,22 +1,22 @@
-var webpackConfig = require('@vue/cli-service/webpack.config.js')
+// var webpackConfig = require('@vue/cli-service/webpack.config.js')
 
-module.exports = function (config) {
-  config.set({
-    frameworks: ['mocha'],
+// module.exports = function (config) {
+//   config.set({
+//     frameworks: ['mocha'],
 
-    files: [
-      'tests/**/*.spec.js'
-    ],
+//     files: [
+//       'tests/**/*.spec.js'
+//     ],
 
-    preprocessors: {
-      '**/*.spec.js': ['webpack', 'sourcemap']
-    },
+//     preprocessors: {
+//       '**/*.spec.js': ['webpack', 'sourcemap']
+//     },
 
-    webpack: webpackConfig,
+//     webpack: webpackConfig,
 
-    reporters: ['spec'],
-    autoWatch: true,
+//     reporters: ['spec'],
+//     autoWatch: true,
 
-    browsers: ['ChromeHeadless']
-  })
-}
+//     browsers: ['ChromeHeadless']
+//   })
+// }
