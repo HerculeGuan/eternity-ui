@@ -111,7 +111,7 @@ export default {
   .left {
     min-width: 120px;
     height: 100%;
-    padding: 0.3em 0;
+    // padding: 0.3em 0;
     overflow: auto;
   }
   .right {

@@ -1,27 +1,29 @@
 <template>
-  <div class="cascader" ref="cascader">
-    <!-- <div class="cascader" ref="cascader" v-click-outside="close"> -->
-    <div class="trigger" @click="toggle">
-      {{ result || "&nbsp;" }}
-      <slot></slot>
-    </div>
-    <div class="popover-wrapper" v-if="popoverVisible">
-      <et-cascader-items
-        class="popover"
-        :items="options"
-        :selected="selected"
-        :height="popoverHeight"
-        :load-data="loadData"
-        :loading-item="loadingItem"
-        @update:selected="onUpdateSelected"
-      ></et-cascader-items>
-    </div>
+  <div class="et-cascader" ref="cascader">
+    <et-popover position="bottom">
+      <template v-slot:content>
+        <et-cascader-items
+          :items="options"
+          :selected="selected"
+          :height="popoverHeight"
+          :load-data="loadData"
+          :loading-item="loadingItem"
+          @update:selected="onUpdateSelected"
+        ></et-cascader-items>
+      </template>
+      <div class="et-trigger">
+        {{ result || "&nbsp;" }}
+        <slot></slot>
+      </div>
+    </et-popover>
   </div>
 </template>
 
 <script>
 import CascaderItems from "./cascader-items";
 import ClickOutside from "../../directive/click-outside";
+import Popover from "../Popover/popover";
+
 export default {
   name: "EtCascader",
   props: {
@@ -47,7 +49,6 @@ export default {
   },
   data() {
     return {
-      popoverVisible: false,
       loadingItem: {},
     };
   },
@@ -101,23 +102,6 @@ export default {
         this.loadingItem = lastItem;
       }
     },
-    toggle() {
-      if (this.popoverVisible === true) {
-        this.close();
-      } else {
-        this.open();
-      }
-    },
-    open() {
-      this.popoverVisible = true;
-      this.$nextTick(() => {
-        document.addEventListener("click", this.onClickDocument);
-      });
-    },
-    close() {
-      this.popoverVisible = false;
-      document.removeEventListener("click", this.onClickDocument);
-    },
     onClickDocument(e) {
       if (
         e.target === this.$refs.cascader ||
@@ -135,17 +119,18 @@ export default {
   },
   components: {
     "et-cascader-items": CascaderItems,
+    "et-popover": Popover,
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../var";
-.cascader {
+.et-cascader {
   display: inline-block;
   font-size: $font-size;
   position: relative;
-  .trigger {
+  .et-trigger {
     border: 1px solid $border-color;
     font-size: inherit;
     height: $height;
@@ -154,16 +139,6 @@ export default {
     min-width: 160px;
     display: inline-flex;
     align-items: center;
-  }
-  .popover-wrapper {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: flex;
-    background-color: #fff;
-    margin-top: 8px;
-    z-index: 1;
-    @extend .box-shadow;
   }
 }
 </style>

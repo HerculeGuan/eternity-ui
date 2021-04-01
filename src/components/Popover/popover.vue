@@ -8,7 +8,7 @@
     >
       <slot name="content" :close="close"></slot>
     </div>
-    <span ref="triggerWrapper" class="popover-span">
+    <span ref="triggerWrapper" class="et-popover-span">
       <slot></slot>
     </span>
   </div>
@@ -152,7 +152,7 @@ export default {
   display: inline-block;
   vertical-align: top;
   position: relative;
-  .popover-span {
+  .et-popover-span {
     display: inline-block;
   }
 }
@@ -161,16 +161,15 @@ export default {
   position: absolute;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.03));
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.05));
   background: #ffffff;
   color: #000;
   padding: 0.5em 1em;
-  max-width: 20em;
   word-break: break-all;
   &::before,
   &::after {
     content: "";
-    border: 10px solid transparent;
+    border: 6px solid transparent;
     display: block;
     width: 0px;
     height: 0px;
