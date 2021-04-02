@@ -11,7 +11,11 @@
           @update:selected="onUpdateSelected"
         ></et-cascader-items>
       </template>
-      <et-input v-model="result"></et-input>
+      <!-- <et-input v-model="result"></et-input> -->
+      <div class="et-trigger">
+        {{ result || "&nbsp;" }}
+        <slot></slot>
+      </div>
     </et-popover>
   </div>
 </template>
@@ -129,8 +133,15 @@ export default {
   display: inline-block;
   font-size: $font-size;
   position: relative;
-  .et-input {
-    width: 200px;
+  .et-trigger {
+    border: 1px solid $border-color;
+    font-size: inherit;
+    height: $height;
+    border-radius: $border-radius;
+    padding: 0 8px;
+    min-width: 160px;
+    display: inline-flex;
+    align-items: center;
   }
 }
 </style>

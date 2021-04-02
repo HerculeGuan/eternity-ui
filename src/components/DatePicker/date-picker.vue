@@ -16,9 +16,23 @@
             <div v-else-if="mode === 'month'" class="et-date-picker-content">
               月
             </div>
-            <div v-else class="et-date-picker-content">日</div>
+            <div v-else class="et-date-picker-content">
+              <div class="et-date-picker-weekdays">
+                <span v-for="week in 7">{{ weekDays[week - 1] }}</span>
+              </div>
+              <div class="et-date-picker-row" v-for="i in 6">
+                <span
+                  class="et-date-picker-col"
+                  v-for="day in visibleDays.slice(i * 7 - 7, i * 7)"
+                >
+                  {{ day.getDate() }}
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="et-date-picker-actions"></div>
+          <div class="et-date-picker-actions">
+            清除
+          </div>
         </div>
       </template>
       <et-input></et-input>
@@ -30,6 +44,7 @@
 import Input from "../Input/input";
 import Icon from "../Icon/icon";
 import Popover from "../Popover/popover";
+import helper from "./helper";
 export default {
   name: "EtDatePicker",
   components: {
@@ -41,6 +56,7 @@ export default {
     return {
       mode: "day",
       value: new Date(),
+      weekDays: ["日", "一", "二", "三", "四", "五", "六"],
     };
   },
   methods: {
@@ -52,13 +68,40 @@ export default {
     },
   },
   mounted() {
-    let date = this.value;
-    let firstDay = date.setDate(1);
-    date.setMonth(date.getMonth() + 1);
-    let lastDay = date.setDate(0);
-    console.log(new Date(firstDay), new Date(lastDay));
+    
   },
-  computed: {},
+  computed: {
+    visibleDays() {
+      let date = this.value;
+      let currentMonthArray = [];
+      let lastMonthArray = [];
+      let nextMonthArray = [];
+      let totalMonthArray = [];
+      let firstDay = helper.firstDayOfMonth(date);
+      let lastDay = helper.lastDayOfMonth(date);
+      let [year, month] = helper.getYearMonthDate(date);
+
+      for (let i = firstDay.getDate(); i <= lastDay.getDate(); i++) {
+        currentMonthArray.push(new Date(year, month, i));
+      }
+      for (let i = 0; i < firstDay.getDay(); i++) {
+        lastMonthArray.unshift(new Date(year, month, -i));
+      }
+      for (
+        let i = 1;
+        i <= 42 - currentMonthArray.length - lastMonthArray.length;
+        i++
+      ) {
+        nextMonthArray.push(new Date(year, month + 1, i));
+      }
+      totalMonthArray = [
+        ...lastMonthArray,
+        ...currentMonthArray,
+        ...nextMonthArray,
+      ];
+      return totalMonthArray;
+    },
+  },
 };
 </script>
 
