@@ -1,6 +1,6 @@
 <template>
   <div class="et-cascader" ref="cascader">
-    <et-popover position="bottom">
+    <et-popover position="bottom" no-padding>
       <template v-slot:content>
         <et-cascader-items
           :items="options"

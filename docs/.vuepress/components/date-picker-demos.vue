@@ -4,7 +4,7 @@
       <h3>基础用法</h3>
       <p>aaa</p>
       <div class="example">
-        <et-date-picker></et-date-picker>
+        <et-date-picker v-model="value"></et-date-picker>
       </div>
       <code-wrap :code="content1" :tips="tips1"></code-wrap>
     </div>
@@ -23,8 +23,7 @@ export default {
   },
   data() {
     return {
-      selected1: "team",
-
+      value: new Date(),
       content1: `
 
     `,

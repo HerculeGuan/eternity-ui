@@ -24,7 +24,7 @@ export default {
   name: "EtInput",
   props: {
     value: {
-      type: String,
+      type: [String, Number, Date],
     },
     disabled: {
       type: Boolean,

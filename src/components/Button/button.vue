@@ -51,7 +51,7 @@ export default {
   padding: 0 0.8em;
   border-radius: $border-radius;
   border: 1px solid $border-color;
-  background: $button-bg;
+  background: white;
   display: inline-flex;
   justify-content: center;
   align-items: center;

@@ -7,20 +7,18 @@ $grey-light: #eee;
 $font-size: 14px;
 $disabled-color: #aaa;
 $color: #333;
-$button-bg: white;
 $button-active-bg: #eee;
 $border-radius: 4px;
 $border-color: #bfc2c9;
 $border-color-light: lighten($border-color, 15%);
 $border-color-hover: rgb(148, 147, 147);
 $animation-duration: 500ms;
-
+$font-size-color: #484a4e;
 $primary-color: #408cff;
 $success-color: #52b442;
 $warning-color: #eba34a;
 $danger-color: #ec5456;
 $danger-red-hover: rgb(243, 20, 8);
-
 .box-shadow {
   box-shadow: 0 0 5px $border-color;
 }

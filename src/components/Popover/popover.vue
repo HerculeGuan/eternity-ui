@@ -4,7 +4,7 @@
       ref="contentWrapper"
       class="et-popover-wrapper"
       v-if="visible"
-      :class="[`position-${position}`]"
+      :class="[`position-${position}`, {'no-padding':noPadding}]"
     >
       <slot name="content" :close="close"></slot>
     </div>
@@ -39,6 +39,10 @@ export default {
     },
   },
   props: {
+    noPadding: {
+      type: Boolean,
+      default: false,
+    },
     position: {
       type: String,
       default: "top",
@@ -52,6 +56,9 @@ export default {
       validator(value) {
         return ["click", "hover"].indexOf(value) >= 0;
       },
+    },
+    container: {
+      type: Object,
     },
   },
   mounted() {
@@ -165,6 +172,9 @@ export default {
   background: #ffffff;
   color: #000;
   padding: 0.5em 1em;
+  &.no-padding {
+    padding: 0;
+  }
   word-break: break-all;
   &::before,
   &::after {
