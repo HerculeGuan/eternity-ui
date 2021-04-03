@@ -4,20 +4,20 @@
       <template v-slot:content>
         <div class="et-date-picker-wrapper">
           <div class="et-date-picker-nav">
-            <span class="et-date-picker-preyear et-date-picker-icon"
+            <span class=" et-date-picker-icon" @click="onClickYear(-1)"
               ><et-icon name="doubleleft"></et-icon
             ></span>
-            <span class="et-date-picker-premonth et-date-picker-icon"
+            <span class=" et-date-picker-icon" @click="onClickMonth(-1)"
               ><et-icon name="left"></et-icon
             ></span>
             <span class="et-date-picker-yearandmonth">
-              <span @click="onClickYear">2021年</span>
-              <span @click="onClickMonth">4月</span>
+              <span @click="onClickYear">{{ display.year }}年</span>
+              <span @click="onClickMonth">{{ display.month + 1 }}月</span>
             </span>
-            <span class="et-date-picker-nextmonth et-date-picker-icon"
+            <span class=" et-date-picker-icon" @click="onClickMonth(1)"
               ><et-icon name="right"></et-icon
             ></span>
-            <span class="et-date-picker-nextyear et-date-picker-icon"
+            <span class="  et-date-picker-icon" @click="onClickYear(1)"
               ><et-icon name="doubleright"></et-icon
             ></span>
           </div>
@@ -35,6 +35,7 @@
               <div class="et-date-picker-row" v-for="i in 6">
                 <span
                   class="et-date-picker-cell"
+                  :class="{ 'is-current-month': isCurrentMonth(day) }"
                   v-for="day in visibleDays.slice(i * 7 - 7, i * 7)"
                   @click="onClickCell(day)"
                 >
@@ -74,9 +75,11 @@ export default {
     },
   },
   data() {
+    let [year, month] = helper.getYearMonthDate(this.value);
     return {
       mode: "day",
       weekDays: ["日", "一", "二", "三", "四", "五", "六"],
+      display: { year, month },
     };
   },
   methods: {
@@ -89,11 +92,26 @@ export default {
     onClickCell(date) {
       this.$emit("input", date);
     },
+    isCurrentMonth(date) {
+      return date.getMonth() === this.display.month;
+    },
+    onClickYear(length) {
+      const oldDate = new Date(this.display.year, this.display.month);
+      const newDate = helper.addYear(oldDate, length);
+      const [year, month] = helper.getYearMonthDate(newDate);
+      this.display = { year, month };
+    },
+    onClickMonth(length) {
+      const oldDate = new Date(this.display.year, this.display.month);
+      const newDate = helper.addMonth(oldDate, length);
+      const [year, month] = helper.getYearMonthDate(newDate);
+      this.display = { year, month };
+    },
   },
   mounted() {},
   computed: {
     visibleDays() {
-      let date = this.value;
+      let date = new Date(this.display.year, this.display.month, 1);
       let firstDay = helper.firstDayOfMonth(date);
       let firstDayOfWeek = firstDay.getDay();
       let firstDayTimestamp = firstDay - firstDayOfWeek * 3600 * 24 * 1000;
@@ -129,6 +147,12 @@ export default {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+  }
+  &-cell {
+    color: $disabled-color;
+    &.is-current-month {
+      color: $font-size-color;
+    }
   }
 }
 </style>
