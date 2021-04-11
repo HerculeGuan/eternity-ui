@@ -1,6 +1,6 @@
 <template>
   <div class="et-date-picker">
-    <et-popover ref="popover" position="bottom" no-padding>
+    <et-popover ref="popover" position="bottom" no-padding @open="onOpen">
       <template v-slot:content>
         <div class="et-date-picker-wrapper" @selectstart.prevent>
           <div class="et-date-picker-nav">
@@ -133,7 +133,7 @@ export default {
       const [year, month] = helper.getYearMonthDate(date);
       this.$emit("input", date);
       this.display = { year, month };
-      // this.$refs.popover.close();
+      this.$refs.popover.close();
     },
     isCurrentMonth(date) {
       return date.getMonth() === this.display.month;
@@ -166,12 +166,14 @@ export default {
     },
     onClickToday() {
       const now = new Date();
-      const [year, month, day] = helper.getYearMonthDate(now);
+      const [year, month] = helper.getYearMonthDate(now);
       this.display = { year, month };
       this.$emit("input", now);
     },
+    onOpen() {
+      this.mode = "day";
+    },
   },
-  mounted() {},
   computed: {
     visibleDays() {
       let date = new Date(this.display.year, this.display.month, 1);
@@ -186,7 +188,7 @@ export default {
     },
     formattedValue() {
       const [year, month, day] = helper.getYearMonthDate(this.value);
-      return `${year}-${month + 1}-${day}`;
+      return `${year}-${helper.padLeft(month + 1)}-${helper.padLeft(day)}`;
     },
   },
 };
@@ -240,7 +242,8 @@ export default {
     &.is-today {
       color: $primary-color;
     }
-    &.is-current-day {
+    &.is-current-day,
+    &:hover {
       color: white;
       > span {
         display: flex;

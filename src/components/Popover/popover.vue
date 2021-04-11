@@ -4,7 +4,7 @@
       ref="contentWrapper"
       class="et-popover-wrapper"
       v-if="visible"
-      :class="[`position-${position}`, {'no-padding':noPadding}]"
+      :class="[`position-${position}`, { 'no-padding': noPadding }]"
     >
       <slot name="content" :close="close"></slot>
     </div>
@@ -129,6 +129,7 @@ export default {
     },
     open() {
       this.visible = true;
+      this.$emit("open");
       this.$nextTick(() => {
         this.positionPopover();
         document.addEventListener("click", this.onClickDocument);
@@ -136,6 +137,7 @@ export default {
     },
     close() {
       this.visible = false;
+      this.$emit("close");
       document.removeEventListener("click", this.onClickDocument);
     },
     onClick(event) {

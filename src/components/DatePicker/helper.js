@@ -17,6 +17,12 @@ export default {
     copyDate.setFullYear(newYear);
     return copyDate;
   },
+  padLeft(number) {
+    if (typeof number !== "number") {
+      throw new Error("wrong param");
+    }
+    return (number >= 10 ? "" : "0") + number;
+  },
   getYearMonthDate,
 };
 
