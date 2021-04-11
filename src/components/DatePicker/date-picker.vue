@@ -68,7 +68,12 @@
           </div>
         </div>
       </template>
-      <et-input v-model="formattedValue"></et-input>
+      <et-input
+        :value="formattedValue"
+        ref="input"
+        @input="onInput"
+        @change="onChange"
+      ></et-input>
     </et-popover>
   </div>
 </template>
@@ -172,6 +177,19 @@ export default {
     },
     onOpen() {
       this.mode = "day";
+    },
+    onInput(value) {
+      let regex = /^\d{4}-\d{2}-\d{2}$/g;
+      if (value.match(regex)) {
+        console.log(value);
+        let [year, month, day] = value.split("-");
+        month -= 1;
+        this.display = { year, month };
+        this.$emit("input", new Date(year, month, day));
+      }
+    },
+    onChange() {
+      this.$refs.input.setValue(this.formattedValue);
     },
   },
   computed: {

@@ -2,7 +2,7 @@
   <div class="date-picker-demos">
     <div class="code-example">
       <h3>基础用法</h3>
-      <p>aaa</p>
+      <p>{{ value }}</p>
       <div class="example">
         <et-date-picker v-model="value"></et-date-picker>
       </div>

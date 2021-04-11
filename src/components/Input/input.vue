@@ -5,6 +5,7 @@
       :disabled="disabled"
       :readonly="readonly"
       :placeholder="placeholder"
+      ref="input"
       @change="$emit('change', $event.target.value)"
       @input="$emit('input', $event.target.value)"
       @focus="$emit('focus', $event.target.value)"
@@ -46,6 +47,11 @@ export default {
   },
   components: {
     "et-icon": Icon,
+  },
+  methods: {
+    setValue(value) {
+      this.$refs.input.value = value;
+    },
   },
 };
 </script>
