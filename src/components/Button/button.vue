@@ -1,6 +1,6 @@
 <template>
   <button
-    class="button"
+    class="et-button"
     :class="[`icon-${iconPosition}`, { [`bg-${type}`]: type }]"
     @click="$emit('click')"
   >
@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 @import "../var";
 
-.button {
+.et-button {
   font-size: $font-size;
   height: $height;
   padding: 0 0.8em;
