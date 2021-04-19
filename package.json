@@ -1,11 +1,11 @@
 {
   "name": "eternity-ui",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "用Vue写的UI组件库",
-  "main": "dist/eternityUi.umd.min.js",
+  "main": "dist/eternity.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name eternityUi src/index.js",
+    "build": "vue-cli-service build --target lib --name eternity src/index.js",
     "test": "vue-cli-service test:unit",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"

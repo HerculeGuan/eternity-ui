@@ -21,8 +21,8 @@ npm i eternity-ui
 #### 快速开始
 
 ```
-import {Button,ButtonGroup,Icon} from 'eternity-ui'
-import 'eternity-ui/dist/index.css'
+import "eternity-ui/dist/eternity.css";
+import {Button,ButtonGroup} from 'eternity-ui'
 
 export default {
    name: 'app',
