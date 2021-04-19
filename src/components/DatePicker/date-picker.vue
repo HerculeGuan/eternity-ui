@@ -68,12 +68,7 @@
           </div>
         </div>
       </template>
-      <et-input
-        :value="formattedValue"
-        ref="input"
-        @input="onInput"
-        @change="onChange"
-      ></et-input>
+      <et-input :value="formattedValue" ref="input" @blur="onBlur"></et-input>
     </et-popover>
   </div>
 </template>
@@ -138,7 +133,9 @@ export default {
       const [year, month] = helper.getYearMonthDate(date);
       this.$emit("input", date);
       this.display = { year, month };
-      this.$refs.popover.close();
+      setTimeout(() => {
+        this.$refs.popover.close();
+      }, 50);
     },
     isCurrentMonth(date) {
       return date.getMonth() === this.display.month;
@@ -178,18 +175,16 @@ export default {
     onOpen() {
       this.mode = "day";
     },
-    onInput(value) {
-      let regex = /^\d{4}-\d{2}-\d{2}$/g;
-      if (value.match(regex)) {
-        console.log(value);
+    onBlur(value) {
+      let regexp = /^\d{4}-1[0-2]|[1-9]-[1-9]|[1-2]\d|3[0-1]$/g;
+      if (value.match(regexp)) {
         let [year, month, day] = value.split("-");
         month -= 1;
         this.display = { year, month };
         this.$emit("input", new Date(year, month, day));
+      } else {
+        this.$refs.input.setValue(this.formattedValue);
       }
-    },
-    onChange() {
-      this.$refs.input.setValue(this.formattedValue);
     },
   },
   computed: {
