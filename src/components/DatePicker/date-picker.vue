@@ -168,15 +168,13 @@ export default {
     },
     onClickToday() {
       const now = new Date();
-      const [year, month] = helper.getYearMonthDate(now);
-      this.display = { year, month };
-      this.$emit("input", now);
+      this.onClickCell(now)
     },
     onOpen() {
       this.mode = "day";
     },
     onBlur(value) {
-      let regexp = /^\d{4}-1[0-2]|[1-9]-[1-9]|[1-2]\d|3[0-1]$/g;
+      let regexp = /^\d{4}-\d{2}-\d{2}$/g;
       if (value.match(regexp)) {
         let [year, month, day] = value.split("-");
         month -= 1;
