@@ -2,7 +2,9 @@
   <div class="carousel-demos">
     <div class="code-example">
       <h3>基础用法</h3>
-      <div class="example"></div>
+      <div class="example">
+        <et-pagination :total="20" :current-page="13"></et-pagination>
+      </div>
       <!-- <code-wrap :code="content1" :tips="tips1"></code-wrap> -->
     </div>
   </div>
@@ -49,5 +51,4 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
 </style>
