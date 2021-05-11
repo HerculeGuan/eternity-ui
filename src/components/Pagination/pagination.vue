@@ -1,6 +1,12 @@
 <template>
   <div class="et-pagination">
-    <span v-for="page in pages"> {{ page }} </span>
+    <span
+      class="et-pagination-item"
+      :class="{ active: page === currentPage, separator: page === '...' }"
+      v-for="page in pages"
+      @click="change(page)"
+      >{{ page }}</span
+    >
   </div>
 </template>
 
@@ -54,11 +60,36 @@ export default {
       });
       return Object.keys(object).map((string) => parseInt(string));
     },
+    change(page) {
+      this.currentPage = page;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "../var";
+
 .et-pagination {
+  font-size: $font-size;
+  &-item {
+    border: 1px solid $grey;
+    border-radius: $border-radius;
+    padding: 4px 8px;
+    margin: 0 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 28px;
+    font-weight: 500;
+    cursor: pointer;
+    &.active {
+      color: #ffffff;
+      background-color: $primary-color;
+      border: 1px solid $primary-color;
+    }
+    &.separator {
+    }
+  }
 }
 </style>
