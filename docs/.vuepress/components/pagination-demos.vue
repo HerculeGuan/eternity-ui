@@ -3,7 +3,10 @@
     <div class="code-example">
       <h3>基础用法</h3>
       <div class="example">
-        <et-pagination :total="20" :current-page="1"></et-pagination>
+        <et-pagination
+          :total="50"
+          :current-page.sync="currentPage"
+        ></et-pagination>
       </div>
       <!-- <code-wrap :code="content1" :tips="tips1"></code-wrap> -->
     </div>
@@ -22,9 +25,7 @@ export default {
   },
   data() {
     return {
-      selected1: "first",
-      selected2: "first",
-      selected3: "first",
+      currentPage: 1,
       content1: `
     <template>
       <et-carousel :selected.sync="selected">

@@ -1,24 +1,26 @@
 <template>
-  <div class="et-pagination">
-    <et-icon
-      @click="onClickPrev"
-      name="left"
+  <div class="et-pagination" v-if="!(hideOnSinglePage && total <= 1)">
+    <span
+      @click="onClickPage(currentPage - 1)"
       class="et-pagination-icon"
       :class="{ disabled: currentPage === 1 }"
-    />
+    >
+      <et-icon name="left" />
+    </span>
     <span
       class="et-pagination-item"
       :class="{ active: page === currentPage }"
       v-for="page in pages"
-      @click="change(page)"
+      @click="onClickPage(page)"
       >{{ page }}</span
     >
-    <et-icon
-      @click="onClickNext"
-      name="right"
+    <span
+      @click="onClickPage(currentPage + 1)"
       class="et-pagination-icon"
       :class="{ disabled: currentPage === total }"
-    />
+    >
+      <et-icon name="right" />
+    </span>
   </div>
 </template>
 
@@ -40,34 +42,35 @@ export default {
     },
     hideOnSinglePage: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   data() {
-    let initPages = this.unique(
-      [
-        1,
-        this.currentPage - 2,
-        this.currentPage - 1,
-        this.currentPage,
-        this.currentPage + 1,
-        this.currentPage + 2,
-        this.total,
-      ]
-        .filter((n) => n >= 1 && n <= this.total)
-        .sort((a, b) => a > b)
-    );
-    let pages = initPages.reduce((prev, current, index) => {
-      prev.push(current);
-      initPages[index + 1] !== undefined &&
-        initPages[index + 1] - initPages[index] > 1 &&
-        prev.push("···");
-      return prev;
-    }, []);
-
-    return {
-      pages,
-    };
+    return {};
+  },
+  computed: {
+    pages() {
+      let initPages = this.unique(
+        [
+          1,
+          this.currentPage - 2,
+          this.currentPage - 1,
+          this.currentPage,
+          this.currentPage + 1,
+          this.currentPage + 2,
+          this.total,
+        ]
+          .filter((n) => n >= 1 && n <= this.total)
+          .sort((a, b) => a > b)
+      );
+      return initPages.reduce((prev, current, index) => {
+        prev.push(current);
+        initPages[index + 1] !== undefined &&
+          initPages[index + 1] - initPages[index] > 1 &&
+          prev.push("···");
+        return prev;
+      }, []);
+    },
   },
   methods: {
     unique(array) {
@@ -78,10 +81,10 @@ export default {
       });
       return Object.keys(object).map((string) => parseInt(string));
     },
-    onClickPrev() {},
-    onClickNext() {},
-    change(page) {
-      this.currentPage = page;
+    onClickPage(page) {
+      if (page >= 1 && page <= this.total) {
+        this.$emit("update:currentPage", page);
+      }
     },
   },
 };
@@ -93,17 +96,19 @@ export default {
 .et-pagination {
   font-size: $font-size;
   user-select: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   &-icon {
     font-size: 18px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
     &:hover {
       fill: $primary-color;
     }
     &.disabled {
       fill: $disabled-color;
-      cursor: default;
+      cursor: not-allowed;
     }
   }
   &-item {
