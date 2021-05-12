@@ -1,18 +1,34 @@
 <template>
   <div class="et-pagination">
+    <et-icon
+      @click="onClickPrev"
+      name="left"
+      class="et-pagination-icon"
+      :class="{ disabled: currentPage === 1 }"
+    />
     <span
       class="et-pagination-item"
-      :class="{ active: page === currentPage, separator: page === '...' }"
+      :class="{ active: page === currentPage }"
       v-for="page in pages"
       @click="change(page)"
       >{{ page }}</span
     >
+    <et-icon
+      @click="onClickNext"
+      name="right"
+      class="et-pagination-icon"
+      :class="{ disabled: currentPage === total }"
+    />
   </div>
 </template>
 
 <script>
+import Icon from "../Icon/icon";
 export default {
   name: "EtPagination",
+  components: {
+    "et-icon": Icon,
+  },
   props: {
     total: {
       type: Number,
@@ -37,13 +53,15 @@ export default {
         this.currentPage + 1,
         this.currentPage + 2,
         this.total,
-      ].sort((a, b) => a > b)
+      ]
+        .filter((n) => n >= 1 && n <= this.total)
+        .sort((a, b) => a > b)
     );
     let pages = initPages.reduce((prev, current, index) => {
       prev.push(current);
       initPages[index + 1] !== undefined &&
         initPages[index + 1] - initPages[index] > 1 &&
-        prev.push("...");
+        prev.push("···");
       return prev;
     }, []);
 
@@ -60,6 +78,8 @@ export default {
       });
       return Object.keys(object).map((string) => parseInt(string));
     },
+    onClickPrev() {},
+    onClickNext() {},
     change(page) {
       this.currentPage = page;
     },
@@ -72,6 +92,20 @@ export default {
 
 .et-pagination {
   font-size: $font-size;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  &-icon {
+    font-size: 18px;
+    cursor: pointer;
+    &:hover {
+      fill: $primary-color;
+    }
+    &.disabled {
+      fill: $disabled-color;
+      cursor: default;
+    }
+  }
   &-item {
     border: 1px solid $grey;
     border-radius: $border-radius;
@@ -87,8 +121,6 @@ export default {
       color: #ffffff;
       background-color: $primary-color;
       border: 1px solid $primary-color;
-    }
-    &.separator {
     }
   }
 }
