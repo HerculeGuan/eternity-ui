@@ -31,6 +31,7 @@ module.exports = {
           "/components/nav", //导航栏
           "/components/datePicker", //日期选择器
           "/components/pagination", //分页器
+          "/components/table", //表格
         ],
         collapsable: false,
       },
