@@ -22,8 +22,16 @@ export default {
   },
   data() {
     return {
-      columns: [],
-      data: [],
+      columns: [
+        { text: "姓名", field: "name" },
+        { text: "分数", field: "score" },
+      ],
+      data: [
+        { id: 1, name: "sherlock", score: 100 },
+        { id: 2, name: "lock", score: 200 },
+        { id: 2, name: "lock", score: 200 },
+        { id: 2, name: "lock", score: 200 },
+      ],
       content1: `
 
       `,
