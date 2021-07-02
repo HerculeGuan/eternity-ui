@@ -3,7 +3,7 @@
     <div class="code-example">
       <h3>基础用法</h3>
       <div class="example">
-        <et-table :columns="columns" :data="data"></et-table>
+        <et-table :columns="columns" :data="data" @changeItem="x"></et-table>
       </div>
       <!-- <code-wrap :code="content1" :tips="tips1"></code-wrap> -->
     </div>
@@ -27,10 +27,11 @@ export default {
         { text: "分数", field: "score" },
       ],
       data: [
-        { id: 1, name: "sherlock", score: 100 },
-        { id: 2, name: "lock", score: 200 },
-        { id: 2, name: "lock", score: 200 },
-        { id: 2, name: "lock", score: 200 },
+        { name: "Sherlock", score: 100 },
+        { name: "Hercule", score: 90 },
+        { name: "Carions", score: 80 },
+        { name: "Mike", score: 70 },
+        { name: "Allia", score: 84 },
       ],
       content1: `
 
@@ -39,7 +40,11 @@ export default {
     };
   },
   created() {},
-  methods: {},
+  methods: {
+    x(obj){
+      console.log(obj);
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
