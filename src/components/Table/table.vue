@@ -3,24 +3,31 @@
     <table class="et-table" :class="{ border, compact, 'no-stripe': !stripe }">
       <thead>
         <tr>
-          <th><input type="checkbox" /></th>
+          <th>
+            <input
+              type="checkbox"
+              @change="onChangeAllItems"
+              ref="allChecked"
+            />
+          </th>
           <th v-if="indexVisible">#</th>
-          <th v-for="column in columns">
+          <th v-for="column in columns" :key="column.field">
             {{ column.text }}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in data">
+        <tr v-for="(item, index) in data" :key="item.id">
           <td>
             <input
               type="checkbox"
-              @change="onChangeItem(item, index, $event)"
+              @change="onChangeItem(item, $event)"
+              :checked="inSelectItems(item)"
             />
           </td>
           <td v-if="indexVisible">{{ index + 1 }}</td>
           <template v-for="column in columns">
-            <td>{{ item[column.field] }}</td>
+            <td :key="column.field">{{ item[column.field] }}</td>
           </template>
         </tr>
       </tbody>
@@ -55,10 +62,41 @@ export default {
       type: Boolean,
       default: false,
     },
+    selectItems: {
+      type: Array,
+      default: () => [],
+    },
   },
   methods: {
-    onChangeItem(item, index, event) {
-      this.$emit("changeItem", { selected: event.target.checked, item, index });
+    onChangeItem(item, event) {
+      let selected = event.target.checked;
+      let copy = JSON.parse(JSON.stringify(this.selectItems));
+      if (selected) {
+        copy.push(item);
+      } else {
+        copy = copy.filter((i) => i.id !== item.id);
+        // copy.splice(copy.indexOf(item), 1);
+      }
+      this.$emit("update:selectItems", copy);
+    },
+    onChangeAllItems(event) {
+      let selected = event.target.checked;
+      this.$emit("update:selectItems", selected ? this.data : []);
+    },
+    inSelectItems(item) {
+      return this.selectItems.filter((i) => i.id === item.id).length > 0;
+    },
+  },
+  watch: {
+    selectItems() {
+      if (
+        this.selectItems.length === this.data.length ||
+        this.selectItems.length === 0
+      ) {
+        this.$refs.allChecked.indeterminate = false;
+      } else {
+        this.$refs.allChecked.indeterminate = true;
+      }
     },
   },
 };

@@ -3,7 +3,11 @@
     <div class="code-example">
       <h3>基础用法</h3>
       <div class="example">
-        <et-table :columns="columns" :data="data" @changeItem="x"></et-table>
+        <et-table
+          :columns="columns"
+          :data="data"
+          :selectItems.sync="selectedList"
+        ></et-table>
       </div>
       <!-- <code-wrap :code="content1" :tips="tips1"></code-wrap> -->
     </div>
@@ -27,12 +31,13 @@ export default {
         { text: "分数", field: "score" },
       ],
       data: [
-        { name: "Sherlock", score: 100 },
-        { name: "Hercule", score: 90 },
-        { name: "Carions", score: 80 },
-        { name: "Mike", score: 70 },
-        { name: "Allia", score: 84 },
+        { id: 1, name: "Sherlock", score: 100 },
+        { id: 2, name: "Hercule", score: 90 },
+        { id: 3, name: "Carions", score: 80 },
+        { id: 4, name: "Mike", score: 70 },
+        { id: 5, name: "Allia", score: 84 },
       ],
+      selectedList: [],
       content1: `
 
       `,
@@ -40,11 +45,7 @@ export default {
     };
   },
   created() {},
-  methods: {
-    x(obj){
-      console.log(obj);
-    }
-  },
+  methods: {},
 };
 </script>
 <style lang="scss" scoped>
