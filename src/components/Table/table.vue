@@ -89,10 +89,11 @@ export default {
   },
   watch: {
     selectItems() {
-      if (
-        this.selectItems.length === this.data.length ||
-        this.selectItems.length === 0
-      ) {
+      if (this.selectItems.length === 0) {
+        this.$refs.allChecked.checked = false;
+        this.$refs.allChecked.indeterminate = false;
+      } else if (this.selectItems.length === this.data.length) {
+        this.$refs.allChecked.checked = true;
         this.$refs.allChecked.indeterminate = false;
       } else {
         this.$refs.allChecked.indeterminate = true;
