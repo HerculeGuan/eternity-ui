@@ -67,6 +67,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .tabs {
-// }
+@import "../var";
+
+.tabs {
+  font-size: $font-size;
+}
 </style>
