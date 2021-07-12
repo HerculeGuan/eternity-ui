@@ -1,11 +1,18 @@
 <template>
   <div class="collapse-item">
-    <div class="title" @click="toggle">{{ title }}</div>
+    <div class="title" @click="toggle">
+      <span class="title-span" :class="{ open }">{{ title }}</span>
+      <span class="title-icon" :class="{ open }">
+        <et-icon name="right"></et-icon>
+      </span>
+    </div>
     <div class="content" v-if="open"><slot></slot></div>
   </div>
 </template>
 
 <script>
+import Icon from "../Icon/icon";
+
 export default {
   name: "EtCollapseItem",
   props: {
@@ -32,6 +39,9 @@ export default {
         this.eventBus.$emit("update:addSelected", this.name);
       }
     },
+  },
+  components: {
+    "et-icon": Icon,
   },
   inject: ["eventBus"],
   mounted() {
@@ -60,6 +70,28 @@ export default {
     padding: 1em;
     font-weight: bold;
     cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+      > .title-icon {
+        fill: $primary-color;
+      }
+    }
+    .title-span {
+      margin-right: 8px;
+      &.open {
+        color: $primary-color;
+      }
+    }
+    .title-icon {
+      display: inline-flex;
+      transition: transform 0.25s;
+      transform: rotate(90deg);
+      &.open {
+        transform: rotate(270deg);
+        fill: $primary-color;
+      }
+    }
   }
   &:first-child {
     > .title {

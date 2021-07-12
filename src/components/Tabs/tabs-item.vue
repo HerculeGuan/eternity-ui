@@ -58,10 +58,12 @@ export default {
   display: flex;
   align-items: center;
 
-  &.active {
+  &.active,
+  &:hover {
     color: $primary-color;
     font-weight: bold;
   }
+
   &.disabled {
     color: $disabled-color;
     cursor: not-allowed;
