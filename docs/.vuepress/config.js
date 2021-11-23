@@ -1,12 +1,12 @@
 const path = require("path");
 module.exports = {
-  base: "/vue-wheel/",
+  base: "/eternity-ui/",
   title: "Eternity UI",
   description: "Vue UI 组件库",
   themeConfig: {
     nav: [
       { text: "首页", link: "/" },
-      { text: "Github", link: "https://github.com/HerculeGuan/vue-wheel" },
+      { text: "Github", link: "https://github.com/HerculeGuan/eternity-ui" },
     ],
     sidebar: [
       {

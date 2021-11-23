@@ -1,6 +1,6 @@
 # eternity-ui —— Vue UI 组件库
 
-[![Build Status](https://travis-ci.org/HerculeGuan/vue-wheel.svg?branch=main)](https://travis-ci.org/HerculeGuan/vue-wheel)
+[![Build Status](https://travis-ci.org/HerculeGuan/eternity-ui.svg?branch=main)](https://travis-ci.org/HerculeGuan/eternity-ui)
 
 ## 介绍
 
@@ -8,7 +8,7 @@
 
 ## 文档
 
-[点击此处查看文档](https://herculeguan.github.io/vue-wheel/)
+[点击此处查看文档](https://herculeguan.github.io/eternity-ui/)
 
 ## 开始使用
 
